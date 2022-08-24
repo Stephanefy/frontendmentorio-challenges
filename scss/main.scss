@@ -1,0 +1,22 @@
+@import '_variables.scss';
+@import '_nav.scss';
+@import '_hero.scss';
+@import '_menu.scss';
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-size: 18px;
+    font-family: 'Epilogue', sans-serif;
+    position: relative;
+    overflow-x: hidden;
+}
+
+li {
+    list-style-type: none;
+}
+

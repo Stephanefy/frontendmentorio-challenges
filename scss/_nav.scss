@@ -1,0 +1,70 @@
+nav {
+    width: 95%;
+    display: flex;
+    padding-top: 1em;
+    margin: auto;
+    justify-content: space-between;
+}
+
+
+.hamburger--icon {
+
+
+    display: flex;
+    flex-direction: column;
+    background-color: transparent;
+    border: none;
+    z-index: 3;
+    position: relative;
+    cursor: pointer;
+
+
+
+
+    .line1, .line2, .line3 {
+        display: block;
+        width: 25px;
+        height: 2px;
+        background-color: black;
+        margin-bottom: .3em;
+        transition: all .5s ease-in-out;
+    } 
+    
+    .line1 {
+        position: absolute;
+        transform-origin: center;
+        transform: rotate(0);
+        right: -3px;
+        top: -3px;
+    }
+    .line2 {
+        
+        transform: translate(3px, 3px);
+    }
+    .line3 {
+        position: absolute;
+        transform-origin: center;
+        transform: rotate(0);
+        right: -3px;
+        top: 10px;
+    }
+    .line1.active {
+        position: absolute;
+        transform-origin: center;
+        transform: rotate(45deg);
+        right: -3px;
+        top: 5px;
+    }
+    .line2.active {
+        transform: translate(100%, 3px);
+        opacity: 0;
+    }
+    .line3.active {
+        position: absolute;
+        transform-origin: center;
+        transform: rotate(-45deg);
+        left: 3px;
+        top: 5px;
+    }
+
+}

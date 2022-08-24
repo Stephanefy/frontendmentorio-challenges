@@ -1,0 +1,28 @@
+.hero--presentation {
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: .2em;
+
+
+    h1 {
+        text-align: center;
+    }
+
+    p { 
+        margin-top: 2em;
+        text-align: center;
+        color: $medium-gray;
+    }
+
+    button {
+        margin-top: 2em;
+        background-color: $almost-black;
+        border: none;
+        font-weight: 700;
+        padding: 1em 1.08em;
+        color: white;
+        border-radius: 10px;
+    }
+}

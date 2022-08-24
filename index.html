@@ -1,21 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
+  <link rel="stylesheet" href="scss/main.css">
+
   <title>Frontend Mentor | Intro section with dropdown navigation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,400;0,600;0,700;1,500&display=swap"
+    rel="stylesheet">
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
 </head>
-<body>
 
+<body>
+  <header>
+    <nav>
+      <div>
+        <img src="/images/logo.svg" alt="logo" width="80">
+
+      </div>
+      <button class="hamburger--icon">
+        <span class="line1"></span>
+        <span class="line2"></span>
+        <span class="line3"></span>
+      </button>
+    </nav>
+  </header>
+  <main>
+    <div class="hero--image">
+      <img src="/images/image-hero-mobile.png" alt="image-hero" width="100%">
+    </div>
+    <div class="hero--presentation">
+      <h1>Make remote work</h1>
+      <p>
+        Get your team in sync, no matter your location. Streamline processes,
+        create team rituals, and watch productivity soar.
+      </p>
+      <button>
+        Learn more
+      </button>
+    </div>
+
+
+  </main>
+  <div class="backdrop"></div>
+  <div class="menu">
+    <ul class="outer-list">
+      <li>
+        <span>Features</span>
+        <span id="feature-arrow" class="arrow-down"><svg width="10" height="6" xmlns="http://www.w3.org/2000/svg">
+            <path stroke="#686868" stroke-width="1.5" fill="none" d="m1 1 4 4 4-4" />
+          </svg></span>
+        <ul class="inner-list collapsed">
+          <li><svg width="14" height="16" xmlns="http://www.w3.org/2000/svg"><path d="M14 3v12a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h1V1a1 1 0 1 1 2 0v1h2V1a1 1 0 1 1 2 0v1h2V1a1 1 0 0 1 2 0v1h1a1 1 0 0 1 1 1Zm-2 3H2v1h10V6Zm0 3H2v1h10V9Zm0 3H2v1h10v-1Z" fill="#726CEE"/></svg>TodoList</li>
+          <li><svg width="16" height="16" xmlns="http://www.w3.org/2000/svg"><path d="M12.667 8.667h-4v4h4v-4ZM11.334 0v1.333H4.667V0h-2v1.333h-1C.75 1.333 0 2.083 0 3v11.333C0 15.25.75 16 1.667 16h12.667C15.25 16 16 15.25 16 14.333V3c0-.917-.75-1.667-1.666-1.667h-1V0h-2Zm3 14.333H1.667V5.5h12.667v8.833Z" fill="#4BB1DA"/></svg>Calendar</li>
+          <li>Reminders</li>
+          <li>Planning</li>
+        </ul>
+      </li>
+      <li>
+        <span>Company</span>
+        <span id="company-arrow" class="arrow-down"><svg width="10" height="6" xmlns="http://www.w3.org/2000/svg">
+            <path stroke="#686868" stroke-width="1.5" fill="none" d="m1 1 4 4 4-4" />
+          </svg></span>
+        <ul class="inner-list collapsed">
+          <li>History</li>
+          <li>Our team</li>
+          <li>Blog</li>
+        </ul>
+      </li>
+      <li>
+        <span>Careers</span>
+
+      </li>
+      <li>
+        <span>About</span>
+
+      </li>
+
+    </ul>
+  </div>
   Features
   Company
   Careers
@@ -26,14 +96,14 @@
 
   Make remote work
 
-  Get your team in sync, no matter your location. Streamline processes, 
-  create team rituals, and watch productivity soar.
 
   Learn more
-  
+
   <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
     Coded by <a href="#">Your Name Here</a>.
   </div>
+  <script src="/scripts/script.js"></script>
 </body>
+
 </html>
