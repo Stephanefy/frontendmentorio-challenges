@@ -4,6 +4,114 @@ nav {
     padding-top: 1em;
     margin: auto;
     justify-content: space-between;
+
+
+    .nav--logo__container {
+        display: grid;
+        place-items: center;
+    }
+
+    .nav--outer-list {
+        display: none;
+    }
+
+
+    @media (min-width: $breakpoint-desktop) {
+        display: flex;
+        align-items: center;
+        height: 8vh;
+
+
+
+        .nav--logo__navigation__items {
+            width: 60%;
+            display: flex;
+            align-items: center;
+
+            .nav--outer-list {
+                display: flex;
+                margin-left: 4em;
+
+                li {
+                    color: $medium-gray;
+                    margin-right: 2em;
+                    display: inline-block;
+                    cursor: pointer;
+                    position: relative;
+
+                    &:hover {
+                        color: #000;
+                    }
+                }
+
+                #nav--features--arrow:hover {
+                    cursor: pointer;
+                }
+
+                .nav--inner-list__features.collapsed,
+                .nav--inner-list__company.collapsed {
+                    display: none;
+                }
+                .nav--inner-list__features.expanded {
+                    display: inline-block;
+                    position: absolute;
+                    top: 30px;
+                    left: -100px;
+                    border-radius: 5px;
+                    padding: 1em;
+                    background-color: #fff;
+                    -webkit-box-shadow: 1px 12px 36px -8px rgba(0,0,0,0.64); 
+                    box-shadow: 1px 12px 36px -8px rgba(0,0,0,0.64);
+                    
+                    li {
+                        margin: .5em;
+
+                        svg {
+                            margin-right: .5em;
+                        }
+                    }
+                }
+                .nav--inner-list__company.expanded {
+                    display: inline-block;
+                    width: 100px;
+                    position: absolute;
+                    top: 30px;
+                    left: 0;
+                    border-radius: 5px;
+                    padding: 1em;
+                    background-color: #fff;
+                    -webkit-box-shadow: 1px 12px 36px -8px rgba(0,0,0,0.64); 
+                    box-shadow: 1px 12px 36px -8px rgba(0,0,0,0.64);
+                    
+                    li {
+                        margin: .5em;
+                    }
+                }
+            }
+        }
+
+        button {
+            border: none;
+            padding: 1em 1.8em;
+            background-color: transparent;
+            color: $medium-gray;
+            cursor: pointer;
+
+            &:hover {
+                color: #000;
+            }
+        }
+
+        .register--btn {
+            border: 1px solid $medium-gray;
+            border-radius: 10px;
+
+            &:hover {
+                border-color: #000;
+            }
+        }
+    }
+    
 }
 
 
@@ -65,6 +173,11 @@ nav {
         transform: rotate(-45deg);
         left: 3px;
         top: 5px;
+    }
+
+
+    @media (min-width: $breakpoint-desktop) {
+        display: none;
     }
 
 }
