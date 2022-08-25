@@ -5,7 +5,9 @@
 const hamburgerBtn = document.querySelector('.hamburger--icon')
 const menu = document.querySelector('.menu')
 const backdrop = document.querySelector('.backdrop')
-const innerList = document.querySelector('.inner-list')
+const menuInnerListFeatures = document.querySelector('.menu--inner-list-features')
+const menuInnerListCompany = document.querySelector('.menu--inner-list-company')
+
 const navInnerListFeatures = document.querySelector('.nav--inner-list__features')
 const navInnerListCompany = document.querySelector('.nav--inner-list__company')
 
@@ -51,7 +53,7 @@ hamburgerBtn.addEventListener('click', (e) => {
     // display dropdown menus on mobile
 
 featureArrow.addEventListener('click', function(e) {
-    toggleMenu(innerList)
+    toggleMenu(menuInnerListFeatures)
 })
 
 
@@ -78,7 +80,7 @@ companyNav.addEventListener('click', function(e) {
 
 function toggleMenu(element) {
 
-    console.log(element)
+    element.parentNode.children[0].style.color = "#000"
 
     if (!element.classList.contains('expanded')) {
         element.classList.remove('collapsed')
@@ -86,5 +88,6 @@ function toggleMenu(element) {
     } else {
         element.classList.add('collapsed')
         element.classList.remove('expanded')
+        element.parentNode.children[0].style.color = ""
     }
 }

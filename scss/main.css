@@ -92,6 +92,14 @@ nav .nav--logo__navigation__items .nav--outer-list .nav--inner-list__company.col
     border-color: #000;
   }
 }
+nav .login--group {
+  display: none;
+}
+@media (min-width: 1440px) {
+  nav .login--group {
+    display: block;
+  }
+}
 
 .hamburger--icon {
   display: flex;
@@ -192,20 +200,35 @@ nav .nav--logo__navigation__items .nav--outer-list .nav--inner-list__company.col
   color: white;
   border-radius: 10px;
 }
-.hero--presentation ul {
-  margin-top: auto;
+.hero--presentation .hero--sponsor {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  margin: 0 2em;
 }
-.hero--presentation ul li {
-  list-style-type: none;
-  margin-right: 2em;
+.hero--presentation .hero--sponsor li {
+  margin: 0 0.3em;
+}
+.hero--presentation .hero--sponsor li img {
+  width: auto;
+  height: auto;
+}
+@media (min-width: 1440px) {
+  .hero--presentation .hero--sponsor {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 0;
+  }
+  .hero--presentation .hero--sponsor li {
+    list-style-type: none;
+    margin-right: 2em;
+  }
 }
 @media (min-width: 1440px) {
   .hero--presentation {
     align-items: flex-start;
     justify-content: center;
-    height: 80vh;
+    height: 70vh;
   }
   .hero--presentation .hero--presentation__text {
     margin-top: auto;
@@ -245,7 +268,7 @@ nav .nav--logo__navigation__items .nav--outer-list .nav--inner-list__company.col
 .menu.active {
   position: absolute;
   height: 100vh;
-  width: 60%;
+  width: 50%;
   padding: 3em 0.3em;
   display: flex;
   flex-direction: column;
@@ -272,19 +295,22 @@ nav .nav--logo__navigation__items .nav--outer-list .nav--inner-list__company.col
   margin-right: 0.5em;
 }
 
-.inner-list {
+.menu--inner-list-features {
   transition: transform 0.3s ease-in-out;
   transform: translateY(0);
 }
-.inner-list li {
+.menu--inner-list-features li {
   margin-left: 2em;
 }
+.menu--inner-list-features li svg {
+  margin-right: 1em;
+}
 
-.inner-list.collapsed {
+.menu--inner-list-features.collapsed {
   display: none;
 }
 
-.inner-list.expanded {
+.menu--inner-list-features.expanded {
   -webkit-animation: growDown 300ms ease-in-out forwards;
           animation: growDown 300ms ease-in-out forwards;
   transform-origin: top center;

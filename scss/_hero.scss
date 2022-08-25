@@ -45,14 +45,31 @@
         border-radius: 10px;
     }
     
-    ul {
-        margin-top: auto;
+
+    .hero--sponsor {
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
+        margin: 0 2em;
 
         li {
-            list-style-type: none;
-            margin-right: 2em;
+            margin: 0 .3em;
+            img {
+                width: auto;
+                height: auto;
+            }
+        }
+
+
+        @media (min-width: $breakpoint-desktop) {
+            margin-top: auto;
+            display: flex;
+            justify-content: space-between;
+            margin-left: 0;
+    
+            li {
+                list-style-type: none;
+                margin-right: 2em;
+            }
         }
     }
 
@@ -60,7 +77,7 @@
     @media (min-width: $breakpoint-desktop) {
         align-items: flex-start;
         justify-content: center;
-        height: 80vh;
+        height: 70vh;
 
 
         .hero--presentation__text {

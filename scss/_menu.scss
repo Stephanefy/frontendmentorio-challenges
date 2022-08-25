@@ -20,7 +20,7 @@
 .menu.active {
     position: absolute;
     height: 100vh;
-    width: 60%;
+    width: 50%;
     padding: 3em .3em;
     display: flex;
     flex-direction: column;
@@ -57,12 +57,16 @@
 }
 
 
-.inner-list {
+.menu--inner-list-features {
     transition: transform 0.3s ease-in-out;
     transform: translateY(0);
 
     li {
         margin-left: 2em;
+
+        svg {
+            margin-right: 1em;
+        }
     }
     
     
@@ -70,11 +74,11 @@
     
 }
 
-.inner-list.collapsed {
+.menu--inner-list-features.collapsed {
     display: none;
 }
 
-.inner-list.expanded {
+.menu--inner-list-features.expanded {
     animation: growDown 300ms ease-in-out forwards;
     transform-origin: top center;
 }

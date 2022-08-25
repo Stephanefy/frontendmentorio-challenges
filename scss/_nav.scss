@@ -90,6 +90,8 @@ nav {
             }
         }
 
+
+
         button {
             border: none;
             padding: 1em 1.8em;
@@ -109,6 +111,12 @@ nav {
             &:hover {
                 border-color: #000;
             }
+        }
+    }
+    .login--group {
+        display: none;
+        @media (min-width: $breakpoint-desktop) {
+            display: block;
         }
     }
     
