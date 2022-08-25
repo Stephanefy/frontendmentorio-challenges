@@ -11,9 +11,12 @@ const menuInnerListCompany = document.querySelector('.menu--inner-list-company')
 const navInnerListFeatures = document.querySelector('.nav--inner-list__features')
 const navInnerListCompany = document.querySelector('.nav--inner-list__company')
 
+
+const dropDownArrowUp = document.querySelector('.arrow--up')
+const dropDownArrowDown = document.querySelector('.arrow--down')
 // Open menu arrows mobile screen 
-const featureArrow = document.querySelector('#feature-arrow')
-const companyArrow = document.querySelector('.company-arrow')
+const featuresMenu = document.querySelector('.menu--features')
+const CompanyMenu = document.querySelector('.menu--company')
 
 // Open menu arrow navbar on desktop screen
 
@@ -52,8 +55,11 @@ hamburgerBtn.addEventListener('click', (e) => {
 
     // display dropdown menus on mobile
 
-featureArrow.addEventListener('click', function(e) {
+featuresMenu.addEventListener('click', function(e) {
     toggleMenu(menuInnerListFeatures)
+})
+CompanyMenu.addEventListener('click', function(e) {
+    toggleMenu(menuInnerListCompany)
 })
 
 
@@ -80,14 +86,21 @@ companyNav.addEventListener('click', function(e) {
 
 function toggleMenu(element) {
 
+
+
     element.parentNode.children[0].style.color = "#000"
 
     if (!element.classList.contains('expanded')) {
         element.classList.remove('collapsed')
         element.classList.add('expanded')
+        element.parentNode.children[2].classList.add('active')
+        element.parentNode.children[1].style.display = 'none'
     } else {
         element.classList.add('collapsed')
         element.classList.remove('expanded')
         element.parentNode.children[0].style.color = ""
+        element.parentNode.children[2].classList.remove('active')
+        element.parentNode.children[1].style.display = 'inline-block'
+
     }
 }

@@ -1,7 +1,8 @@
 nav {
-    width: 95%;
+    width: 90%;
     display: flex;
     padding-top: 1em;
+    
     margin: auto;
     justify-content: space-between;
 
@@ -143,7 +144,7 @@ nav {
         height: 2px;
         background-color: black;
         margin-bottom: .3em;
-        transition: all .5s ease-in-out;
+        transition: all .3s ease-in-out;
     } 
     
     .line1 {

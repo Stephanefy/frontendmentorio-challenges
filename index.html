@@ -28,10 +28,12 @@
           <ul class="nav--outer-list">
             <li class="nav--features">
               <span>Features</span>
-              <span class="arrow-down"><svg width="10" height="6" xmlns="http://www.w3.org/2000/svg">
+              <span class="arrow--down"><svg width="10" height="6" xmlns="http://www.w3.org/2000/svg">
                   <path stroke="#686868" stroke-width="1.5" fill="none" d="m1 1 4 4 4-4" />
                 </svg>
               </span>
+              <span class="arrow--up"><svg width="10" height="6" xmlns="http://www.w3.org/2000/svg"><path stroke="#686868" stroke-width="1.5" fill="none" d="m1 5 4-4 4 4"/></svg></span>
+
               <ul class="nav--inner-list__features collapsed">
                 <li><svg width="14" height="16" xmlns="http://www.w3.org/2000/svg"><path d="M14 3v12a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h1V1a1 1 0 1 1 2 0v1h2V1a1 1 0 1 1 2 0v1h2V1a1 1 0 0 1 2 0v1h1a1 1 0 0 1 1 1Zm-2 3H2v1h10V6Zm0 3H2v1h10V9Zm0 3H2v1h10v-1Z" fill="#726CEE"/></svg>TodoList</li>
                 <li><svg width="16" height="16" xmlns="http://www.w3.org/2000/svg"><path d="M12.667 8.667h-4v4h4v-4ZM11.334 0v1.333H4.667V0h-2v1.333h-1C.75 1.333 0 2.083 0 3v11.333C0 15.25.75 16 1.667 16h12.667C15.25 16 16 15.25 16 14.333V3c0-.917-.75-1.667-1.666-1.667h-1V0h-2Zm3 14.333H1.667V5.5h12.667v8.833Z" fill="#4BB1DA"/></svg>Calendar</li>
@@ -41,9 +43,11 @@
             </li>
             <li class="nav--company">
               <span>Company</span>
-              <span class="arrow-down"><svg width="10" height="6" xmlns="http://www.w3.org/2000/svg">
+              <span class="arrow--down"><svg width="10" height="6" xmlns="http://www.w3.org/2000/svg">
                   <path stroke="#686868" stroke-width="1.5" fill="none" d="m1 1 4 4 4-4" />
                 </svg></span>
+                <span class="arrow--up"><svg width="10" height="6" xmlns="http://www.w3.org/2000/svg"><path stroke="#686868" stroke-width="1.5" fill="none" d="m1 5 4-4 4 4"/></svg></span>
+
               <ul class="nav--inner-list__company collapsed">
                 <li>History</li>
                 <li>Our team</li>
@@ -104,11 +108,13 @@
   <div class="backdrop"></div>
   <div class="menu">
     <ul class="outer-list">
-      <li>
+      <li class="menu--features">
         <span>Features</span>
-        <span id="feature-arrow" class="arrow-down"><svg width="10" height="6" xmlns="http://www.w3.org/2000/svg">
-            <path stroke="#686868" stroke-width="1.5" fill="none" d="m1 1 4 4 4-4" />
-          </svg></span>
+        <span class="arrow--down"><svg width="10" height="6" xmlns="http://www.w3.org/2000/svg">
+          
+          <path stroke="#686868" stroke-width="1.5" fill="none" d="m1 1 4 4 4-4" />
+        </svg></span>
+        <span class="arrow--up"><svg width="10" height="6" xmlns="http://www.w3.org/2000/svg"><path stroke="#686868" stroke-width="1.5" fill="none" d="m1 5 4-4 4 4"/></svg></span>
         <ul class="menu--inner-list-features collapsed">
           <li><svg width="14" height="16" xmlns="http://www.w3.org/2000/svg"><path d="M14 3v12a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h1V1a1 1 0 1 1 2 0v1h2V1a1 1 0 1 1 2 0v1h2V1a1 1 0 0 1 2 0v1h1a1 1 0 0 1 1 1Zm-2 3H2v1h10V6Zm0 3H2v1h10V9Zm0 3H2v1h10v-1Z" fill="#726CEE"/></svg>TodoList</li>
           <li><svg width="16" height="16" xmlns="http://www.w3.org/2000/svg"><path d="M12.667 8.667h-4v4h4v-4ZM11.334 0v1.333H4.667V0h-2v1.333h-1C.75 1.333 0 2.083 0 3v11.333C0 15.25.75 16 1.667 16h12.667C15.25 16 16 15.25 16 14.333V3c0-.917-.75-1.667-1.666-1.667h-1V0h-2Zm3 14.333H1.667V5.5h12.667v8.833Z" fill="#4BB1DA"/></svg>Calendar</li>
@@ -116,11 +122,12 @@
           <li><svg width="16" height="16" xmlns="http://www.w3.org/2000/svg"><path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0Zm0 2.133a5.867 5.867 0 1 0 0 11.734A5.867 5.867 0 0 0 8 2.133ZM8 3.2a4.8 4.8 0 1 1 0 9.6 4.8 4.8 0 0 1 0-9.6Zm-.533 2.667a.533.533 0 0 0-.534.533v2.133c0 .295.24.534.534.534h3.2a.533.533 0 0 0 0-1.067H8V6.4a.533.533 0 0 0-.533-.533Z" fill="#8E4CB6"/></svg>Planning</li>
         </ul>
       </li>
-      <li>
+      <li class="menu--company">
         <span>Company</span>
-        <span id="company-arrow" class="arrow-down"><svg width="10" height="6" xmlns="http://www.w3.org/2000/svg">
-            <path stroke="#686868" stroke-width="1.5" fill="none" d="m1 1 4 4 4-4" />
-          </svg></span>
+        <span class="arrow--down"><svg width="10" height="6" xmlns="http://www.w3.org/2000/svg">
+          <path stroke="#686868" stroke-width="1.5" fill="none" d="m1 1 4 4 4-4" />
+        </svg></span>
+        <span class="arrow--up"><svg width="10" height="6" xmlns="http://www.w3.org/2000/svg"><path stroke="#686868" stroke-width="1.5" fill="none" d="m1 5 4-4 4 4"/></svg></span>
         <ul class="menu--inner-list-company collapsed">
           <li>History</li>
           <li>Our team</li>
