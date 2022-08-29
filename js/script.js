@@ -126,6 +126,7 @@ function isRequired(value) {
     return true;
 }
 
+// errors checking
 
 function displayError(formInput, message) {
 
@@ -145,6 +146,16 @@ function displayError(formInput, message) {
     const error = field.querySelector('small');
     error.textContent = message
 }
+
+function displayErrorCardNumberFields(container, message) {
+    container.style.border = "1px solid var(--error-color)"
+    console.log('subling element',container)
+    const error = container.nextElementSibling;
+    error.textContent = message
+}
+
+
+// success display
 function displaySuccess(formInput) {
 
     const field = formInput.parentElement;
@@ -192,9 +203,9 @@ function checkCardNumberFields() {
 
         if(!isNumber(v)) {
             console.log(v)
-            displayError(firstDigitInput, 'Must be a number');
+            displayErrorCardNumberFields(formCardNumberInputsContainer, 'Each field must be a number');
         } else if (!isRequired(v)) {
-            displayError(firstDigitInput, 'cannot be blank')
+            displayErrorCardNumberFields(formCardNumberInputsContainer, 'cannot be blank')
         } else {
             displaySuccess(firstDigitInput)
             isValid = true
@@ -220,7 +231,7 @@ function checkExpiryDate() {
     for (let v of fieldValues) {
 
         if(!isNumber(v)) {
-            displayError(monthInput, 'Must be a number');
+            displayError(monthInput, 'Each field must be a number');
         } else if (!isRequired(v)) {
             displayError(monthInput, 'cannot be blank')
         } else {
