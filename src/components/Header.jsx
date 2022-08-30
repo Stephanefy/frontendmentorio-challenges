@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
-import styled from 'styled-components'
+import styled from 'styled-components';
+import bgImage from '../assets/pattern-bg.png';
 
 function Header({ ipData, setSearchParams, handleSearch, error }) {
 
@@ -86,7 +87,7 @@ const HeaderContainer = styled.header`
     height: 300px;
     position: relative ;
     background-color: #282c34;
-    background-image: url('./assets/pattern-bg.png');
+    background-image: url(${bgImage});
     background-size: cover;
 
 `
