@@ -36,6 +36,13 @@ h1 {
 }
 
 
+.custom-marker {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
 
 @media (prefers-color-scheme: light) {
   :root {

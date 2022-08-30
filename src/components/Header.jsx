@@ -7,20 +7,24 @@ function Header({ ipData, setSearchParams, handleSearch, error }) {
 
   const onChange = (e) => {
 
-    console.log(e.target.value)
 
     let params =  {};
     const reDomain = new RegExp(/(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)+[a-z0-9][a-z0-9-]{0,61}[a-z0-9]/)
     const reIpAdress = new RegExp(/(\b25[0-5]|\b2[0-4][0-9]|\b[01]?[0-9][0-9]?)(\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}/)
 
-    if (reDomain.test(e.target.value)) {
+
+    if (reDomain.test(e.target.value) === true) {
         params = {domain: e.target.value}
+        setSearchParams(params)
+
     }
 
-    if (reIpAdress.test(e.target.value)) {
+    if (reIpAdress.test(e.target.value) === true) {
+
+
         params = {ip: e.target.value}
+        setSearchParams(params)
     }
-     setSearchParams(params)
   }
 
 
@@ -88,6 +92,7 @@ const HeaderContainer = styled.header`
 `
 const HeaderContent = styled.div`
     width: 100% ;
+    height: auto ;
     display: flex;
     flex-direction: column ;
     align-items: center;
@@ -97,14 +102,19 @@ const HeaderContent = styled.div`
 
 
 const HeaderTitle = styled.h1`
+    margin-top: 1em;
+    margin-bottom: .8em ;
     color: #fff;
     font-size: 32px;
-    margin-bottom: 2em ;
 `
 
 const HeaderForm = styled.form`
-    width: 30%;
+    width: 90% ;
     display: flex;
+
+    @media (min-width: 768px) {
+    width: 33%;
+  }
     
 `
 
@@ -129,30 +139,69 @@ const HeaderFormButton = styled.button`
 
 const HeaderInput = styled.input`
     width: 100%;
-    padding: 2em ;
+    padding: 0 2em ;
     border: none;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px ;
+    font-size: 18px;
+    &::placeholder {
+        font-size: 18px ;
+    }
 `
 
 
 const AddressDetailsContainer = styled.div`
-    width: 70% ;
-    height: 200px ;
+    width: 90% ;
+    height: 400px ;
     position: absolute;
     background-color: #fff ;
     top: 65% ;
-    left: 15% ;
+    left: 5% ;
     z-index: 1000;
     border-radius: 10px ;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 40px 0px;
+    @media (min-width: 768px) {
+        width: 70% ;
+        left: 15%;
+        height: 200px ;
+    }
 `
 
 
 const AddressDetailsList = styled.ul`
-    width: 90% ;
-    display: flex ;
-    margin: auto ;
+    width: 100% ;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center ;
+    padding: 0 ;
+    li {
+        list-style-type: none ;
+        text-align: center ;
 
+
+        div {
+            h1 {
+                font-size: 14px;
+                color: hsl(0, 0%, 59%);
+
+            }
+            p {
+                font-size: 22px;
+                font-weight: 700
+            }
+
+        }
+    }
+
+
+    @media (min-width: 768px) {
+    
+    flex-direction: row ;
+    width: 90% ;
+    margin: auto ;
+    
+    
     li {
         flex-basis: 30%;
         height: 100% ;
@@ -160,15 +209,25 @@ const AddressDetailsList = styled.ul`
         display: flex ;
         align-items: center ;
         margin-top: 2rem;
+        text-align: none ;
 
-        &:before {
-            display: inline-block ;
-            content: '';
-            width: 1px;
-            height: 70px;
-            background-color: grey ;
-            margin-right: 2em ;
-            margin-top: 2em ;
+        &:first-child { 
+            p {
+                text-align: left;
+            }
+        }
+        
+        &:nth-child(n+2) {
+            &:before {
+                display: inline-block ;
+                content: '';
+                width: 1px;
+                height: 70px;
+                background-color: hsl(0, 0%, 59%);
+                margin-right: 2em ;
+                margin-top: 2em ;
+            }
+    
         }
 
         div {
@@ -176,10 +235,10 @@ const AddressDetailsList = styled.ul`
             display: flex ;
             margin-top: 1rem ;
             flex-direction: column ;
-            align-items: center ;
+            align-items: start ;
 
             h1 {
-                color: #000 ;
+                text-align: left ;
                 font-size: 1em;
             }
             p {
@@ -189,6 +248,7 @@ const AddressDetailsList = styled.ul`
             }
         }
     }
+}
 `
 
 const ErrorMessage = styled.p`

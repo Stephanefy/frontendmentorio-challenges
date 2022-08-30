@@ -26,6 +26,9 @@ function App() {
   const handleSearch = (e) => {
 
     e.preventDefault()
+    // reset form data
+    setIpData(null)
+    setSearchParams(null)
 
     if(!searchParams) {
       setError('Please enter a valid IP address or domain')
@@ -41,14 +44,17 @@ function App() {
   }
 
   useEffect(() => {
-    fetch(`http://api.positionstack.com/v1/forward?access_key=${positionStackApiKey}&query=${ipData?.location.country},${ipData?.location.region}`)
-      .then(res => res.json())
-      .then(locationD => setLocationData(locationD.data[0]))
+
+    if (ipData !== null) {
+      fetch(`http://api.positionstack.com/v1/forward?access_key=${positionStackApiKey}&query=${ipData?.location.country},${ipData?.location.region}`)
+        .then(res => res.json())
+        .then(locationD => setLocationData(locationD.data[0]))
+    }
+
   },[ipData])
  
 
 
-  console.log(locationData)
 
   return (
     <div className="App">
