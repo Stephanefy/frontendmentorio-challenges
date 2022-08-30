@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import './App.css';
 import Header from './components/Header';
 import Map from './components/Map';
@@ -12,7 +12,7 @@ function App() {
   const [searchParams, setSearchParams] = useState(null);
   const [error, setError] = useState(null);
 
-
+  const inputRef = useRef(null);
 
   // reset error 
   useEffect(() => {
@@ -27,6 +27,9 @@ function App() {
     // reset form data
     setIpData(null)
     setSearchParams(null)
+    setTimeout(() => {
+        inputRef.current.value = ''
+    }, 1000)
 
     if(!searchParams) {
       setError('Please enter a valid IP address or domain')
@@ -57,7 +60,7 @@ function App() {
 
   return (
     <div className="App">
-        <Header ipData={ipData} setSearchParams={setSearchParams} handleSearch={handleSearch} error={error}/>
+        <Header ipData={ipData} setSearchParams={setSearchParams} handleSearch={handleSearch} error={error} inputRef={inputRef}/>
         <div className="mapContainer">
           <Map locationData={ipData?.location}/>
         </div>

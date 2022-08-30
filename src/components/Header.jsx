@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import styled from 'styled-components';
 import bgImage from '../assets/pattern-bg.png';
 
-function Header({ ipData, setSearchParams, handleSearch, error }) {
+function Header({ ipData, setSearchParams, handleSearch, error, inputRef }) {
 
   
 
@@ -35,6 +35,7 @@ function Header({ ipData, setSearchParams, handleSearch, error }) {
             <HeaderTitle>IP Address Tracker</HeaderTitle>
             <HeaderForm onSubmit={handleSearch}>
                 <HeaderInput 
+                ref={inputRef}
                 type="text" 
                 placeholder='Search for any IP address or domain' 
                 onChange={onChange}
