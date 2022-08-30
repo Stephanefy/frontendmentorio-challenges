@@ -86,7 +86,7 @@ const HeaderContainer = styled.header`
     height: 300px;
     position: relative ;
     background-color: #282c34;
-    background-image: url('../images/pattern-bg.png');
+    background-image: url('./assets/pattern-bg.png');
     background-size: cover;
 
 `
