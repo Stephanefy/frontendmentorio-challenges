@@ -5,12 +5,10 @@ import Map from './components/Map';
 import { useEffect } from 'react';
 
 const ipifyApiKey = import.meta.env.VITE_IPIFY;
-const positionStackApiKey = import.meta.env.VITE_POSITIONSTACK;
 
 function App() {
 
   const [ipData, setIpData] = useState(null);
-  const [locationData, setLocationData] = useState(null);
   const [searchParams, setSearchParams] = useState(null);
   const [error, setError] = useState(null);
 
@@ -36,22 +34,23 @@ function App() {
 
     const params = searchParams.domain ? 'domain=' + searchParams.domain : 'ipAddress=' + searchParams.ip;
 
-    fetch(`https://geo.ipify.org/api/v2/country?apiKey=${ipifyApiKey}&${params}`)
+    fetch(`https://geo.ipify.org/api/v2/country,city?apiKey=${ipifyApiKey}&${params}`)
     .then(res => res.json())
     .then(data => setIpData(data))
     .catch(err => setError(err))
 
   }
 
-  useEffect(() => {
+  // useEffect(() => {
 
-    if (ipData !== null) {
-      fetch(`https://api.positionstack.com/v1/forward?access_key=${positionStackApiKey}&query=${ipData?.location.country},${ipData?.location.region}`)
-        .then(res => res.json())
-        .then(locationD => setLocationData(locationD.data[0]))
-    }
+  //   if (ipData !== null) {
+  //     fetch(`https://api.positionstack.com/v1/forward?access_key=${positionStackApiKey}&query=${ipData?.location.country},${ipData?.location.region}`)
+  //       .then(res => res.json())
+  //       .then(locationD => setLocationData(locationD.data[0]))
+  //   }
 
-  },[ipData])
+  // },[ipData])
+
  
 
 
@@ -60,7 +59,7 @@ function App() {
     <div className="App">
         <Header ipData={ipData} setSearchParams={setSearchParams} handleSearch={handleSearch} error={error}/>
         <div className="mapContainer">
-          <Map locationData={locationData}/>
+          <Map locationData={ipData?.location}/>
         </div>
     </div>
   )

@@ -28,7 +28,7 @@ export default function Map({ locationData }) {
     className: "custom-marker",
   });
 
-  const position = [locationData?.latitude, locationData?.longitude]
+  const position = [locationData?.lat, locationData?.lng]
 
 
   return (
