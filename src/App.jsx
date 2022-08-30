@@ -46,7 +46,7 @@ function App() {
   useEffect(() => {
 
     if (ipData !== null) {
-      fetch(`http://api.positionstack.com/v1/forward?access_key=${positionStackApiKey}&query=${ipData?.location.country},${ipData?.location.region}`)
+      fetch(`https://api.positionstack.com/v1/forward?access_key=${positionStackApiKey}&query=${ipData?.location.country},${ipData?.location.region}`)
         .then(res => res.json())
         .then(locationD => setLocationData(locationD.data[0]))
     }
