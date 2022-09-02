@@ -1,23 +1,23 @@
 .hero--image__mobile {
 
-    @media (min-width: $breakpoint-desktop) {
+    @media (min-width: $breakpoint-tablet) {
         display: none;
     }
 }
 
 .hero--image__desktop {
-    display: none;
-    @media (min-width: $breakpoint-desktop) {
-        display: block;
-        justify-self: flex-end;
-    }
-    
+        display: none;
+        @media (min-width: $breakpoint-tablet) {
+            display: block;
+            justify-self: flex-end;
+        }
+        
         
     }
 
 
 .hero--presentation {
-    margin-top: 5rem;
+    margin-top: 10rem;
     margin-bottom: 10rem;
     height: 30vh;
     display: flex;
@@ -36,6 +36,7 @@
         text-align: center;
         color: $medium-gray;
         font-size: 18px;
+        line-height: 1.5;
     }
 
     button {
@@ -64,8 +65,7 @@
         li {
             margin: 0 .3em;
             img {
-                width: 78px;
-                height: 1em;
+                width: 100%;
             }
         }
 
@@ -73,25 +73,69 @@
         @media (min-width: $breakpoint-desktop) {
             margin-top: auto;
             display: flex;
-            justify-content: space-between;
             margin-left: 0;
-    
+            margin-top: 110px;
+            padding: 0;
+            
             li {
                 list-style-type: none;
                 margin-right: 2em;
+
+                img {
+                    width: auto;
+                    height: auto;
+                }
             }
         }
     }
 
 
+    @media (min-width: $breakpoint-tablet) {
+        align-items: flex-start;
+        margin-left: 2.5rem;
+
+        .hero--presentation__text {
+            justify-self: center;
+        }
+
+        h1 {
+            width: 75%;
+            font-size: 48px;
+            text-align: left;
+            margin-top: auto;
+        }
+
+        p {
+            width: 75%;
+            text-align: left;
+        }
+
+        button {
+            margin-top: 2em 0;
+        }
+        .hero--sponsor {
+            margin-top: 8rem;
+            margin-bottom: 0;
+            margin-left: 0;
+            text-align: left;
+            display: flex;
+            justify-content: flex-start;
+    
+            li {
+                img {
+                    width: 100%;
+                }
+            }
+        }
+
+    }
     @media (min-width: $breakpoint-desktop) {
         align-items: flex-start;
-        justify-content: center;
-        height: 70vh;
+        justify-content: stretch;
+        margin-left: 0;
 
 
         .hero--presentation__text {
-            margin-top: auto;
             justify-self: center;
         }
 
@@ -99,12 +143,26 @@
             width: 75%;
             font-size: 64px;
             text-align: left;
+            margin-top: 0;
         }
 
         p {
-            margin-top: 3rem;
             width: 75%;
             text-align: left;
+        }
+        .hero--sponsor {
+            margin-bottom: 0;
+            margin-left: 0;
+            margin-top: 6rem;
+            text-align: left;
+            display: flex;
+            justify-content: flex-start;
+    
+            li {
+                img {
+                    width: 100%;
+                }
+            }
         }
     }
 }
