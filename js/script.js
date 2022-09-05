@@ -34,7 +34,6 @@ const cvcDisplay = document.querySelector('.card--back__cvc--display')
 
 
 cardholdername.addEventListener('keyup', (e) => {
-    console.log(e.target.value.length)
     cardCardholderName.innerText = e.target.value
 })
 
@@ -58,15 +57,44 @@ fourthDigitInput.addEventListener('keyup', (e) => {
 })
 
 monthInput.addEventListener('keyup', (e) => {
-    monthDisplay.textContent = e.target.value
+
+    if (isNumber(e.target.value)) {
+        monthDisplay.textContent = e.target.value 
+    }  else {
+        displayError(e.target, 'Enter a valid month')
+    }
+        
+    if (e.target.value > 12) {
+        displayError(e.target, 'Enter a valid month')
+    } 
+
+    reset()
+
 })
 
 yearInput.addEventListener('keyup', (e) => {
-    yearDisplay.textContent = e.target.value
+    
+    if (isNumber(e.target.value)) {
+        yearDisplay.textContent = e.target.value
+    }  else {
+        displayError(e.target, 'Enter a valid month')
+    }
+        
+    if (e.target.value > 12) {
+        displayError(e.target, 'Enter a valid month')
+    } 
+
+    reset()
 })
 
 cvcInput.addEventListener('keyup', (e) => {
-    cvcDisplay.textContent = e.target.value
+
+    if (isNumber(e.target.value)) {
+        cvcDisplay.textContent = e.target.value
+    }  else {
+        displayError(e.target, 'Enter a valid cvc')
+    }
+    
 })
 
 form.addEventListener('submit', submit)
@@ -88,17 +116,7 @@ function submit(e) {
         formCompletion.classList.add('active')
     }
 
-    setTimeout(() => {
-        const errors = document.querySelectorAll('small')
-        const labels = document.querySelectorAll('label')
-        const inputs = document.querySelectorAll('input')
-        
-        errors.forEach(e => e.innerText = "")
-        labels.forEach(e => e.parentElement.classList.remove('error'))
-        inputs.forEach(e => e.style.border = "")
-        formCardNumberInputsContainer.style.border = ""
-
-    }, 2000)
+    reset()
 
 }
 
@@ -113,6 +131,7 @@ function isNumber(value) {
 }
 
 
+
 function isCorrectCardHolderName(value) {
     const re = /^\w*\s\w*$/
 
@@ -124,6 +143,20 @@ function isRequired(value) {
         return false;
     }
     return true;
+}
+
+function reset() {
+    setTimeout(() => {
+        const errors = document.querySelectorAll('small')
+        const labels = document.querySelectorAll('label')
+        const inputs = document.querySelectorAll('input')
+        
+        errors.forEach(e => e.innerText = "")
+        labels.forEach(e => e.parentElement.classList.remove('error'))
+        inputs.forEach(e => e.style.border = "")
+        formCardNumberInputsContainer.style.border = ""
+
+    }, 2000)
 }
 
 // errors checking
@@ -149,7 +182,6 @@ function displayError(formInput, message) {
 
 function displayErrorCardNumberFields(container, message) {
     container.style.border = "1px solid var(--error-color)"
-    console.log('subling element',container)
     const error = container.nextElementSibling;
     error.textContent = message
 }
@@ -165,7 +197,7 @@ function displaySuccess(formInput) {
 
 
     const error = field.querySelector('small');
-    error.textContent = ''
+    if (error) error.textContent = ''
 }
 
     // function for validating fields
@@ -202,7 +234,6 @@ function checkCardNumberFields() {
     for (let v of fieldValues) {
 
         if(!isNumber(v)) {
-            console.log(v)
             displayErrorCardNumberFields(formCardNumberInputsContainer, 'Each field must be a number');
         } else if (!isRequired(v)) {
             displayErrorCardNumberFields(formCardNumberInputsContainer, 'cannot be blank')
@@ -229,10 +260,12 @@ function checkExpiryDate() {
 
 
     for (let v of fieldValues) {
+        
+        if (!isNumber(v)) {
+            displayError(monthInput, 'Enter a valid month and year')
+        }
 
-        if(!isNumber(v)) {
-            displayError(monthInput, 'Each field must be a number');
-        } else if (!isRequired(v)) {
+        if (!isRequired(v)) {
             displayError(monthInput, 'cannot be blank')
         } else {
             displaySuccess(cvcInput)

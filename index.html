@@ -72,14 +72,14 @@
             <div class="card--details">
               <div class="exp--month-year__inputs form-fields">
                       <label class="exp-month-year__label">EXP.DATE MM/YY</label>
-                      <input id="month--input" type="number" minlength="2" maxlength="2" class="card--details__month" placeholder="MM" name="month"  autocomplete="off" />
-                      <input id="year--input" type="number" minlength="2" maxlenght="2" class="card--details__year" placeholder="YY"  autocomplete="off" />
-                      <small></small>
+                      <input id="month--input" type="text" minlength="2" maxlength="2" class="card--details__month" placeholder="MM" name="month"  autocomplete="off" />
+                      <input id="year--input" type="text" minlength="2" maxlength="2" class="card--details__year" placeholder="YY" name="year"  autocomplete="off" />
+                      <small class="expiry__error"></small>
               </div>
               <div class="cvc__field form-fields">
                 <label class="exp-month-year__label">CVC</label>
-                <input id="cvc__input" type="number" class="card--details__cvc" placeholder="e.g. 123" minlength="3" maxlength="3" autocomplete="off"/>
-                <small></small>
+                <input id="cvc__input" type="text" class="card--details__cvc" placeholder="e.g. 123" minlength="3" maxlength="3" autocomplete="off"/>
+                <small class="cvc__error"></small>
               </div>
             </div>
             <button type="submit" class="confirm--btn">Confirm</button>

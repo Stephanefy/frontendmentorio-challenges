@@ -514,6 +514,13 @@ label {
         display: block;
     }
 
+    .expiry__error,
+    .cvc__error {
+        text-align: center;
+        display: inline-block;
+        width: 100%;
+    }
+
     .confirm--btn {
         background-color: var(--very-dark-violet);
         margin-top: 2em;
