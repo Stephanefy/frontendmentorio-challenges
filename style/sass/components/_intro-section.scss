@@ -1,0 +1,39 @@
+@media screen and (min-width: 768px) {
+    
+    .intro--section {
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+
+        div {
+            padding-left: 12rem;
+        
+            h1 {
+                font-size: 52px;
+                width: 85%;
+            }
+
+            p {
+                margin: 2em 0;
+                font-size: 18px;
+                width: 60%;
+                color: $grayish_blue;
+            }
+        }
+
+        .intro--bg__illustration:after {
+            content:'';
+            border-top-left-radius: 50% 100%;
+            border-bottom-left-radius: 50% 100%;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            z-index: -1;
+            width: 30%;
+            background-color: $soft_blue;
+            height: 300px;
+        }
+    }
+}

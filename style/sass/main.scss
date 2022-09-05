@@ -1,0 +1,23 @@
+@import "./abstract/_mixins";
+@import "./abstract/_variables";
+
+@import "./base/_base";
+@import "./base/_typography";
+
+@import "./components/_header.scss";
+@import "./components/_footer.scss";
+@import "./components/_intro-section.scss";
+@import "./components/_features-section.scss";
+@import "./components/_buttons.scss";
+
+
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+
+body {
+    font-family: 'Rubik', sans-serif;
+}
