@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import styled from 'styled-components';
 import bgImage from '../assets/pattern-bg.png';
 
-function Header({ ipData, setSearchParams, handleSearch, error, inputRef }) {
+function Header({ ipData, setSearchParams, handleSearch, error, inputRef, adBlockDetected }) {
 
   
 
@@ -33,17 +33,24 @@ function Header({ ipData, setSearchParams, handleSearch, error, inputRef }) {
     <HeaderContainer>
         <HeaderContent>
             <HeaderTitle>IP Address Tracker</HeaderTitle>
-            <HeaderForm onSubmit={handleSearch}>
-                <HeaderInput 
-                ref={inputRef}
-                type="text" 
-                placeholder='Search for any IP address or domain' 
-                onChange={onChange}
-                />
-                <HeaderFormButton></HeaderFormButton>
-            </HeaderForm>
+            {
+                !adBlockDetected && (
+                    <HeaderForm onSubmit={handleSearch}>
+                        <HeaderInput 
+                        ref={inputRef}
+                        type="text" 
+                        placeholder='Search for any IP address or domain' 
+                        onChange={onChange}
+                        />
+                        <HeaderFormButton></HeaderFormButton>
+                    </HeaderForm>
+                )
+            }
+
         </HeaderContent>
-        <AddressDetailsContainer>
+        {
+            !adBlockDetected && (
+                <AddressDetailsContainer>
             {error && <ErrorMessage>{error}</ErrorMessage>}
             <AddressDetailsList>
                 <li>
@@ -72,13 +79,15 @@ function Header({ ipData, setSearchParams, handleSearch, error, inputRef }) {
                 </li>
             </AddressDetailsList>
         </AddressDetailsContainer> 
+            )
+        }
+
     </HeaderContainer>
   )
 }
 
 
 
-export default Header
 
 
 
@@ -260,3 +269,5 @@ const ErrorMessage = styled.p`
     color: red ;
     margin: 0 auto ;
 `
+
+export default Header
