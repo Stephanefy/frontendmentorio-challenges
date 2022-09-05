@@ -27,10 +27,6 @@ function App() {
   },[error])
 
 
-
-
-  console.log(adBlockDetected)
-
   const handleSearch = (e) => {
 
     e.preventDefault()

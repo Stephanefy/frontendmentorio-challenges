@@ -199,7 +199,8 @@ const AddressDetailsList = styled.ul`
             }
             p {
                 font-size: 22px;
-                font-weight: 700
+                font-weight: 700;
+                color: #213547
             }
 
         }
