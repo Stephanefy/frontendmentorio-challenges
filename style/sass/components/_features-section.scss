@@ -1,14 +1,15 @@
 @media screen and (min-width: 768px) {
     .features--section {
-        margin-top: 2rem;
-        width: 100%;
+        margin: 2rem auto;
+        max-width: 1440px;
         display: flex;
         flex-direction: column;
         align-items: center;
+        position: relative;
 
         .features--section__text {
-            width: 30%;
-            margin: 0 auto 2rem auto;
+            width: 100%;
+            margin: 2rem auto 2rem auto;
 
 
             h2 {
@@ -17,7 +18,8 @@
                 margin: 2rem auto;
             }
             p{
-                width: 80%;
+                width: 35%;
+                font-size: 18px;
                 margin: auto;
                 text-align: center;
                 color: $grayish_blue;
@@ -26,7 +28,7 @@
 
         .tabs--selector__list {
             position: relative;
-            width: 40%;
+            width: 50%;
             display: flex;
             justify-content: center;
 
@@ -40,16 +42,57 @@
             &::after {
                 content: '';
                 width: 90%;
-                background-color: $grayish_blue;
+                background-color: $grayish_blue_light;
                 height: 2px;
                 position: absolute;
                 bottom: 0;
             }
         }
 
+        .bookmark--tab {
+            display: flex;
+            justify-content: space-between;
+            margin: 6rem auto;
+
+            img {
+                flex-basis: 45%;
+            }
+
+            .bookmark--tab__cta {
+                margin: auto;
+                height: 100%;
+                flex-basis: 40%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: flex-start;
+
+                & > * {
+                    margin: 1em 0;
+                }
+
+                p {
+                    color: $grayish_blue;
+                    width: 60%;
+                }
+            }
+        }
 
 
-        .bookmark--tab,
+        .tab1--illustration__bg::after {
+            content:'';
+            border-top-right-radius: 50% 100%;
+            border-bottom-right-radius: 50% 100%;
+            position: absolute;
+            bottom: 60px;
+            left: -500px;
+            z-index: -1;
+            width: 60%;
+            background-color: $soft_blue;
+            height: 330px;
+        }
+
+
         .intelligent--search__tab,
         .share--bookmarks__tab {
             display: none;

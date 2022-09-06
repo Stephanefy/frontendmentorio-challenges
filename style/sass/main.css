@@ -7,7 +7,7 @@
   header nav {
     margin: auto;
     height: 100%;
-    width: 80%;
+    max-width: 1440px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -28,23 +28,24 @@
 @media screen and (min-width: 768px) {
   .intro--section {
     margin: auto;
+    max-width: 1440px;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
   }
-  .intro--section div {
-    padding-left: 12rem;
-  }
   .intro--section div h1 {
     font-size: 52px;
-    width: 85%;
+    width: 100%;
   }
   .intro--section div p {
     margin: 2em 0;
     font-size: 18px;
-    width: 60%;
+    width: 80%;
     color: hsl(229deg, 8%, 60%);
+  }
+  .intro--section .illustration--container img {
+    margin-left: 2rem;
   }
   .intro--section .intro--bg__illustration:after {
     content: "";
@@ -52,24 +53,25 @@
     border-bottom-left-radius: 50% 100%;
     position: absolute;
     bottom: 0;
-    right: 0;
     z-index: -1;
-    width: 30%;
+    right: -500px;
+    width: 50%;
     background-color: hsl(231deg, 69%, 60%);
     height: 300px;
   }
 }
 @media screen and (min-width: 768px) {
   .features--section {
-    margin-top: 2rem;
-    width: 100%;
+    margin: 2rem auto;
+    max-width: 1440px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
   }
   .features--section .features--section__text {
-    width: 30%;
-    margin: 0 auto 2rem auto;
+    width: 100%;
+    margin: 2rem auto 2rem auto;
   }
   .features--section .features--section__text h2 {
     font-size: 45px;
@@ -77,14 +79,15 @@
     margin: 2rem auto;
   }
   .features--section .features--section__text p {
-    width: 80%;
+    width: 35%;
+    font-size: 18px;
     margin: auto;
     text-align: center;
     color: hsl(229deg, 8%, 60%);
   }
   .features--section .tabs--selector__list {
     position: relative;
-    width: 40%;
+    width: 50%;
     display: flex;
     justify-content: center;
   }
@@ -94,23 +97,146 @@
   .features--section .tabs--selector__list::after {
     content: "";
     width: 90%;
-    background-color: hsl(229deg, 8%, 60%);
+    background-color: hsl(229deg, 8%, 90%);
     height: 2px;
     position: absolute;
     bottom: 0;
   }
-  .features--section .bookmark--tab,
-.features--section .intelligent--search__tab,
+  .features--section .bookmark--tab {
+    display: flex;
+    justify-content: space-between;
+    margin: 6rem auto;
+  }
+  .features--section .bookmark--tab img {
+    flex-basis: 45%;
+  }
+  .features--section .bookmark--tab .bookmark--tab__cta {
+    margin: auto;
+    height: 100%;
+    flex-basis: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .features--section .bookmark--tab .bookmark--tab__cta > * {
+    margin: 1em 0;
+  }
+  .features--section .bookmark--tab .bookmark--tab__cta p {
+    color: hsl(229deg, 8%, 60%);
+    width: 60%;
+  }
+  .features--section .tab1--illustration__bg::after {
+    content: "";
+    border-top-right-radius: 50% 100%;
+    border-bottom-right-radius: 50% 100%;
+    position: absolute;
+    bottom: 60px;
+    left: -500px;
+    z-index: -1;
+    width: 60%;
+    background-color: hsl(231deg, 69%, 60%);
+    height: 330px;
+  }
+  .features--section .intelligent--search__tab,
 .features--section .share--bookmarks__tab {
     display: none;
   }
 }
+.download--section {
+  margin: 2rem auto;
+  max-width: 1440px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+.download--section .download--section__text {
+  width: 100%;
+  margin: 2rem auto 2rem auto;
+}
+.download--section .download--section__text h1 {
+  font-size: 45px;
+  text-align: center;
+  margin: 2rem auto;
+}
+.download--section .download--section__text p {
+  width: 50%;
+  font-size: 18px;
+  margin: auto;
+  text-align: center;
+  color: hsl(229deg, 8%, 60%);
+}
+.download--section .download--section__cards {
+  width: 100%;
+  height: 45vh;
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+}
+.download--section .download--section__cards > div {
+  height: 300px;
+  width: 250px;
+  padding: 1rem 0;
+  margin: 0 1em;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+.download--section .download--section__cards .download--section__chrome {
+  align-self: flex-start;
+}
+.download--section .download--section__cards .download--section__chrome div {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.download--section .download--section__cards .download--section__chrome div div {
+  width: 100%;
+  margin: 2rem 0 1.5rem 0;
+  padding: 0;
+  border-bottom: 6px dotted hsl(229deg, 8%, 90%);
+}
+.download--section .download--section__cards .download--section__firefox {
+  align-self: center;
+}
+.download--section .download--section__cards .download--section__firefox div {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.download--section .download--section__cards .download--section__firefox div div {
+  width: 100%;
+  margin: 2rem 0 1.5rem 0;
+  padding: 0;
+  border-bottom: 6px dotted hsl(229deg, 8%, 90%);
+}
+.download--section .download--section__cards .download--section__opera {
+  align-self: flex-end;
+}
+.download--section .download--section__cards .download--section__opera div {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.download--section .download--section__cards .download--section__opera div div {
+  width: 100%;
+  margin: 2rem 0 1.5rem 0;
+  padding: 0;
+  border-bottom: 6px dotted hsl(229deg, 8%, 90%);
+}
+
 .btn {
   font-weight: 700;
   color: white;
   padding: 1em 2em;
   border: none;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .blue--btn {
@@ -132,4 +258,5 @@
 
 body {
   font-family: "Rubik", sans-serif;
+  overflow-x: hidden;
 }/*# sourceMappingURL=main.css.map */

@@ -2,24 +2,31 @@
     
     .intro--section {
         margin: auto;
+        max-width: 1440px;
         display: flex;
         justify-content: center;
         align-items: center;
         position: relative;
 
         div {
-            padding-left: 12rem;
-        
+            
             h1 {
                 font-size: 52px;
-                width: 85%;
+                width: 100%;
             }
 
             p {
                 margin: 2em 0;
                 font-size: 18px;
-                width: 60%;
+                width: 80%;
                 color: $grayish_blue;
+            }
+        }
+
+        .illustration--container {
+            
+            img {
+                margin-left: 2rem;
             }
         }
 
@@ -29,9 +36,9 @@
             border-bottom-left-radius: 50% 100%;
             position: absolute;
             bottom: 0;
-            right: 0;
             z-index: -1;
-            width: 30%;
+            right: -500px;
+            width: 50%;
             background-color: $soft_blue;
             height: 300px;
         }
