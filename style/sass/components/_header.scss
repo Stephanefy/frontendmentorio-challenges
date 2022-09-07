@@ -23,6 +23,11 @@
             li {
                 display: inline-block;
                 margin: 0 2em;
+                cursor: pointer;
+
+                &:hover {
+                  color: $soft_red;
+                }
             }
         }
     }

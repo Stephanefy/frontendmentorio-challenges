@@ -11,12 +11,30 @@
 .blue--btn {
     background-color: $soft_blue;
 
+    &:hover {
+        background-color: #fff;
+        border: 1px solid $soft_blue;
+        color: $soft_blue;
+    }
+
 }
 
 .gray--btn {
     background-color: $grayish_blue;
+
+    &:hover {
+        background-color: #fff;
+        border: 1px solid $grayish_blue;
+        color: $grayish_blue;
+    }
 }
 
 .red--btn {
     background-color: $soft_red;
+
+    &:hover {
+        background-color: #fff;
+        border: 1px solid $soft_red;
+        color: $soft_red;
+    }
 }

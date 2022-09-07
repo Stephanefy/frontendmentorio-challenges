@@ -23,8 +23,85 @@
   header nav ul li {
     display: inline-block;
     margin: 0 2em;
+    cursor: pointer;
+  }
+  header nav ul li:hover {
+    color: hsl(0deg, 94%, 66%);
   }
 }
+footer {
+  max-width: 100%;
+  height: 300px;
+  background-color: hsl(231deg, 69%, 60%);
+  margin-top: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: space-between;
+  padding-top: 2rem;
+}
+footer div {
+  flex-basis: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  color: #fff;
+}
+footer div p {
+  margin: auto;
+  letter-spacing: 0.5em;
+}
+footer div h3 {
+  margin: 2rem auto;
+  font-weight: 500;
+  font-size: 22px;
+}
+footer div form {
+  width: 30%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+}
+footer div form input {
+  width: 50%;
+  padding: 0.8rem 1rem;
+  border: none;
+  border-radius: 5px;
+  margin-right: 1em;
+}
+footer nav {
+  width: 100%;
+  margin: 6rem 0;
+  height: 20%;
+  background-color: hsl(231deg, 69%, 20%);
+  display: flex;
+  color: white;
+}
+footer nav div {
+  width: 30%;
+}
+footer nav div svg {
+  display: inline-block;
+}
+footer nav div svg path {
+  fill: white;
+}
+footer nav ul {
+  display: flex;
+  align-items: center;
+}
+footer nav ul li {
+  list-style-type: none;
+  margin: 2rem 1em;
+}
+footer nav .social--links {
+  margin-left: auto;
+  margin-right: 15%;
+}
+footer nav .social--links a {
+  display: inline-block;
+}
+
 @media screen and (min-width: 768px) {
   .intro--section {
     margin: auto;
@@ -57,7 +134,7 @@
     right: -500px;
     width: 50%;
     background-color: hsl(231deg, 69%, 60%);
-    height: 300px;
+    height: 350px;
   }
 }
 @media screen and (min-width: 768px) {
@@ -86,31 +163,63 @@
     color: hsl(229deg, 8%, 60%);
   }
   .features--section .tabs--selector__list {
-    position: relative;
     width: 50%;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
+    position: relative;
+  }
+  .features--section .tabs--selector__list div {
+    position: relative;
+    text-align: center;
   }
   .features--section .tabs--selector__list div h3 {
-    margin: 2rem;
+    margin: 2rem 1.5rem;
+    font-weight: 400;
+  }
+  .features--section .tabs--selector__list div h3:hover {
+    color: hsl(0deg, 94%, 66%);
+    cursor: pointer;
   }
   .features--section .tabs--selector__list::after {
     content: "";
-    width: 90%;
+    width: 96%;
     background-color: hsl(229deg, 8%, 90%);
     height: 2px;
     position: absolute;
     bottom: 0;
   }
-  .features--section .bookmark--tab {
+  .features--section .tabs--selector__list .tabs--selector__simple.active::after,
+.features--section .tabs--selector__list .tabs--selector__searching.active::after,
+.features--section .tabs--selector__list .tabs--selector__sharing.active::after {
+    content: "";
+    width: 100%;
+    background-color: hsl(0deg, 94%, 66%);
+    height: 3px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 99;
+  }
+  .features--section .bookmark--tab,
+.features--section .intelligent--search__tab,
+.features--section .share--bookmarks__tab {
+    display: none;
+  }
+  .features--section .bookmark--tab.active,
+.features--section .intelligent--search__tab.active,
+.features--section .share--bookmarks__tab.active {
     display: flex;
     justify-content: space-between;
     margin: 6rem auto;
   }
-  .features--section .bookmark--tab img {
+  .features--section .bookmark--tab.active img,
+.features--section .intelligent--search__tab.active img,
+.features--section .share--bookmarks__tab.active img {
     flex-basis: 45%;
   }
-  .features--section .bookmark--tab .bookmark--tab__cta {
+  .features--section .bookmark--tab.active .bookmark--tab__cta,
+.features--section .intelligent--search__tab.active .bookmark--tab__cta,
+.features--section .share--bookmarks__tab.active .bookmark--tab__cta {
     margin: auto;
     height: 100%;
     flex-basis: 40%;
@@ -119,10 +228,14 @@
     justify-content: space-between;
     align-items: flex-start;
   }
-  .features--section .bookmark--tab .bookmark--tab__cta > * {
+  .features--section .bookmark--tab.active .bookmark--tab__cta > *,
+.features--section .intelligent--search__tab.active .bookmark--tab__cta > *,
+.features--section .share--bookmarks__tab.active .bookmark--tab__cta > * {
     margin: 1em 0;
   }
-  .features--section .bookmark--tab .bookmark--tab__cta p {
+  .features--section .bookmark--tab.active .bookmark--tab__cta p,
+.features--section .intelligent--search__tab.active .bookmark--tab__cta p,
+.features--section .share--bookmarks__tab.active .bookmark--tab__cta p {
     color: hsl(229deg, 8%, 60%);
     width: 60%;
   }
@@ -137,10 +250,6 @@
     width: 60%;
     background-color: hsl(231deg, 69%, 60%);
     height: 330px;
-  }
-  .features--section .intelligent--search__tab,
-.features--section .share--bookmarks__tab {
-    display: none;
   }
 }
 .download--section {
@@ -180,6 +289,9 @@
   padding: 1rem 0;
   margin: 0 1em;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+.download--section .download--section__cards div p {
+  color: hsl(229deg, 8%, 60%);
 }
 .download--section .download--section__cards .download--section__chrome {
   align-self: flex-start;
@@ -230,6 +342,67 @@
   border-bottom: 6px dotted hsl(229deg, 8%, 90%);
 }
 
+.faq--section {
+  margin: 2rem auto;
+  max-width: 1440px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+.faq--section .faq--section__text {
+  width: 100%;
+  margin: 2rem auto 2rem auto;
+}
+.faq--section .faq--section__text h1 {
+  font-size: 45px;
+  text-align: center;
+  margin: 2rem auto;
+}
+.faq--section .faq--section__text p {
+  width: 50%;
+  font-size: 18px;
+  margin: auto;
+  text-align: center;
+  color: hsl(229deg, 8%, 60%);
+}
+.faq--section .faq--section__dropdownlist {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3rem;
+}
+.faq--section .faq--section__dropdownlist ul {
+  margin: auto;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+.faq--section .faq--section__dropdownlist ul li {
+  width: 100%;
+  list-style-type: none;
+  padding: 2rem 0;
+  border-top: 1px solid hsl(229deg, 8%, 90%);
+  border-bottom: 1px solid hsl(229deg, 8%, 90%);
+}
+.faq--section .faq--section__dropdownlist ul li div .faq--section__dropdownlistitem--header {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.faq--section .faq--section__dropdownlist ul li div .faq--section__dropdownlistitem--header h3 {
+  font-weight: 400;
+}
+.faq--section .faq--section__dropdownlist ul li div .faq--section__dropdownlistitem--header img {
+  cursor: pointer;
+}
+.faq--section .faq--section__dropdownlist ul li div p {
+  display: none;
+}
+
 .btn {
   font-weight: 700;
   color: white;
@@ -242,13 +415,28 @@
 .blue--btn {
   background-color: hsl(231deg, 69%, 60%);
 }
+.blue--btn:hover {
+  background-color: #fff;
+  border: 1px solid hsl(231deg, 69%, 60%);
+  color: hsl(231deg, 69%, 60%);
+}
 
 .gray--btn {
   background-color: hsl(229deg, 8%, 60%);
 }
+.gray--btn:hover {
+  background-color: #fff;
+  border: 1px solid hsl(229deg, 8%, 60%);
+  color: hsl(229deg, 8%, 60%);
+}
 
 .red--btn {
   background-color: hsl(0deg, 94%, 66%);
+}
+.red--btn:hover {
+  background-color: #fff;
+  border: 1px solid hsl(0deg, 94%, 66%);
+  color: hsl(0deg, 94%, 66%);
 }
 
 * {
