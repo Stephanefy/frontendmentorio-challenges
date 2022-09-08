@@ -89,13 +89,14 @@
             margin: 6rem auto;
 
             img {
-                flex-basis: 45%;
+                flex-basis: 42%;
+                margin-left: 6rem;
             }
 
-            .bookmark--tab__cta {
+            .tab__cta {
                 margin: auto;
                 height: 100%;
-                flex-basis: 40%;
+                flex-basis: 20%;
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
@@ -107,21 +108,21 @@
 
                 p {
                     color: $grayish_blue;
-                    width: 60%;
+                    width: 130%;
                 }
             }
         }
 
 
-        .tab1--illustration__bg::after {
+        .tab--illustration__bg::after {
             content:'';
-            border-top-right-radius: 50% 100%;
-            border-bottom-right-radius: 50% 100%;
+            border-top-right-radius: 30% 100%;
+            border-bottom-right-radius: 30% 100%;
             position: absolute;
             bottom: 60px;
             left: -500px;
             z-index: -1;
-            width: 60%;
+            width: 75%;
             background-color: $soft_blue;
             height: 330px;
         }

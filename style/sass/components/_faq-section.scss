@@ -25,7 +25,7 @@
         }
     }
 
-    .faq--section__dropdownlist {
+    .faq--section__dropdownlist__container {
         width: 100%;
         display: flex;
         justify-content: center;
@@ -44,6 +44,8 @@
                 padding: 2rem 0;
                 border-top: 1px solid $grayish_blue_light;
                 border-bottom: 1px solid $grayish_blue_light;
+
+
                 div {
                     
                     .faq--section__dropdownlistitem--header {
@@ -55,17 +57,36 @@
 
                         h3 {
                             font-weight: 400;
+
+                            &:hover {
+                                color: $soft_red;
+                                cursor: pointer;
+                            }
     
                             
                         }
 
-                        img {
+                        button {
                             cursor: pointer;
+                            border: none;
+                            background-color: #fff;
                         }
                     }
 
                     p {
                         display: none;
+                    }
+
+
+                }
+
+                .faq--section__first.active,
+                .faq--section__second.active,
+                .faq--section__third.active,
+                .faq--section__fourth.active {
+                    p {
+                        display: block;
+                        margin-top: 2rem;
                     }
                 }
             }

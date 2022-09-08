@@ -47,7 +47,7 @@
         <p>Our aim is to make it quick and easy for you to access your favourite websites. Your bookmarks sync between your devices so you can access them on the go.</p>
     </div>
     <div class="tabs--selector__list">
-        <div class="tabs--selector__simple">
+        <div class="tabs--selector__simple active">
             <h3>Simple Bookmarking</h3>
         </div>
         <div class="tabs--selector__searching">
@@ -60,33 +60,37 @@
     <!-- Bookmark in one click tab-->
     <div class="bookmark--tab active">
         <img src="/images/illustration-features-tab-1.svg" alt="illustration">
-        <div class="bookmark--tab__cta">
+        <div class="tab__cta">
             <h1>Bookmark in one click</h1>
             <p>  Organize your bookmarks however you like. Our simple drag-and-drop interface 
               gives you complete control over how you manage your favourite sites.</p>
             <button class="btn blue--btn">More Info</button>
         </div>
-        <div class="tab1--illustration__bg"></div>
+        <div class="tab--illustration__bg"></div>
     </div>
     <!-- intelligent search tab -->
     <div class="intelligent--search__tab">
-        <img src="" alt="illustration">
-        <div>
+        <img src="/images/illustration-features-tab-2.svg" alt="illustration">
+        <div class="tab__cta">
             <h1>Intelligent search</h1>
             <p>  Our powerful search feature will help you find saved sites in no time at all. 
               No need to trawl through all of your bookmarks.</p>
-            <button>More Info</button>
+            <button class="btn blue--btn">More Info</button>
         </div>
+        <div class="tab--illustration__bg"></div>
+
     </div>
     <!--- share your bookmarks tab --->
     <div class="share--bookmarks__tab">
-        <img src="" alt="illustration">
-        <div>
+        <img src="/images/illustration-features-tab-3.svg" alt="illustration">
+        <div class="tab__cta">
             <h1>Share your bookmarks</h1>
             <p>  Easily share your bookmarks and collections with others. Create a shareable 
               link that you can send at the click of a button.</p>
-            <button>More Info</button>
+            <button class="btn blue--btn">More Info</button>
         </div>
+        <div class="tab--illustration__bg"></div>
+
     </div>
 </section>
 <section class="download--section">
@@ -136,40 +140,46 @@
         <h1>Frequently Asked Questions</h1>
         <p>Here are some of our FAQs. If you have any other questions you'd like answered please feel free to email us.</p>
     </div>
-    <div class="faq--section__dropdownlist">
-      <ul>
+    <div class="faq--section__dropdownlist__container">
+      <ul class="faq--section__dropdownlist">
         <li>
-          <div>
+          <div class="faq--section__first">
             <div class="faq--section__dropdownlistitem--header">
               <h3>What is a Bookmark?</h3>
-              <img src="/images/icon-arrow.svg" alt="arrow-close" width="28" height="20">
+              <button class="faq--section__arrow" aria-label="show-details" >
+                <svg role="img" xmlns="http://www.w3.org/2000/svg" width="28" height="20"><path fill="none" stroke="#5267DF" stroke-width="3" d="M1 1l8 8 8-8"/></svg>
+              </button>
             </div>
-            <p>A bookmark is a link to a web page that can be saved for future reference. It is a way to save a web page in your browser for easy access to it later.</p>
+            <p class="active">A bookmark is a link to a web page that can be saved for future reference. It is a way to save a web page in your browser for easy access to it later.</p>
           </div>
         </li>
         <li>
-          <div>
+          <div class="faq--section__second">
             <div class="faq--section__dropdownlistitem--header">
               <h3>How can I request a new browser?</h3>
-              <img src="/images/icon-arrow.svg" alt="arrow-close" width="28" height="20">
-            </div>
+              <button class="faq--section__arrow" aria-label="show-details">
+                <svg role="img" xmlns="http://www.w3.org/2000/svg" width="28" height="20"><path fill="none" stroke="#5267DF" stroke-width="3" d="M1 1l8 8 8-8"/></svg>
+              </button>            </div>
             <p>Chrome and Firefox are the most popular browsers at the moment. If you've got a favourite you'd like us to prioritize, please let us know by emailing us.</p>
           </div>
         </li>
         <li>
-          <div>
+          <div class="faq--section__third">
             <div class="faq--section__dropdownlistitem--header">
                 <h3>Is there a mobile app?</h3>
-                <img src="/images/icon-arrow.svg" alt="arrow-close" width="28" height="20">
-            </div>
+                <button class="faq--section__arrow" aria-label="show-details">
+                  <svg role="img" xmlns="http://www.w3.org/2000/svg" width="28" height="20"><path fill="none" stroke="#5267DF" stroke-width="3" d="M1 1l8 8 8-8"/></svg>
+                </button>            </div>
             <p>Our app is available on all mobile platforms. You can download it at the App Store or Google Play.</p>
           </div>
         </li>
         <li>
-          <div>
+          <div class="faq--section__fourth">
             <div class="faq--section__dropdownlistitem--header">              
               <h3>Can I use Bookmarks on more than one device?</h3>
-              <img src="/images/icon-arrow.svg" alt="arrow-close" width="28" height="20">
+              <button class="faq--section__arrow" aria-label="show-details">
+                <svg role="img" xmlns="http://www.w3.org/2000/svg" width="28" height="20"><path fill="none" stroke="#5267DF" stroke-width="3" d="M1 1l8 8 8-8"/></svg>
+              </button> 
             </div>
             <p>Yes, you can access your Bookmarks on any device. Our app is available on all mobile platforms. You can download it at the App Store or Google Play.</p>
           </div>
