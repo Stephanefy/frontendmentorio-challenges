@@ -14,6 +14,7 @@ function App() {
   const [ipData, setIpData] = useState(null);
   const [searchParams, setSearchParams] = useState(null);
   const [error, setError] = useState(null);
+  const [fetchError, setFetchError] = useState(false);
 
   const adBlockDetected = useDetectAdBlock();
 
@@ -46,7 +47,12 @@ function App() {
     fetch(`https://geo.ipify.org/api/v2/country,city?apiKey=${ipifyApiKey}&${params}`)
     .then(res => res.json())
     .then(data => setIpData(data))
-    .catch(err => setError(err))
+    .catch(err => {
+
+      if(err.message === "Failed to fetch") {
+        setFetchError(true)
+      }
+    })
 
   }
 
@@ -54,7 +60,7 @@ function App() {
     <div className="App">
         <Header ipData={ipData} setSearchParams={setSearchParams} handleSearch={handleSearch} error={error} inputRef={inputRef} adBlockDetected={adBlockDetected}/>
         <div className="mapContainer">
-          {!adBlockDetected ? <Map locationData={ipData?.location}/> : <div className='adblockAlertContainer'>
+          {!adBlockDetected && !fetchError ? <Map locationData={ipData?.location}/> : <div className='adblockAlertContainer'>
 
           <div className='adBlockAlert'>
           <div>
@@ -64,7 +70,7 @@ function App() {
 
           </div>
           <p>
-            Deactivate Adblock and reload the page (there are no ads on this demo page)
+           Seems like an adblocker is preventing data fetching, please deactivate Adblock for this page and reload the page (there are no ads on this demo page) Thank you!
           </p>
           </div>
           </div> }
