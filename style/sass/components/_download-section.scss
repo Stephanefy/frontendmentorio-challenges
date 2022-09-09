@@ -11,25 +11,27 @@
         margin: 2rem auto 2rem auto;
 
         h1 {
-            font-size: 45px;
+            font-size: 32px;
             text-align: center;
             margin: 2rem auto;
         }
         p{
-            width: 50%;
+            
             font-size: 18px;
-            margin: auto;
+            padding: 2em 2em;
+            margin: 0 auto 4em auto;
             text-align: center;
             color: $grayish_blue;
         }
     }
 
     .download--section__cards {
-        width: 100%;
-        height: 45vh;
+        height: 60vh;
         display: flex;
+        flex-direction: column;
         justify-content: center;
-        margin: 2rem 0;
+        align-items: center;
+        margin: 6rem auto;
 
         
 
@@ -37,8 +39,9 @@
             height: 300px;
             width: 250px;
             padding: 1rem 0;
-            margin: 0 1em;
+            margin: 1em 0;
             box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+            border-radius: 10px;
         }
         div {
             p {
@@ -104,3 +107,119 @@
         }
     }
 }
+
+
+
+
+
+@media screen and (min-width: 868px) {
+
+    .download--section {
+        margin: 2rem auto;
+        max-width: 1440px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+    
+        .download--section__text {
+            width: 100%;
+            margin: 2rem auto 2rem auto;
+    
+            h1 {
+                font-size: 45px;
+                text-align: center;
+                margin: 2rem auto;
+            }
+            p{
+                width: 50%;
+                font-size: 18px;
+                margin: auto;
+                text-align: center;
+                color: $grayish_blue;
+            }
+        }
+    
+        .download--section__cards {
+            width: 100%;
+            height: 45vh;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            margin: 2rem 0;
+    
+            
+    
+            & > div {
+                height: 300px;
+                width: 250px;
+                padding: 1rem 0;
+                margin: 0 1em;
+                box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+            }
+            div {
+                p {
+                    color: $grayish_blue;
+                }
+            }
+    
+            .download--section__chrome {
+                align-self: flex-start;
+    
+                div {
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+    
+                    div {
+                        width: 100%;
+                        margin: 2rem 0 1.5rem 0 ;
+                        padding: 0;
+                        border-bottom: 6px dotted $grayish_blue_light;
+                    }
+                }
+    
+            }
+    
+            .download--section__firefox {
+                align-self: center;
+    
+                div {
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+    
+                    div {
+                        width: 100%;
+                        margin: 2rem 0 1.5rem 0 ;
+                        padding: 0;
+                        border-bottom: 6px dotted $grayish_blue_light;
+                    }
+                }
+            }
+            .download--section__opera {
+                align-self: flex-end;
+    
+                div {
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+    
+                    div {
+                        width: 100%;
+                        margin: 2rem 0 1.5rem 0 ;
+                        padding: 0;
+                        border-bottom: 6px dotted $grayish_blue_light;
+                    }
+                }
+            }
+        }
+    }
+}
+

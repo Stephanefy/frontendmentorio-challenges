@@ -1,9 +1,151 @@
-@media screen and (min-width: 768px) {
+.features--section {
+    margin: 2rem auto;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+
+    .features--section__text {
+        width: 100%;
+        margin: 2rem auto 2rem auto;
+
+
+        h2 {
+            font-size: 36px;
+            text-align: center;
+            margin: 2rem auto;
+        }
+        p{
+            width: 90%;
+            font-size: 18px;
+            margin: auto;
+            text-align: center;
+            color: $grayish_blue;
+        }
+    }
+
+    .tabs--selector__list {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        position: relative;
+        
+        div {
+            position: relative;
+            text-align: center;
+            border-top: solid 1px $grayish_blue_light;
+            border-bottom: solid 1px $grayish_blue_light;
+            
+
+            h3 {
+                margin: 1rem 1.5rem;
+                font-weight: 400;
+                font-size: 16px;
+
+                &:hover {
+                    color: $soft_red;
+                    cursor: pointer;
+                }
+
+            }
+
+        }
+
+        // &::after {
+        //     content: '';
+        //     width: calc(100% - 4%);
+        //     background-color: $grayish_blue_light;
+        //     height: 2px;
+        //     position: absolute;
+        //     bottom: 0;
+        // }
+        .tabs--selector__simple.active,
+        .tabs--selector__searching.active,
+        .tabs--selector__sharing.active {
+            width: 100%;
+
+            &::after {
+                content: '';
+                width: 100%;
+                background-color: $soft_red;
+                height: 3px;
+                position: absolute;
+                bottom: -1;
+                left: 0;
+                z-index: 99;
+                
+            }
+        }
+    }
+    .bookmark--tab,
+    .intelligent--search__tab,
+    .share--bookmarks__tab {
+        display: none;
+        
+    }
+
+    .bookmark--tab.active,
+    .intelligent--search__tab.active,
+    .share--bookmarks__tab.active {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin: 6rem auto;
+
+        img {
+            width: 350px;
+            height: 200px;
+            margin-left: 1em;
+            margin-bottom: 5rem;
+        }
+
+        .tab__cta {
+            margin: 1rem auto;
+            height: 100%;
+            flex-basis: 20%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+
+            & > * {
+                margin: 1em 0;
+            }
+
+            p {
+                color: $grayish_blue;
+                text-align: center;
+                width: 80%;
+            }
+        }
+    }
+
+
+    .tab--illustration__bg::after {
+        content:'';
+        border-top-right-radius: 60% 100%;
+        border-bottom-right-radius: 60% 100%;
+        position: absolute;
+        bottom: 360px;
+        left: 0;
+        z-index: -1;
+        width: 75%;
+        background-color: $soft_blue;
+        height: 250px;
+    }
+
+
+}
+
+
+
+
+@media screen and (min-width: 868px) {
     .features--section {
         margin: 2rem auto;
         max-width: 1440px;
-        display: flex;
-        flex-direction: column;
         align-items: center;
         position: relative;
 
@@ -28,14 +170,14 @@
 
         .tabs--selector__list {
             width: 50%;
-            display: flex;
+            flex-direction: row;
             justify-content: space-around;
             position: relative;
             
             div {
                 position: relative;
                 text-align: center;
-                
+                border: none;
 
                 h3 {
                     margin: 2rem 1.5rem;
@@ -61,6 +203,8 @@
             .tabs--selector__simple.active,
             .tabs--selector__searching.active,
             .tabs--selector__sharing.active {
+                width: 35%;
+
                 &::after {
                     content: '';
                     width: 100%;
@@ -85,12 +229,15 @@
         .intelligent--search__tab.active,
         .share--bookmarks__tab.active {
             display: flex;
+            flex-direction: row;
             justify-content: space-between;
             margin: 6rem auto;
 
             img {
-                flex-basis: 42%;
-                margin-left: 6rem;
+                flex-basis: 45%;
+                margin-left: 0;
+                margin-bottom: 0;
+                height: 350px;
             }
 
             .tab__cta {
@@ -107,6 +254,7 @@
                 }
 
                 p {
+                    text-align: left;
                     color: $grayish_blue;
                     width: 130%;
                 }

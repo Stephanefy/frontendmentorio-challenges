@@ -11,6 +11,7 @@
 .blue--btn {
     background-color: $soft_blue;
 
+
     &:hover {
         background-color: #fff;
         border: 1px solid $soft_blue;
@@ -20,7 +21,10 @@
 }
 
 .gray--btn {
-    background-color: $grayish_blue;
+    background-color: #f3f3f3;
+    color: $grayish_blue;
+    box-shadow: -2px 8px 8px 1px rgba(0,0,0,0.2);
+
 
     &:hover {
         background-color: #fff;

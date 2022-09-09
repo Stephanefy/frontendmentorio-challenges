@@ -5,10 +5,21 @@ const faqQuestionsList = document.querySelectorAll('.faq--section__arrow');
 const bookmarkTab = document.querySelector('.bookmark--tab');
 const intelligentSearchTab = document.querySelector('.intelligent--search__tab');
 const shareBookmarsTab = document.querySelector('.share--bookmarks__tab');
+const emailForm = document.querySelector('.footer--email__input--container');
+const emailInput = document.querySelector('.footer--email__input');
+const emailErrorSmall = document.querySelector('.email--error');
 
-
+// transform selected HTMLCollection to array
 const tabsSelectorsArray = Array.from(tabsList.children);
 const faqQuestionsArray = Array.from(faqQuestionsList);
+
+
+const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/
+
+//errors
+
+const emailError = "Whoops make sure it's an email";
+const emptyStringError = "Whoops it looks like you forgot to add your email";
 
 
 // global state
@@ -106,6 +117,35 @@ faqQuestionsArray.forEach((btn, index, arr) => {
 })
 
 
+// email validation 
+emailInput.addEventListener('keyup', (e) => {
+
+    console.log(emailRegex.test(e.target.value))
+    console.log(e.target.value)
+    
+        if(!emailRegex.test(e.target.value)) {
+            e.target.value !== "" && showError('email');
+        } else {
+            resetError()
+        }
+})
+
+emailForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+
+    if(e.target.value === undefined) {
+        showError('empty')
+
+        setTimeout(() => {
+            resetError()
+        }, 1500)
+    }
+})
+
+
+
+
 
 // utils functions
 
@@ -130,5 +170,21 @@ function closeFaqAnswer(element) {
     element.firstElementChild.setAttribute('transform', '');
     element.firstElementChild.firstChild.attributes.getNamedItem('stroke').value = '#5267DF';
     element.parentNode.parentNode.classList.remove('active');
+
+}
+
+function showError(errorType) {
+    emailInput.classList.add('error');
+    emailErrorSmall.style.display = 'block';
+
+    errorType === "email" && (emailErrorSmall.textContent = emailError);
+    errorType === "empty" && (emailErrorSmall.textContent = emptyStringError);
+}
+
+
+function resetError() {
+    emailInput.classList.remove('error');
+    emailInput.blur();
+    emailErrorSmall.style.display = 'none';
 
 }
