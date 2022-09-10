@@ -134,12 +134,10 @@
 }
 
 
-
-
-@media screen and (min-width: 868px) {
+@media screen and (min-width: 920px) {
     .features--section {
         margin: 2rem auto;
-        max-width: 1440px;
+        width: 1070px;
         align-items: center;
         position: relative;
 
@@ -236,8 +234,9 @@
 
             .tab__cta {
                 margin: auto;
+                margin-left: 6rem;
                 height: 100%;
-                flex-basis: 20%;
+                flex-basis: 45%;
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
@@ -250,7 +249,146 @@
                 p {
                     text-align: left;
                     color: $grayish_blue;
-                    width: 130%;
+                    width: 100%;
+                }
+            }
+        }
+
+
+        .tab--illustration__bg::after {
+            content:'';
+            border-top-right-radius: 30% 100%;
+            border-bottom-right-radius: 30% 100%;
+            position: absolute;
+            bottom: 60px;
+            left: -500px;
+            z-index: -1;
+            width: 70%;
+            background-color: $soft_blue;
+            height: 330px;
+        }
+
+
+    }
+}
+
+
+
+@media screen and (min-width: 1450px) {
+    .features--section {
+        margin: 2rem auto;
+        width: 1440px;
+        align-items: center;
+        position: relative;
+
+        .features--section__text {
+            width: 100%;
+            margin: 2rem auto 2rem auto;
+
+
+            h2 {
+                font-size: 45px;
+                text-align: center;
+                margin: 2rem auto;
+            }
+            p{
+                width: 35%;
+                font-size: 18px;
+                margin: auto;
+                text-align: center;
+                color: $grayish_blue;
+            }
+        }
+
+        .tabs--selector__list {
+            width: 50%;
+            flex-direction: row;
+            justify-content: space-around;
+            position: relative;
+            
+            div {
+                position: relative;
+                text-align: center;
+                border: none;
+
+                h3 {
+                    margin: 2rem 1.5rem;
+                    font-weight: 400;
+
+                    &:hover {
+                        color: $soft_red;
+                        cursor: pointer;
+                    }
+    
+                }
+
+            }
+
+            &::after {
+                content: '';
+                width: calc(100% - 4%);
+                background-color: $grayish_blue_light;
+                height: 2px;
+                position: absolute;
+                bottom: 0;
+            }
+            .tabs--selector__simple.active,
+            .tabs--selector__searching.active,
+            .tabs--selector__sharing.active {
+                width: 35%;
+
+                &::after {
+                    content: '';
+                    width: 100%;
+                    background-color: $soft_red;
+                    height: 3px;
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    z-index: 99;
+                    
+                }
+            }
+        }
+        .bookmark--tab,
+        .intelligent--search__tab,
+        .share--bookmarks__tab {
+            display: none;
+            
+        }
+
+        .bookmark--tab.active,
+        .intelligent--search__tab.active,
+        .share--bookmarks__tab.active {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin: 6rem auto;
+
+            img {
+                flex-basis: 40%;
+                margin-left: 0;
+                margin-bottom: 0;
+                height: 350px;
+            }
+
+            .tab__cta {
+                margin: auto;
+                height: 100%;
+                flex-basis: 45%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: flex-start;
+
+                & > * {
+                    margin: 1em 0;
+                }
+
+                p {
+                    text-align: left;
+                    color: $grayish_blue;
+                    width: 70%;
                 }
             }
         }
