@@ -2,12 +2,17 @@
 const tabsList = document.querySelector('.tabs--selector__list');
 const faqQuestionsList = document.querySelectorAll('.faq--section__arrow');
 
+const header = document.getElementsByTagName('header');
 const bookmarkTab = document.querySelector('.bookmark--tab');
 const intelligentSearchTab = document.querySelector('.intelligent--search__tab');
 const shareBookmarsTab = document.querySelector('.share--bookmarks__tab');
 const emailForm = document.querySelector('.footer--email__input--container');
 const emailInput = document.querySelector('.footer--email__input');
 const emailErrorSmall = document.querySelector('.email--error');
+const hamburgerIcon = document.querySelector('.hamburger--icon');
+const backdrop = document.querySelector('.backdrop');
+const mobileMenu = document.querySelector('.mobile--menu');
+const headerLogo = document.querySelector('.header--logo');
 
 // transform selected HTMLCollection to array
 const tabsSelectorsArray = Array.from(tabsList.children);
@@ -114,6 +119,22 @@ faqQuestionsArray.forEach((btn, index, arr) => {
         }
        
     })
+})
+
+
+// hamburger button listener
+hamburgerIcon.addEventListener('click', (e) => {
+
+
+    e.target.children[0].classList.toggle('active');
+    e.target.children[1].classList.toggle('active');
+    e.target.children[2].classList.toggle('active');
+    
+    backdrop.classList.toggle('active');
+    mobileMenu.classList.toggle('active');
+    headerLogo.classList.toggle('active');
+    
+    header[0].classList.toggle('mobile--menu__open')
 })
 
 

@@ -1,13 +1,114 @@
 header {
-  padding: 2rem;
+  padding: 1rem;
+  z-index: 99;
+}
+header.mobile--menu__open {
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+header.mobile--menu__open nav {
+  display: flex;
+  justify-content: space-between;
+  width: 88%;
+}
+header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  margin-bottom: auto;
+  height: 100%;
+  width: 95%;
+}
+header nav div {
+  display: flex;
+  align-items: center;
+}
+header nav div svg {
+  z-index: 99;
+}
+header nav div svg path {
+  z-index: 99;
+}
+header nav div .header--logo.active .bookmark {
+  fill: #242A45;
+}
+header nav div .header--logo.active circle {
+  fill: #fff;
+}
+header nav div .header--logo.active path {
+  fill: #fff;
 }
 header nav ul {
   display: none;
 }
+header nav .hamburger--icon {
+  display: flex;
+  flex-direction: column;
+  background-color: transparent;
+  border: none;
+  z-index: 99;
+  position: relative;
+  cursor: pointer;
+}
+header nav .hamburger--icon .line1, header nav .hamburger--icon .line2, header nav .hamburger--icon .line3 {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: black;
+  margin-bottom: 0.3em;
+  transition: all 0.3s ease-in-out;
+  pointer-events: none;
+}
+header nav .hamburger--icon .line1 {
+  position: absolute;
+  transform-origin: center;
+  transform: rotate(0);
+  right: -3px;
+  top: -3px;
+}
+header nav .hamburger--icon .line2 {
+  transform: translate(3px, 3px);
+}
+header nav .hamburger--icon .line3 {
+  position: absolute;
+  transform-origin: center;
+  transform: rotate(0);
+  right: -3px;
+  top: 10px;
+}
+header nav .hamburger--icon .line1.active {
+  position: absolute;
+  background-color: #fff;
+  transform-origin: center;
+  transform: rotate(45deg);
+  right: -3px;
+  top: 5px;
+}
+header nav .hamburger--icon .line2.active {
+  background-color: #fff;
+  transform: translate(100%, 3px);
+  opacity: 0;
+}
+header nav .hamburger--icon .line3.active {
+  background-color: #fff;
+  position: absolute;
+  transform-origin: center;
+  transform: rotate(-45deg);
+  left: 3px;
+  top: 5px;
+}
+@media (min-width: 868px) {
+  header nav .hamburger--icon {
+    display: none;
+  }
+}
 
 @media screen and (min-width: 768px) {
   header {
-    width: 100%;
     height: 80px;
     margin-bottom: 2rem;
   }
@@ -36,6 +137,77 @@ header nav ul {
     color: hsl(0deg, 94%, 66%);
   }
 }
+.mobile--menu {
+  display: none;
+}
+
+.backdrop {
+  display: none;
+}
+
+.backdrop.active {
+  display: block;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #242A45;
+  opacity: 0.9;
+  z-index: 1;
+}
+
+.mobile--menu.active {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  z-index: 3;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.mobile--menu.active .nav--items__list__mobile {
+  width: 88%;
+  margin-top: 30%;
+}
+.mobile--menu.active .nav--items__list__mobile li:not(.list--item__mobile__login) {
+  width: 100%;
+  color: #fff;
+  list-style-type: none;
+  border-top: 1px solid #979797;
+  border-bottom: 1px solid #979797;
+  padding: 1.5rem 0;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.5rem;
+}
+.mobile--menu.active .nav--items__list__mobile li:not(.list--item__mobile__login) a {
+  color: white;
+  text-decoration: none;
+  text-align: center;
+}
+.mobile--menu.active .nav--items__list__mobile .list--item__mobile__login {
+  margin-top: 2em;
+  width: 100%;
+  color: #fff;
+  list-style-type: none;
+  border: 1px solid #fff;
+  padding: 1rem 0;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.5rem;
+  border-radius: 5px;
+}
+.mobile--menu.active .social--links__mobile {
+  display: flex;
+}
+.mobile--menu.active .social--links__mobile li {
+  list-style-type: none;
+  margin: 1em;
+}
+
 footer {
   height: 100%;
   background-color: hsl(231deg, 69%, 60%);
@@ -127,7 +299,7 @@ footer nav div svg path {
 footer nav ul li {
   list-style-type: none;
   margin: 2rem 1em;
-  letter-spacing: 0.3em;
+  letter-spacing: 1.5px;
 }
 footer nav ul li:hover {
   color: hsl(0deg, 94%, 66%);
@@ -135,10 +307,13 @@ footer nav ul li:hover {
 }
 footer nav .footer--nav__list li {
   margin: 2rem 2em;
+  text-transform: uppercase;
 }
 footer nav .social--links {
   display: flex;
   margin: auto;
+  width: 40%;
+  justify-content: space-between;
 }
 footer nav .social--links a {
   display: inline-block;
@@ -230,6 +405,7 @@ footer nav .social--links a svg path:hover {
     display: block;
     margin-top: auto;
     margin-left: 12%;
+    padding-left: 0;
   }
   footer nav div svg {
     display: inline-block;
@@ -254,7 +430,7 @@ footer nav .social--links a svg path:hover {
     margin: 2rem 2em;
   }
   footer nav .social--links {
-    margin-left: 39%;
+    justify-content: flex-start;
   }
   footer nav .social--links a {
     display: inline-block;
@@ -265,7 +441,7 @@ footer nav .social--links a svg path:hover {
 }
 .intro--section {
   width: 100%;
-  margin: 2rem 0;
+  padding: 3rem 0;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -345,10 +521,10 @@ footer nav .social--links a svg path:hover {
     border-top-left-radius: 45% 100%;
     border-bottom-left-radius: 45% 100%;
     position: absolute;
-    bottom: 0;
+    bottom: 20%;
     z-index: -1;
     right: -500px;
-    width: 70%;
+    width: 65%;
     background-color: hsl(231deg, 69%, 60%);
     height: 350px;
   }
@@ -433,8 +609,9 @@ footer nav .social--links a svg path:hover {
 .features--section .intelligent--search__tab.active img,
 .features--section .share--bookmarks__tab.active img {
   width: 350px;
-  height: 200px;
-  margin-left: 1em;
+  height: 230px;
+  margin-right: auto;
+  margin-left: auto;
   margin-bottom: 5rem;
 }
 .features--section .bookmark--tab.active .tab__cta,
@@ -465,10 +642,10 @@ footer nav .social--links a svg path:hover {
   border-top-right-radius: 60% 100%;
   border-bottom-right-radius: 60% 100%;
   position: absolute;
-  bottom: 360px;
+  bottom: 400px;
   left: 0;
   z-index: -1;
-  width: 75%;
+  width: 80%;
   background-color: hsl(231deg, 69%, 60%);
   height: 250px;
 }
@@ -592,7 +769,7 @@ footer nav .social--links a svg path:hover {
     bottom: 60px;
     left: -500px;
     z-index: -1;
-    width: 75%;
+    width: 70%;
     background-color: hsl(231deg, 69%, 60%);
     height: 330px;
   }
@@ -977,4 +1154,5 @@ footer nav .social--links a svg path:hover {
 body {
   font-family: "Rubik", sans-serif;
   overflow-x: hidden;
+  position: relative;
 }/*# sourceMappingURL=main.css.map */
