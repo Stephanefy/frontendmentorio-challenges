@@ -329,7 +329,7 @@ footer nav .social--links a svg path:hover {
   fill: hsl(0deg, 94%, 66%);
 }
 
-@media screen and (min-width: 868px) {
+@media screen and (min-width: 920px) {
   footer {
     max-width: 100%;
     background-color: hsl(231deg, 69%, 60%);
@@ -358,11 +358,18 @@ footer nav .social--links a svg path:hover {
     font-size: 22px;
   }
   footer div form {
-    width: 30%;
+    width: 40%;
     margin: auto;
     justify-content: center;
     flex-direction: row;
   }
+}
+@media screen and (min-width: 920px) and (min-width: 1450px) {
+  footer div form {
+    width: 30%;
+  }
+}
+@media screen and (min-width: 920px) {
   footer div form .footer--email__input--group {
     width: 100%;
     display: flex;
@@ -391,11 +398,15 @@ footer nav .social--links a svg path:hover {
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
   }
+}
+@media screen and (min-width: 920px) {
   footer div form .footer--btn {
     align-self: center;
     width: 40%;
-    margin-left: 2em;
+    margin-left: 1em;
   }
+}
+@media screen and (min-width: 920px) {
   footer nav {
     width: 100%;
     height: 20%;
@@ -1046,7 +1057,7 @@ footer nav .social--links a svg path:hover {
   border-bottom: 6px dotted hsl(229deg, 8%, 90%);
 }
 
-@media screen and (min-width: 868px) {
+@media screen and (min-width: 920px) {
   .download--section {
     margin: 2rem auto;
     max-width: 1440px;
@@ -1073,12 +1084,19 @@ footer nav .social--links a svg path:hover {
   }
   .download--section .download--section__cards {
     width: 100%;
-    height: 45vh;
+    height: 50vh;
     display: flex;
     flex-direction: row;
     justify-content: center;
     margin: 2rem 0;
   }
+}
+@media screen and (min-width: 920px) and (min-width: 1450px) {
+  .download--section .download--section__cards {
+    height: 45vh;
+  }
+}
+@media screen and (min-width: 920px) {
   .download--section .download--section__cards > div {
     height: 300px;
     width: 250px;
@@ -1086,9 +1104,13 @@ footer nav .social--links a svg path:hover {
     margin: 0 1em;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   }
+}
+@media screen and (min-width: 920px) {
   .download--section .download--section__cards div p {
     color: hsl(229deg, 8%, 60%);
   }
+}
+@media screen and (min-width: 920px) {
   .download--section .download--section__cards .download--section__chrome {
     align-self: flex-start;
   }
@@ -1105,6 +1127,8 @@ footer nav .social--links a svg path:hover {
     padding: 0;
     border-bottom: 6px dotted hsl(229deg, 8%, 90%);
   }
+}
+@media screen and (min-width: 920px) {
   .download--section .download--section__cards .download--section__firefox {
     align-self: center;
   }
@@ -1121,6 +1145,8 @@ footer nav .social--links a svg path:hover {
     padding: 0;
     border-bottom: 6px dotted hsl(229deg, 8%, 90%);
   }
+}
+@media screen and (min-width: 920px) {
   .download--section .download--section__cards .download--section__opera {
     align-self: flex-end;
   }

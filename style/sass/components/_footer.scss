@@ -149,7 +149,7 @@ footer {
 
 }
 
-@media screen and (min-width: 868px) {
+@media screen and (min-width: 920px) {
     footer {
         max-width: 100%;
         background-color: $soft_blue;
@@ -180,10 +180,14 @@ footer {
             }
     
             form {
-                width: 30%;
+                width: 40%;
                 margin: auto;
                 justify-content: center;
                 flex-direction: row;
+
+                @media screen and (min-width: 1450px) {
+                    width: 30%;
+                }
     
                 .footer--email__input--group {
                     width: 100%;
@@ -222,7 +226,7 @@ footer {
                 .footer--btn {
                     align-self: center;
                     width: 40%;
-                    margin-left: 2em;
+                    margin-left: 1em;
                 }
     
             }
