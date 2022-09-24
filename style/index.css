@@ -139,6 +139,13 @@ small{
     margin-bottom: 1em 0 0 0;
 }
 
+#card--number__group__title {
+    width: 100%;
+    font-size: 12px;
+    align-self: start;
+    letter-spacing: .2em
+}
+
 #card--number__inputs {
     display: flex;
     width: 100%;
@@ -214,7 +221,7 @@ label {
 }
 
 #cardholdername {
-    margin: 1em 0 0 0;
+    margin: .5em 0 0 0;
     padding: .8em 1em;
     border-radius: 5px;
     border: 1px solid var(--light-grayish-violet);
@@ -257,15 +264,15 @@ label {
 .exp--month-year__inputs {
     display: flex;
     justify-content: space-between;
-    margin-right: 1em;
     position: relative;
 }
 
 .exp--month-year__inputs input {
-    width: 100%;
+    margin-top: .5em;
+    width: 70%;
 }
 .exp--month-year__inputs div:nth-child(even) {
-    margin-left: .5em;
+    margin-left: -25px;
 }
 
 .exp-month-year__label {
@@ -283,11 +290,17 @@ label {
 .cvc__field {
     display: flex;
     position: relative;
+    width: 100%;
+}
+
+.cvc__field input {
+    margin-top: .5em;
+    width: 100%;
 }
 
 
 .cvc__field input {
-    width: 13em;
+    width: 100%;
 }
 
 
@@ -378,7 +391,7 @@ label {
 
     .card--front {
         position: relative;
-        left: 8%;
+        left: 15%;
         top: 20%;
         position: absolute;
         background-size: contain;
@@ -390,7 +403,7 @@ label {
 
     .card--back {
         position: relative;
-        left: 12%;
+        left: 20%;
         bottom: 24%;
         top: auto;
         position: absolute;
@@ -451,7 +464,7 @@ label {
 
     #card--number__inputs {
         display: flex;
-        margin: 1em 0 0 0;
+        margin: .5em 0 0 0;
         padding: .4em 1em;
         border: 1px solid var(--light-grayish-violet);
         border-radius: 5px;
@@ -488,7 +501,7 @@ label {
 
     .sidebar--gradient {
         height: auto;
-        width: 30%;
+        width: 45%;
     }
 
     .form--container {
