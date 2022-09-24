@@ -465,6 +465,11 @@ header {
   margin-bottom: 3rem;
 }
 
+a {
+  color: hsl(0deg, 0%, 41%);
+  text-decoration: none;
+}
+
 @media (min-width: 918px) {
   main {
     display: flex;
