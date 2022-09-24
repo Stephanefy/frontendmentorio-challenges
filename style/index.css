@@ -55,7 +55,7 @@ small{
 }
 
 h1 {
-    display: none;
+    visibility: hidden;
 }
 
 .error {
