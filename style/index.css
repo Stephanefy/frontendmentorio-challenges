@@ -160,6 +160,11 @@ card--number__error {
     margin-left: .1em;
     border: hidden
 }
+#card--number__inputs> div > label {
+    display: none;
+    height: 0;
+    width: 0;
+}
 
 
 .card--cardhodlername__container {
