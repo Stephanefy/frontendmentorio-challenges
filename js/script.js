@@ -98,7 +98,8 @@ cvcInput.addEventListener('keyup', (e) => {
     }  else {
         displayError(e.target, 'Enter a valid cvc')
     }
-    
+    reset()
+
 })
 
 form.addEventListener('submit', submit)
