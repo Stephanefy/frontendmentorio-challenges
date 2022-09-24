@@ -341,14 +341,14 @@ label {
     
     .card--front {
         left: 30%;
-        top: 20%;
+        top: 10%;
 
 
     }
 
     .card--back {
         left: 40%;
-        top: 3%;
+        top: 1%;
 
     }
 
