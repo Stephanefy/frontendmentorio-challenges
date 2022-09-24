@@ -32,9 +32,6 @@ main {
     height: 100vh;
 }
 
-input {
-    cursor: pointer;
-}
 
 input:hover {
     border-color: var(--very-dark-violet);
@@ -245,14 +242,49 @@ label {
     margin-right: px;
 }
 
+
+
 .card--details__cvc {
     width: 100%;
     margin-right: 0;
 }
 
-.exp-month-year__label {
-    display: block;
+.exp--month-year__inputs {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 1em;
+    position: relative;
 }
+
+.exp--month-year__inputs input {
+    width: 100%;
+}
+.exp--month-year__inputs div:nth-child(even) {
+    margin-left: .5em;
+}
+
+.exp-month-year__label {
+    width: 100%;
+}
+
+.expiry__error,
+.cvc__error {
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    color: red;
+}
+
+.cvc__field {
+    display: flex;
+    position: relative;
+}
+
+
+.cvc__field input {
+    width: 13em;
+}
+
 
 .confirm--btn {
     background-color: var(--very-dark-violet);

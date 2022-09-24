@@ -1,26 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
-  
+
   <title>Frontend Mentor | Interactive card details form</title>
   <link rel="stylesheet" href="/style/index.css">
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
 </head>
+
 <body>
   <main>
     <div class="card--front">
       <div class="card--body">
         <div class="card-avatar__container">
-            <span class="avatar"></span>
-            <span class="sub-avatar"></span>
+          <span class="avatar"></span>
+          <span class="sub-avatar"></span>
         </div>
         <div class="card-number__container">
           <span id="first-digits">0000</span>
@@ -31,10 +34,10 @@
         <div class="card--cardhodlername__container">
           <div id="card--cardholdername">JANE APPLESEED</div>
           <div>
-              <span class="card--month__display"></span>
-              <span>/</span>
-              <span class="card--year__display"></span>
-            </div>
+            <span class="card--month__display"></span>
+            <span>/</span>
+            <span class="card--year__display"></span>
+          </div>
 
         </div>
 
@@ -48,58 +51,79 @@
     <div class="sidebar--gradient">
     </div>
     <div class="form--container active">
-        <form id="card-details__signup">
-            <label for="cardholdername">CARDHOLDER NAME</label>
-            <input id="cardholdername" type="text" name="cardholdername" placeholder="e.g Jane Appleseed"  autocomplete="off"/>
-            <small></small>
-            <label for="cardnumber" >CARD NUMBER</label>
-            <div id="card--number__inputs">
-              <div class="form-fields">
-                <input id="first-digit-input"type="text" name="first-digit-input" placeholder="e.g. 1234" minlength="4" maxlength="4"  autocomplete="off"/>
-              </div>
-              <div class="form-fields">
-                <input id="second-digit-input"type="text" name="second-digit-input" placeholder=" 5678" minlength="4" maxlength="4"  autocomplete="off"/>
-              </div>
-              <div class="form-fields">
-                <input id="third-digit-input"type="text" name="third-digit-input" placeholder="9123" minlength="4" maxlength="4"  autocomplete="off"/>
-              </div>
-              <div class="form-fields">
-                <input id="fourth-digit-input"type="text" name="fourth-digit-input" placeholder="0000" minlength="4" maxlength="4"  autocomplete="off"/>
-              </div>
-              
-            </div>
-            <small></small>
-            <div class="card--details">
-              <div class="exp--month-year__inputs form-fields">
-                      <label class="exp-month-year__label">EXP.DATE MM/YY</label>
-                      <input id="month--input" type="text" minlength="2" maxlength="2" class="card--details__month" placeholder="MM" name="month"  autocomplete="off" />
-                      <input id="year--input" type="text" minlength="2" maxlength="2" class="card--details__year" placeholder="YY" name="year"  autocomplete="off" />
-                      <small class="expiry__error"></small>
-              </div>
-              <div class="cvc__field form-fields">
-                <label class="exp-month-year__label">CVC</label>
-                <input id="cvc__input" type="text" class="card--details__cvc" placeholder="e.g. 123" minlength="3" maxlength="3" autocomplete="off"/>
-                <small class="cvc__error"></small>
-              </div>
-            </div>
-            <button type="submit" class="confirm--btn">Confirm</button>
-        </form>
-        <div class="attribution">
-          Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-          Coded by <a href="#">StephaneFy</a>.
+      <form id="card-details__signup">
+        <label for="cardholdername">CARDHOLDER NAME</label>
+        <input id="cardholdername" type="text" name="cardholdername" placeholder="e.g Jane Appleseed"
+          autocomplete="off" />
+        <small></small>
+        <label for="cardnumber">CARD NUMBER</label>
+        <div id="card--number__inputs">
+          <div class="form-fields">
+            <input id="first-digit-input" type="text" name="first-digit-input" placeholder="e.g. 1234" minlength="4"
+              maxlength="4" autocomplete="off" />
+          </div>
+          <div class="form-fields">
+            <input id="second-digit-input" type="text" name="second-digit-input" placeholder=" 5678" minlength="4"
+              maxlength="4" autocomplete="off" />
+          </div>
+          <div class="form-fields">
+            <input id="third-digit-input" type="text" name="third-digit-input" placeholder="9123" minlength="4"
+              maxlength="4" autocomplete="off" />
+          </div>
+          <div class="form-fields">
+            <input id="fourth-digit-input" type="text" name="fourth-digit-input" placeholder="0000" minlength="4"
+              maxlength="4" autocomplete="off" />
+          </div>
+
         </div>
+        <small></small>
+        <div class="card--details">
+          <div class="exp--month-year__inputs form-fields">
+
+            <div>
+
+              <label class="exp-month-year__label">EXP.DATE</label>
+              <input id="month--input" type="text" minlength="2" maxlength="2" class="card--details__month"
+                placeholder="MM" name="month" autocomplete="off" />
+            </div>
+            <div>
+
+              <label class="exp-month-year__label">(MM/YY)</label>
+              <input id="year--input" type="text" minlength="2" maxlength="2" class="card--details__year"
+                placeholder="YY" name="year" autocomplete="off" />
+
+            </div>
+
+            <small class="expiry__error"></small>
+          </div>
+          <div class="cvc__field form-fields">
+            <div>
+              <label class="exp-month-year__label">CVC</label>
+              <input id="cvc__input" type="text" class="card--details__cvc" placeholder="e.g. 123" minlength="3"
+                maxlength="3" autocomplete="off" />
+            </div>
+            <small class="cvc__error"></small>
+          </div>
+        </div>
+        <button type="submit" class="confirm--btn">Confirm</button>
+      </form>
+      <div class="attribution">
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+        Coded by <a href="#">StephaneFy</a>.
+      </div>
     </div>
     <div class="form--completion__success">
-        <div class="form--completion__icon--container">
-              <img src="./images//icon-complete.svg" alt="complete-icon">
-        </div>
-        <div>
-            <h2>THANK YOU!</h2>
-            <p class="form--completion__message">We 've added your card details</p>
-            <button class="confirm--btn">Continue</button>
-        </div>
+      <div class="form--completion__icon--container">
+        <img src="./images//icon-complete.svg" alt="complete-icon">
+      </div>
+      <div>
+        <h2>THANK YOU!</h2>
+        <p class="form--completion__message">We 've added your card details</p>
+        <button class="confirm--btn">Continue</button>
+      </div>
     </div>
-  </main>  
+  </main>
   <script src="js/script.js"></script>
 </body>
+
 </html>

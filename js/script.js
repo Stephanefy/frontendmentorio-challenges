@@ -23,11 +23,13 @@ const secondDigits = document.getElementById('second-digits');
 const thirdDigits = document.getElementById('third-digits');
 const fourthDigits = document.getElementById('fourth-digits')
 const monthDisplay = document.querySelector('.card--month__display');
-const yearDisplay = document.querySelector('.card--year__display')
-const cvcDisplay = document.querySelector('.card--back__cvc--display')
+const yearDisplay = document.querySelector('.card--year__display');
+const cvcDisplay = document.querySelector('.card--back__cvc--display');
 
 
-
+// errors
+const expiryError = document.querySelector('.expiry__error');
+const cvcError = document.querySelector('.cvc__error');
 
 
 // event listeners
@@ -58,6 +60,8 @@ fourthDigitInput.addEventListener('keyup', (e) => {
 
 monthInput.addEventListener('keyup', (e) => {
 
+    console.log(e.target)
+
     if (isNumber(e.target.value)) {
         monthDisplay.textContent = e.target.value 
     }  else {
@@ -77,11 +81,11 @@ yearInput.addEventListener('keyup', (e) => {
     if (isNumber(e.target.value)) {
         yearDisplay.textContent = e.target.value
     }  else {
-        displayError(e.target, 'Enter a valid month')
+        displayError(e.target, 'Enter a valid year')
     }
         
     if (e.target.value > 12) {
-        displayError(e.target, 'Enter a valid month')
+        displayError(e.target, 'Enter a valid year')
     } 
 
     reset()
@@ -163,6 +167,9 @@ function reset() {
 
 function displayError(formInput, message) {
 
+
+    let error;
+
     const field = formInput.parentElement;
 
     field.classList.remove('success')
@@ -176,7 +183,15 @@ function displayError(formInput, message) {
         formInput.style.border = "1px solid var(--error-color)"
     }
 
-    const error = field.querySelector('small');
+    if (formInput.id === "month--input" || formInput.id === "year--input") {
+        error = expiryError
+    } else if (formInput.id === "cvc__input") {
+        error = cvcError
+    } else {
+        error = field.querySelector('small');
+    }
+
+
     error.textContent = message
 }
 
@@ -253,10 +268,9 @@ function checkExpiryDate() {
 
     const monthValue = monthInput.value
     const yearValue = yearInput.value
-    const cvcValue = cvcInput.value
 
 
-    const fieldValues = [monthValue, yearValue, cvcValue]
+    const fieldValues = [monthValue, yearValue]
 
 
     for (let v of fieldValues) {
