@@ -27,6 +27,18 @@ function App() {
       },3000)
   },[error])
 
+  useEffect(() => {
+
+    console.log(inputRef)
+
+    console.log(document.activeElement)
+
+    if (inputRef.current.focus()) {
+      inputRef.current.value = ''
+
+    }
+  },[inputRef.current])
+
 
   const handleSearch = (e) => {
 
@@ -34,9 +46,7 @@ function App() {
     // reset form data
     setIpData(null)
     setSearchParams(null)
-    setTimeout(() => {
-        inputRef.current.value = ''
-    }, 1000)
+
 
     if(!searchParams) {
       setError('Please enter a valid IP address or domain')

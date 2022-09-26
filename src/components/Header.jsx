@@ -55,25 +55,25 @@ function Header({ ipData, setSearchParams, handleSearch, error, inputRef, adBloc
             <AddressDetailsList>
                 <li>
                     <div>
-                        <h1>IP Address</h1>
+                        <h2>IP Address</h2>
                         <p>{ipData?.ip}</p>
                     </div>
                 </li>
                 <li>
                     <div>
-                        <h1>Location</h1>
+                        <h2>Location</h2>
                         <p>{ipData?.location?.country}{ipData?.location ? ' , ' : ''}{ipData?.location?.region}</p>
                     </div>
                 </li>
                 <li>
                     <div>
-                        <h1>TimeZone</h1>
-                        <p>{ipData?.location?.timezone}</p>
+                        <h2>Timezone</h2>
+                        <p>{ipData?.location?.timezone && 'UTC '} {ipData?.location?.timezone}</p>
                     </div>
                 </li>
                 <li>
                     <div>
-                        <h1>ISP</h1>
+                        <h2>ISP</h2>
                         <p>{ipData?.isp}</p>
                     </div>
                 </li>
@@ -192,9 +192,10 @@ const AddressDetailsList = styled.ul`
 
 
         div {
-            h1 {
-                font-size: 14px;
+            h2 {
+                font-size: 10px;
                 color: hsl(0, 0%, 59%);
+                text-transform: capitalize;
 
             }
             p {
@@ -248,13 +249,13 @@ const AddressDetailsList = styled.ul`
             flex-direction: column ;
             align-items: start ;
 
-            h1 {
+            h2 {
                 text-align: left ;
                 font-size: 1em;
             }
             p {
                 width: 100% ;
-                font-size: 18px;
+                font-size: 24px;
                 font-weight: bold;
             }
         }
