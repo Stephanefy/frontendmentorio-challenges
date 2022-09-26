@@ -57,7 +57,7 @@ function App() {
 
   return (
     <div className='h-auto w-full bg-[url("../assets/background-stars.svg")] bg-[#070724] overflow-x-hidden overflow-y-hidden'>
-      <NavBar handleSelectPlanet={handleSelectPlanet}/>
+      <NavBar handleSelectPlanet={handleSelectPlanet} planetColors={planetColors}/>
       <Planet currentPlanet={currentPlanet}/>
     </div>
   )

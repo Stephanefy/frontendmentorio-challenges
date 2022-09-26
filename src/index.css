@@ -8,3 +8,12 @@
 .planet--features {
     border: 1px solid rgba(255, 255, 255, .2)
 }
+
+.mobile-tab {
+    border-bottom: 1px solid rgba(255, 255, 255, .2);
+}
+
+.planet-image {
+    width: 80%;
+    margin: auto;
+}

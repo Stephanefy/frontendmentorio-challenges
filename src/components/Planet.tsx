@@ -47,52 +47,57 @@ export default function Planet({currentPlanet} : PlanetProps) {
     return (
 
         <article className="w-full text-white h-full md:max-w-[1440px] mx-auto overflow-x-hidden">
+            <ul className="mobile-tab md:hidden flex my-3 justify-around w-full">
+                    <li><button className={`mobile-tab-item w-full h-[48] uppercase my-2 py-3 flex justify-between font-['league_Spartan'] font-bold tracking-wider text-[12px]`}   onClick={() => setCurrentOpenedTab(0)}><span className='flex-1 text-left'>Overview</span></button></li>
+                    <li><button className={`w-full h-[48] uppercase my-2  py-3 flex justify-between font-['league_Spartan'] font-bold tracking-wider text-[12px]`}  onClick={() => setCurrentOpenedTab(1)}><span className='flex-1 text-left'>Internal Structure</span></button></li>
+                    <li><button className={`w-full h-[48] uppercase my-2  py-3 flex justify-between font-['league_Spartan'] font-bold tracking-wider text-[12px]`}  onClick={() => setCurrentOpenedTab(2)}><span className='flex-1 text-left'>Surface Geology</span></button></li>
+            </ul>
             <section className="w-full h-auto flex flex-col lg:flex-row justify-between items-center overflow-x-hidden  gap-64 mt-24 mb-0">
                 <div className="basis-5/6">
                     {
-                        currentOpenedTab === 0 && (<img src={currentPlanet?.images.planet} alt={currentPlanet?.name} className="mx-auto" />)
+                        currentOpenedTab === 0 && (<img src={currentPlanet?.images.planet} alt={currentPlanet?.name} className="planet-image lg:mx-auto" />)
                     }
                     {
-                        currentOpenedTab === 1 && (<img src={currentPlanet?.images.internal} alt={currentPlanet?.name} className="mx-auto" />)
+                        currentOpenedTab === 1 && (<img src={currentPlanet?.images.internal} alt={currentPlanet?.name} className="planet-image mx-auto" />)
                     }
                     {
                         currentOpenedTab === 2 && (
                             <div className="relative h-full w-full ">
-                                <img src={currentPlanet?.images.planet} alt={currentPlanet?.name} className="mx-auto" />
-                                <img src={currentPlanet?.images.geology} alt={currentPlanet?.name} className="absolute top-[60%] left-[42%]" width={130} />
+                                <img src={currentPlanet?.images.planet} alt={currentPlanet?.name} className="mx-auto planet-image" />
+                                <img src={currentPlanet?.images.geology} alt={currentPlanet?.name} className="absolute top-[60%] left-[29%] lg:left-[40%]" width={130} />
                             </div>
                         )
                     }
                 </div>
                 <div className="basis-6/6 lg:basis-4/6 flex lg:flex-col items-center justify-center lg:items-start">
-                    <div className='w-4/6'>
+                    <div className='w-12/12 text-center md:text-left md:w-7/12 '>
                         <h1 className="text-6xl uppercase my-3">{currentPlanet?.name}</h1>
-                        <p className="pr-32 lg:pr-0 lg:w-full my-4 ">{currentPlanet?.overview.content}</p>
+                        <p className="px-6 md:px-0 md:pr-32 lg:pr-0 lg:w-full my-4">{currentPlanet?.overview.content}</p>
 
                         <a href="#" className="my-8"><span className="text-custom_grey ">Source: </span>link</a>
                     </div>
-                    <ul className="my-3 lg:w-4/6">
-                    <li><button className={`tab w-56 lg:w-full h-[48] uppercase my-2 py-3 flex justify-between font-['league_Spartan'] font-bold tracking-wider text-[12px]`} style={{backgroundColor: `${currentOpenedTab === 0 ? currentPlanet?.color : 'transparent'}`}} onClick={() => setCurrentOpenedTab(0)}><span className='px-6'>01</span><span className='flex-1 text-left'>Overview</span></button></li>
-                    <li><button className={`tab w-56 lg:w-full h-[48] uppercase my-2  py-3 flex justify-between font-['league_Spartan'] font-bold tracking-wider text-[12px]`} style={{backgroundColor: `${currentOpenedTab === 1 ? currentPlanet?.color : 'transparent'}`}} onClick={() => setCurrentOpenedTab(1)}><span className='px-6'>02</span><span className='flex-1 text-left'>Internal Structure</span></button></li>
-                    <li><button className={`tab w-56 lg:w-full h-[48] uppercase my-2  py-3 flex justify-between font-['league_Spartan'] font-bold tracking-wider text-[12px]`} style={{backgroundColor: `${currentOpenedTab === 2 ? currentPlanet?.color : 'transparent'}`}} onClick={() => setCurrentOpenedTab(2)}><span className='px-6'>03</span><span className='flex-1 text-left'>Surface Geology</span></button></li>
+                    <ul className="hidden md:block my-3 w-4/12 lg:w-4/6">
+                    <li><button className={`tab w-full h-[48] uppercase my-2 py-3 flex justify-between font-['league_Spartan'] font-bold tracking-wider text-[12px]`} style={{backgroundColor: `${currentOpenedTab === 0 ? currentPlanet?.color : 'transparent'}`}} onClick={() => setCurrentOpenedTab(0)}><span className='px-6'>01</span><span className='flex-1 text-left'>Overview</span></button></li>
+                    <li><button className={`tab w-full h-[48] uppercase my-2  py-3 flex justify-between font-['league_Spartan'] font-bold tracking-wider text-[12px]`} style={{backgroundColor: `${currentOpenedTab === 1 ? currentPlanet?.color : 'transparent'}`}} onClick={() => setCurrentOpenedTab(1)}><span className='px-6'>02</span><span className='flex-1 text-left'>Internal Structure</span></button></li>
+                    <li><button className={`tab w-full h-[48] uppercase my-2  py-3 flex justify-between font-['league_Spartan'] font-bold tracking-wider text-[12px]`} style={{backgroundColor: `${currentOpenedTab === 2 ? currentPlanet?.color : 'transparent'}`}} onClick={() => setCurrentOpenedTab(2)}><span className='px-6'>03</span><span className='flex-1 text-left'>Surface Geology</span></button></li>
                     </ul>
                 </div>
 
             </section>
-            <section className="w-11/12 lg:w-full flex justify-between lg:mb-24 mt-32 overflow-x-hidden px-3 mx-auto">
-                <article className="planet--features border-2 border-white my-3 mx-3 p-6 pl-6 text-left w-72">
+            <section className="max-w-3xl lg:max-w-none lg:w-full flex flex-col md:flex-row justify-between lg:mb-24 mt-32 overflow-x-hidden px-3 mx-auto">
+                <article className="planet--features flex justify-between items-center md:block border-2 border-white my-3 mx-auto md:mx-3 p-3 lg:p-6 text-left w-full md:w-72">
                     <h4 className="lg:text-lg">Rotation Time</h4>
                     <p className="text-2xl lg:text-4xl mt-2 uppercase">{currentPlanet?.rotation}</p>
                 </article>
-                <article className="planet--features border-2 border-white my-3 mx-3 p-6 pl-6 text-left w-72">
+                <article className="planet--features flex justify-between items-center md:block  border-2 border-white my-3 mx-auto md:mx-3 p-3 lg:p-6 text-left w-full md:w-72">
                     <h4 className="lg:text-lg">Revolution Time</h4>
                     <p className="text-2xl lg:text-4xl mt-2 uppercase">{currentPlanet?.revolution}</p>
                 </article>
-                <article className="planet--features border-2 border-white my-3 mx-3 p-6 pl-6 text-left w-72">
+                <article className="planet--features flex justify-between items-center md:block  border-2 border-white my-3 mx-auto md:mx-3 p-3 lg:p-6 text-left w-full md:w-72">
                     <h4 className="lg:text-lg">Radius</h4>
                     <p className="text-2xl lg:text-4xl mt-2 uppercase">{currentPlanet?.radius}</p>
                 </article>
-                <article className="planet--features border-2 border-white my-3 mx-3 p-6 pl-6 text-left w-72">
+                <article className="planet--features flex justify-between items-center md:block  border-2 border-white my-3 mx-auto md:mx-3 p-3 lg:p-6 text-left w-full md:w-72">
                     <h4 className="lg:text-lg">Average Temp</h4>
                     <p className="text-2xl lg:text-4xl mt-2 uppercase">{currentPlanet?.temperature}</p>
                 </article>
