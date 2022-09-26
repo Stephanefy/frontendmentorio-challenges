@@ -135,7 +135,7 @@
 
     }
     @media (min-width: $breakpoint-desktop) {
-        height: 20vh;
+        height: 23vh;
         align-items: flex-start;
         justify-content: stretch;
         margin-top: 0;
@@ -149,19 +149,19 @@
 
         h1 {
             width: 100%;
-            font-size: 64px;
+            font-size: 72px;
             text-align: left;
             margin-top: 0;
         }
 
         p {
-            width: 75%;
+            width: 100%;
             text-align: left;
         }
         .hero--sponsor {
             margin-bottom: 0;
             margin-left: 0;
-            margin-top: 6rem;
+            margin-top: 7.5rem;
             text-align: left;
             display: flex;
             justify-content: flex-start;

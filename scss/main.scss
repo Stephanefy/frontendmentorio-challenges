@@ -28,6 +28,10 @@ header {
 a {
     color: $medium-gray;
     text-decoration: none;
+
+    &:hover {
+        color: $almost-black;
+    }             
 }
 
 
