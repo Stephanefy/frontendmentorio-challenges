@@ -30,11 +30,12 @@ main {
     flex-direction: column;
     position: relative;
     height: 100vh;
+
 }
 
 
 input:hover {
-    border-color: var(--very-dark-violet);
+    outline: 1px solid var(--very-dark-violet);
 }
 
 input::placeholder {
@@ -46,6 +47,12 @@ input:focus {
     outline: 1px solid var(--secondary-color);
 }
 
+input {
+    transition: outline 2s ease-in-out;
+}
+
+
+
 small{
     display: inline;
     font-size: 10px;
@@ -55,8 +62,7 @@ small{
 }
 
 h1 {
-    visibility: hidden;
-    width: 0;
+    display: none;
 }
 
 .error {
@@ -148,7 +154,8 @@ h1 {
     width: 100%;
     font-size: 12px;
     align-self: start;
-    letter-spacing: .2em
+    letter-spacing: .2em;
+    font-weight: 400
 }
 
 #card--number__inputs {
@@ -198,6 +205,7 @@ card--number__error {
 
 .form--container{
     display: none;
+
 }
 
 .form--container.active {
@@ -207,6 +215,8 @@ card--number__error {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+
+
 }
 
 form {
@@ -216,13 +226,17 @@ form {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    animation: 1s ease-out 0s 1 slideIn;
+
+
 }
 
 label {
     width: 100%;
     font-size: 12px;
     align-self: start;
-    letter-spacing: .2em
+    letter-spacing: .2em;
+    font-weight: 400
 }
 
 #cardholdername {
@@ -521,7 +535,7 @@ label {
 
     form {
         margin: 0;
-        width: 35%;
+        width: 40%;
         flex-basis: 800px;
         display: flex;
         flex-direction: column;
@@ -535,6 +549,10 @@ label {
         border-radius: 5px;
         border: 1px solid var(--light-grayish-violet);
         width: 100%;
+    }
+
+    form > input:hover {
+        border-color: var--(dark-grayish-violet);
     }
 
 
@@ -596,5 +614,16 @@ label {
     .form--completion__success.active {
         height: 100vh;
         margin: 0;
+    }
+}
+
+
+
+@keyframes slideIn {
+    0% {
+        transform: translateY(-100);
+    }
+    100% {
+        transform: translateY(100);
     }
 }
