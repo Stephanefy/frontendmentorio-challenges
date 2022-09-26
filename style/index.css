@@ -524,13 +524,17 @@ label {
 
     .sidebar--gradient {
         height: auto;
-        width: 45%;
+        width: 35%;
     }
 
     .form--container {
         width: 100%;
         align-items: center;
         justify-content: center;
+    }
+
+    .form--container.active {
+        width: 70%
     }
 
     form {
