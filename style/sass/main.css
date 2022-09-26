@@ -977,7 +977,7 @@ footer nav .social--links a svg path:hover {
   width: 100%;
   margin: 2rem auto 2rem auto;
 }
-.download--section .download--section__text h1 {
+.download--section .download--section__text h2 {
   font-size: 32px;
   text-align: center;
   margin: 2rem auto;
@@ -1070,7 +1070,7 @@ footer nav .social--links a svg path:hover {
     width: 100%;
     margin: 2rem auto 2rem auto;
   }
-  .download--section .download--section__text h1 {
+  .download--section .download--section__text h2 {
     font-size: 45px;
     text-align: center;
     margin: 2rem auto;
@@ -1176,7 +1176,7 @@ footer nav .social--links a svg path:hover {
   width: 100%;
   margin: 2rem auto 2rem auto;
 }
-.faq--section .faq--section__text h1 {
+.faq--section .faq--section__text h2 {
   font-size: 32px;
   text-align: center;
   margin: 2rem auto;
@@ -1252,7 +1252,7 @@ footer nav .social--links a svg path:hover {
     width: 100%;
     margin: 2rem auto 2rem auto;
   }
-  .faq--section .faq--section__text h1 {
+  .faq--section .faq--section__text h2 {
     font-size: 45px;
     text-align: center;
     margin: 2rem auto;
