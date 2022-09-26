@@ -36,6 +36,9 @@
 .red--btn {
     background-color: $soft_red;
 
+    &.login  {
+        text-transform: uppercase;
+    }
     &:hover {
         background-color: #fff;
         border: 1px solid $soft_red;

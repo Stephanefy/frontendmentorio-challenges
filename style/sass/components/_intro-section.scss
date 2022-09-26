@@ -16,6 +16,7 @@
             h1 {
                 font-size: 32px;
                 width: 100%;
+                font-weight: 500;
             }
 
             p {
@@ -60,7 +61,7 @@
         .intro--section {
             margin: auto;
             height: 100%;
-            width: 1070px;
+            width: 1100px;
             flex-direction: row;
             justify-content: center;
             align-items: center;
@@ -90,7 +91,7 @@
                 margin-bottom: 0;
                 img {
                     margin-left: 2rem;
-                    width: 600px;
+                    width: 579px;
                     height: auto;
                 }
             }
