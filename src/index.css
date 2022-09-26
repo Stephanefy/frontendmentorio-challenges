@@ -13,6 +13,12 @@
     border-bottom: 1px solid rgba(255, 255, 255, .2);
 }
 
+.text--grey  {
+    color: rgba(255, 255, 255, .5);
+    text-transform: uppercase;
+    letter-spacing: 0.727273px;
+}
+
 .planet-image {
     width: 80%;
     margin: auto;

@@ -3,7 +3,8 @@ import data from '../../data.json';
 
 interface NavBarProps {
   handleSelectPlanet: Function,
-  planetColors: string[]
+  planetColors: string[],
+  
 }
 
 
