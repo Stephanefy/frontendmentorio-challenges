@@ -643,6 +643,9 @@ footer nav .social--links a svg path:hover {
   margin: 1rem 1.5rem;
   font-weight: 400;
   font-size: 16px;
+  mix-blend-mode: normal;
+  opacity: 0.75;
+  color: #242A45;
 }
 .features--section .tabs--selector__list div h3:hover {
   color: hsl(0deg, 94%, 66%);
@@ -652,6 +655,11 @@ footer nav .social--links a svg path:hover {
 .features--section .tabs--selector__list .tabs--selector__searching.active,
 .features--section .tabs--selector__list .tabs--selector__sharing.active {
   width: 100%;
+}
+.features--section .tabs--selector__list .tabs--selector__simple.active h3,
+.features--section .tabs--selector__list .tabs--selector__searching.active h3,
+.features--section .tabs--selector__list .tabs--selector__sharing.active h3 {
+  color: black;
 }
 .features--section .tabs--selector__list .tabs--selector__simple.active::after,
 .features--section .tabs--selector__list .tabs--selector__searching.active::after,
@@ -757,7 +765,7 @@ footer nav .social--links a svg path:hover {
     color: hsl(229deg, 8%, 60%);
   }
   .features--section .tabs--selector__list {
-    width: 50%;
+    width: 60%;
     flex-direction: row;
     justify-content: space-around;
     position: relative;
@@ -770,6 +778,7 @@ footer nav .social--links a svg path:hover {
   .features--section .tabs--selector__list div h3 {
     margin: 2rem 1.5rem;
     font-weight: 400;
+    opacity: 0.75;
   }
   .features--section .tabs--selector__list div h3:hover {
     color: hsl(0deg, 94%, 66%);

@@ -45,6 +45,10 @@
                 margin: 1rem 1.5rem;
                 font-weight: 400;
                 font-size: 16px;
+                mix-blend-mode: normal;
+                opacity: 0.75;
+                color: #242A45;
+
 
                 &:hover {
                     color: $soft_red;
@@ -60,6 +64,11 @@
         .tabs--selector__searching.active,
         .tabs--selector__sharing.active {
             width: 100%;
+            
+            h3{
+                color: black;
+            }
+
 
             &::after {
                 content: '';
@@ -177,7 +186,7 @@
         }
 
         .tabs--selector__list {
-            width: 50%;
+            width: 60%;
             flex-direction: row;
             justify-content: space-around;
             position: relative;
@@ -190,6 +199,7 @@
                 h3 {
                     margin: 2rem 1.5rem;
                     font-weight: 400;
+                    opacity: 0.75;
 
                     &:hover {
                         color: $soft_red;
@@ -212,6 +222,7 @@
             .tabs--selector__searching.active,
             .tabs--selector__sharing.active {
                 width: 35%;
+
 
                 &::after {
                     content: '';
