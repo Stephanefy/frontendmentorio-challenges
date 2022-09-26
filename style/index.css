@@ -145,7 +145,7 @@ h1 {
     color: var(--main-white);
     font-size: 16px;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: space-between;
     margin-bottom: 1em 0 0 0;
 }
@@ -155,7 +155,8 @@ h1 {
     font-size: 12px;
     align-self: start;
     letter-spacing: .2em;
-    font-weight: 400
+    font-weight: 400;
+    margin-top: 1.5em;
 }
 
 #card--number__inputs {
@@ -285,6 +286,7 @@ label {
     display: flex;
     justify-content: space-between;
     position: relative;
+    margin-top: 1.5em;
 }
 
 .exp--month-year__inputs input {
@@ -311,6 +313,7 @@ label {
     display: flex;
     position: relative;
     width: 100%;
+    margin-top: 1.5em;
 }
 .cvc__field div{
     width: 100%;
@@ -481,7 +484,6 @@ label {
         color: var(--main-white);
         font-size: 24px;
         display: flex;
-        align-items: center;
         justify-content: space-between;
     }
 
@@ -621,6 +623,18 @@ label {
     }
 }
 
+@media screen and (min-width: 1500px) {
+    .card--front {
+        left: 15%;
+
+
+    }
+
+    .card--back {
+        left: 20%;
+
+    }
+}
 
 
 @keyframes slideIn {
