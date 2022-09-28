@@ -97,28 +97,28 @@ export default function Planet({ currentPlanet }: PlanetProps) {
                 <div className="basis-3/6 mx-10 md:mx-0 md:basis-5/6">
                     {currentOpenedTab === 0 && (
                         <img
-                            src={currentPlanet?.images.planet}
-                            alt={currentPlanet?.name}
+                            src={`../${currentPlanet?.images.planet}`}
+                            alt={`../${currentPlanet?.name}`}
                             className="lg:mx-auto"
                         />
                     )}
                     {currentOpenedTab === 1 && (
                         <img
-                            src={currentPlanet?.images.internal}
-                            alt={currentPlanet?.name}
+                        src={`../${currentPlanet?.images.internal}`}
+                        alt={`../${currentPlanet?.name}`}
                             className="mx-auto"
                         />
                     )}
                     {currentOpenedTab === 2 && (
                         <div className="relative h-full w-full z-10">
                             <img
-                                src={currentPlanet?.images.planet}
-                                alt={currentPlanet?.name}
+                                src={`../${currentPlanet?.images.planet}`}
+                                alt={`../${currentPlanet?.name}`}
                                 className="mx-auto"
                             />
                             <img
-                                src={currentPlanet?.images.geology}
-                                alt={currentPlanet?.name}
+                                src={`../${currentPlanet?.images.geology}`}
+                                alt={`../${currentPlanet?.name}`}
                                 className="absolute top-[60%] left-0 right-0 mx-auto"
                                 width={130}
                             />

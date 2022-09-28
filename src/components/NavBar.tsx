@@ -25,7 +25,7 @@ const NavBar = ({ handleSelectPlanet, planetColors }: NavBarProps) => {
 
 
   return (
-    <header className='tab mx-auto overflow-x-hidden'>
+    <header className='border-b-2 border-slate-600 mx-auto overflow-x-hidden'>
 
 
       <ul className={`z-50 absolute w-full h-full mt-24 bg-[#070724] left-0 ${mobileMenuOpen ? 'transform translate-x-0' : 'transform -translate-x-full'} lg:flex lg:mx-auto lg:items-center lg:w-auto lg:space-x-6`}>
@@ -47,7 +47,7 @@ const NavBar = ({ handleSelectPlanet, planetColors }: NavBarProps) => {
  
       </ul> 
   
-      <nav className='hidden max-w-[1440px] mx-auto md:flex flex-col lg:flex-row justify-between items-center overflow-x-hidden' aria-label="tablet-desktop-nav">
+      <nav className='hidden max-w-[1440px] mx-auto md:flex flex-col lg:flex-row justify-between items-center overflow-x-hidden py-3' aria-label="tablet-desktop-nav">
         <h2 className='text-white py-5 text-4xl uppercase'>The planets</h2>
         <ul className='flex lg:py-5 lg:pr-6 py-6'>
             {
@@ -57,7 +57,7 @@ const NavBar = ({ handleSelectPlanet, planetColors }: NavBarProps) => {
             }
         </ul>
       </nav>
-      <nav aria-label="mobile-nav" className='w-full flex items-center justify-between p-6'>
+      <nav aria-label="mobile-nav" className='md:hidden w-full flex items-center justify-between'>
       <div className="basis-3/6">
         <h2 className='md:hidden text-white py-5 text-4xl uppercase'>The planets</h2>
       </div>
