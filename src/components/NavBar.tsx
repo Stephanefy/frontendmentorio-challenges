@@ -47,7 +47,7 @@ const NavBar = ({ handleSelectPlanet, planetColors }: NavBarProps) => {
  
       </ul> 
   
-      <nav className='hidden max-w-[1440px] mx-auto md:flex flex-col lg:flex-row justify-between items-center overflow-x-hidden py-3' aria-label="tablet-desktop-nav">
+      <nav className='hidden lg:max-w-[1440px] mx-auto md:flex flex-col lg:flex-row justify-between items-center overflow-x-hidden py-3 px-3' aria-label="tablet-desktop-nav">
         <h2 className='text-white py-5 text-4xl uppercase'>The planets</h2>
         <ul className='flex lg:py-5 lg:pr-6 py-6'>
             {

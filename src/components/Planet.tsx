@@ -93,8 +93,8 @@ export default function Planet({ currentPlanet }: PlanetProps) {
                     </button>
                 </li>
             </ul>
-            <section className="w-full h-auto flex flex-col lg:flex-row justify-between items-center overflow-x-hidden gap-64 mt-24 mb-0 -z-10">
-                <div className="basis-3/6 mx-10 md:mx-0 md:basis-5/6">
+            <section className="lg:w-12/12 mx-2 h-auto flex flex-col lg:flex-row justify-center items-center overflow-x-hidden gap-32 mt-24 mb-0 -z-10">
+                <div className="basis-3/6 md:mx-auto lg:basis-6/6">
                     {currentOpenedTab === 0 && (
                         <img
                             src={`../${currentPlanet?.images.planet}`}
@@ -125,7 +125,7 @@ export default function Planet({ currentPlanet }: PlanetProps) {
                         </div>
                     )}
                 </div>
-                <div className="basis-6/6 lg:basis-4/6 flex lg:flex-col items-center justify-center lg:items-start">
+                <div className="basis-6/6 lg:basis-2/6 flex lg:flex-col items-center justify-center lg:items-start">
                     <div className="w-11/12 text-center md:text-left md:w-7/12 ">
                         <h1 className="text-6xl uppercase my-3">
                             {currentPlanet?.name}
@@ -164,7 +164,7 @@ export default function Planet({ currentPlanet }: PlanetProps) {
                             </svg>
                         </div>
                     </div>
-                    <ul className="hidden md:block my-3 w-4/12 lg:w-4/6">
+                    <ul className="hidden md:block my-3 w-4/12 lg:w-8/12 ">
                         <li>
                             <button
                                 className={`tab w-full h-[48] uppercase my-2 py-3 flex justify-between font-['league_Spartan'] font-bold tracking-wider text-[12px]`}
@@ -222,7 +222,7 @@ export default function Planet({ currentPlanet }: PlanetProps) {
                     </ul>
                 </div>
             </section>
-            <section className="max-w-3xl lg:max-w-none lg:w-full flex flex-col md:flex-row justify-between lg:mb-24 mt-32 overflow-x-hidden px-3 mx-auto mb-6">
+            <section className="max-w-3xl lg:max-w-none lg:w-10/12 flex flex-col md:flex-row justify-between lg:mb-24 mt-32 overflow-x-hidden px-3 mx-auto mb-6">
                 <article className="planet--features flex justify-between items-center md:block border-2 border-white my-1 md:my-3 mx-auto md:mx-3 p-3 lg:p-6 text-left w-11/12 md:w-72">
                     <h4 className="text--grey text-xs lg:text-lg">
                         Rotation Time
