@@ -28,14 +28,19 @@ const NavBar = ({ handleSelectPlanet, planetColors }: NavBarProps) => {
     <header className='tab mx-auto overflow-x-hidden'>
 
 
-      <ul className={`absolute w-full h-screen mt-24 bg-[#070724] left-0 ${mobileMenuOpen ? 'transform translate-x-0' : 'transform -translate-x-full'} lg:flex lg:mx-auto lg:items-center lg:w-auto lg:space-x-6`}>
+      <ul className={`z-50 absolute w-full h-full mt-24 bg-[#070724] left-0 ${mobileMenuOpen ? 'transform translate-x-0' : 'transform -translate-x-full'} lg:flex lg:mx-auto lg:items-center lg:w-auto lg:space-x-6`}>
         {
           data.map((planet, i) => (
-            <li className={`my-10 pb-6 border-b border-[#979797] mx-8 flex items-center cursor-pointer`} onClick={() => handleSelectPlanet(i)}>
+            <li className={`my-10 pb-6 border-b border-slate-800 mx-8 flex items-center justify-between cursor-pointer`} onClick={() => handleSelectPlanet(i)}>
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="10" cy="10" r="10" fill={`${planetColors[i]}`}/>
                 </svg>
-              <a className={`ml-6 text-2xl text-white hover:text-gray-500 tracking-[1.36364px]`} href="#" >{planet.name}</a></li>
+              <a className={`ml-6 text-2xl text-white hover:text-gray-500 tracking-[1.36364px]`} href="#" >{planet.name}</a>
+              <svg className='ml-auto' width="15" height="15" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path opacity="0.4" d="M1 1L5 5L1 9" stroke="white"/>
+              </svg>
+
+              </li>
 
           ))
         }
@@ -57,7 +62,7 @@ const NavBar = ({ handleSelectPlanet, planetColors }: NavBarProps) => {
         <h2 className='md:hidden text-white py-5 text-4xl uppercase'>The planets</h2>
       </div>
       <div className="md:hidden ml-auto">
-        <button className="navbar-burger flex items-center text-white p-3" onClick={handleMobileOpen}>
+        <button className={`navbar-burger flex items-center text-white ${mobileMenuOpen ? "opacity-25" : "opacity-100"} p-3`} onClick={handleMobileOpen}>
           <svg className="block h-8 w-8 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
             <title>Mobile menu</title>
             <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
