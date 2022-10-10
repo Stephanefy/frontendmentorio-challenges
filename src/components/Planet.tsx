@@ -126,10 +126,10 @@ export default function Planet({ currentPlanet }: PlanetProps) {
                 </div>
                 <div className="basis-6/6 lg:basis-2/6 flex lg:flex-col items-center justify-center lg:items-start">
                     <div className="w-11/12 text-center md:text-left md:w-9/12 ">
-                        <h1 className="text-6xl uppercase my-3">
+                        <h1 className="text-[80px] uppercase my-3">
                             {currentPlanet?.name}
                         </h1>
-                        <p className="px-6 md:px-0 md:pr-32 lg:pr-0 lg:w-full my-4 font-spartan opacity-80">
+                        <p className="px-6 text-[14px] md:px-0 md:pr-32 lg:pr-0 lg:w-full my-4 font-spartan opacity-80">
                             {currentPlanet?.overview.content}
                         </p>
                         <div className="flex justify-center md:justify-start items-center gap-2">

@@ -52,7 +52,7 @@ const NavBar = ({ handleSelectPlanet, planetColors }: NavBarProps) => {
         <ul className='flex lg:py-5 lg:pr-6 py-6'>
             {
                 data.map((planet, i) => (
-                    <li key={planet.name} className="text-white mx-3 max-w-2xl lg:mx-6 uppercase tracking-widest font-bold font-spartan opacity-80 cursor-pointer" onClick={() => handleSelectPlanet(i)}>{planet.name}</li>
+                    <li key={planet.name} className="text-white text-[11px] mx-3 max-w-2xl lg:mx-6 uppercase tracking-widest font-bold font-spartan opacity-80 cursor-pointer" onClick={() => handleSelectPlanet(i)}>{planet.name}</li>
                 ))
             }
         </ul>
