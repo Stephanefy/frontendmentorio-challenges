@@ -33,10 +33,9 @@ interface PlanetProps {
 export default function Planet({ currentPlanet }: PlanetProps) {
     const [currentOpenedTab, setCurrentOpenedTab] = useState<number>(0)
 
-    console.log('current opened tab', currentOpenedTab)
 
     return (
-        <article className="w-full text-white h-screen md:h-full md:max-w-[1440px] mx-auto overflow-x-hidden">
+        <article className="w-full text-white md:h-full md:max-w-[1440px] mx-auto overflow-x-hidden">
             <ul className="mobile-tab md:hidden flex my-3 justify-around w-full">
                 <li
                     className="w-2/6"
@@ -126,15 +125,15 @@ export default function Planet({ currentPlanet }: PlanetProps) {
                     )}
                 </div>
                 <div className="basis-6/6 lg:basis-2/6 flex lg:flex-col items-center justify-center lg:items-start">
-                    <div className="w-11/12 text-center md:text-left md:w-7/12 ">
+                    <div className="w-11/12 text-center md:text-left md:w-9/12 ">
                         <h1 className="text-6xl uppercase my-3">
                             {currentPlanet?.name}
                         </h1>
-                        <p className="px-6 md:px-0 md:pr-32 lg:pr-0 lg:w-full my-4">
+                        <p className="px-6 md:px-0 md:pr-32 lg:pr-0 lg:w-full my-4 font-spartan opacity-80">
                             {currentPlanet?.overview.content}
                         </p>
                         <div className="flex justify-center md:justify-start items-center gap-2">
-                            <a
+                            <a  
                                 href={`
                                 ${
                                     currentOpenedTab === 0
@@ -144,9 +143,9 @@ export default function Planet({ currentPlanet }: PlanetProps) {
                                         : currentPlanet?.geology.source
                                 }
                             `}
-                                className="my-8"
+                                className="my-8 font-spartan opacity-50"
                             >
-                                <span className="text-custom_grey ">
+                                <span className="text-custom_grey font-spartan">
                                     Source:{' '}
                                 </span>
                                 Wikipedia
@@ -164,10 +163,10 @@ export default function Planet({ currentPlanet }: PlanetProps) {
                             </svg>
                         </div>
                     </div>
-                    <ul className="hidden md:block my-3 w-4/12 lg:w-8/12 ">
+                    <ul className="hidden md:block my-3 w-4/12 lg:w-9/12 ">
                         <li>
                             <button
-                                className={`tab w-full h-[48] uppercase my-2 py-3 flex justify-between font-['league_Spartan'] font-bold tracking-wider text-[12px]`}
+                                className={`tab w-full h-[48] uppercase my-2 py-3 flex justify-between font-spartan  font-bold tracking-wider text-[12px]`}
                                 style={{
                                     backgroundColor: `${
                                         currentOpenedTab === 0
@@ -177,7 +176,7 @@ export default function Planet({ currentPlanet }: PlanetProps) {
                                 }}
                                 onClick={() => setCurrentOpenedTab(0)}
                             >
-                                <span className="px-6">01</span>
+                                <span className="px-6 opacity-70">01</span>
                                 <span className="flex-1 text-left">
                                     Overview
                                 </span>
@@ -185,7 +184,7 @@ export default function Planet({ currentPlanet }: PlanetProps) {
                         </li>
                         <li>
                             <button
-                                className={`tab w-full h-[48] uppercase my-2  py-3 flex justify-between font-['league_Spartan'] font-bold tracking-wider text-[12px]`}
+                                className={`tab w-full h-[48] uppercase my-2  py-3 flex justify-between font-spartan font-bold tracking-wider text-[12px]`}
                                 style={{
                                     backgroundColor: `${
                                         currentOpenedTab === 1
@@ -195,7 +194,7 @@ export default function Planet({ currentPlanet }: PlanetProps) {
                                 }}
                                 onClick={() => setCurrentOpenedTab(1)}
                             >
-                                <span className="px-6">02</span>
+                                <span className="px-6 opacity-70">02</span>
                                 <span className="flex-1 text-left">
                                     Internal Structure
                                 </span>
@@ -203,7 +202,7 @@ export default function Planet({ currentPlanet }: PlanetProps) {
                         </li>
                         <li>
                             <button
-                                className={`tab w-full h-[48] uppercase my-2  py-3 flex justify-between font-['league_Spartan'] font-bold tracking-wider text-[12px]`}
+                                className={`tab w-full h-[48] uppercase my-2  py-3 flex justify-between font-spartan  font-bold tracking-wider text-[12px]`}
                                 style={{
                                     backgroundColor: `${
                                         currentOpenedTab === 2
@@ -213,7 +212,7 @@ export default function Planet({ currentPlanet }: PlanetProps) {
                                 }}
                                 onClick={() => setCurrentOpenedTab(2)}
                             >
-                                <span className="px-6">03</span>
+                                <span className="px-6 opacity-70">03</span>
                                 <span className="flex-1 text-left">
                                     Surface Geology
                                 </span>
@@ -223,30 +222,30 @@ export default function Planet({ currentPlanet }: PlanetProps) {
                 </div>
             </section>
             <section className="max-w-3xl lg:max-w-none lg:w-10/12 flex flex-col md:flex-row justify-between lg:mb-24 mt-32 overflow-x-hidden px-3 mx-auto mb-6">
-                <article className="planet--features flex justify-between items-center md:block border-2 border-white my-1 md:my-3 mx-auto md:mx-3 p-3 lg:p-6 text-left w-11/12 md:w-72">
-                    <h4 className="text--grey text-xs lg:text-lg">
+                <article className="planet--features flex justify-between items-center md:block border-2 border-white my-1 md:my-3 mx-auto md:mr-1  p-3 lg:p-6 text-left w-11/12 lg:w-72">
+                    <h4 className="text--grey text-xs lg:text-sm font-bold font-spartan">
                         Rotation Time
                     </h4>
                     <p className="text-2xl lg:text-4xl mt-2 uppercase">
                         {currentPlanet?.rotation}
                     </p>
                 </article>
-                <article className="planet--features flex justify-between items-center md:block  border-2 border-white my-1 md:my-3 mx-auto md:mx-3 p-3 lg:p-6 text-left w-11/12 md:w-72">
-                    <h4 className="text--grey text-xs lg:text-lg">
+                <article className="planet--features flex justify-between items-center md:block  border-2 border-white my-1 md:my-3 mx-auto md:mx-1 lg:mx-3 p-3 lg:p-6 text-left w-11/12 lg:w-72">
+                    <h4 className="text--grey text-xs lg:text-sm font-spartan font-bold">
                         Revolution Time
                     </h4>
                     <p className="text-2xl lg:text-4xl mt-2 uppercase">
                         {currentPlanet?.revolution}
                     </p>
                 </article>
-                <article className="planet--features flex justify-between items-center md:block  border-2 border-white my-1 md:my-3 mx-auto md:mx-3 p-3 lg:p-6 text-left w-11/12 md:w-72">
-                    <h4 className="text--grey text-xs lg:text-lg">Radius</h4>
+                <article className="planet--features flex justify-between items-center md:block  border-2 border-white my-1 md:my-3 mx-auto md:mx-1 lg:mx-3 p-3 lg:p-6 text-left w-11/12 lg:w-72">
+                    <h4 className="text--grey text-xs lg:text-sm font-spartan font-bold">Radius</h4>
                     <p className="text-2xl lg:text-4xl mt-2 uppercase">
                         {currentPlanet?.radius}
                     </p>
                 </article>
-                <article className="planet--features flex justify-between items-center md:block  border-2 border-white my-1 md:my-3 mx-auto md:mx-3 p-3 lg:p-6 text-left w-11/12 md:w-72">
-                    <h4 className="text--grey text-xs lg:text-lg">
+                <article className="planet--features flex justify-between items-center md:block  border-2 border-white my-1 md:my-3 mx-auto md:ml-1 p-3 lg:p-6 text-left w-11/12 lg:w-72">
+                    <h4 className="text--grey text-xs lg:text-sm font-spartan font-bold">
                         Average Temp
                     </h4>
                     <p className="text-2xl lg:text-4xl mt-2 uppercase">

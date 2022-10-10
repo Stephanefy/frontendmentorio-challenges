@@ -31,7 +31,7 @@ const NavBar = ({ handleSelectPlanet, planetColors }: NavBarProps) => {
       <ul className={`z-50 absolute w-full h-full mt-24 bg-[#070724] left-0 ${mobileMenuOpen ? 'transform translate-x-0' : 'transform -translate-x-full'} lg:flex lg:mx-auto lg:items-center lg:w-auto lg:space-x-6`}>
         {
           data.map((planet, i) => (
-            <li className={`my-10 pb-6 border-b border-slate-800 mx-8 flex items-center justify-between cursor-pointer`} onClick={() => handleSelectPlanet(i)}>
+            <li key={planet.name}className={`my-10 pb-6 border-b border-slate-800 mx-8 flex items-center justify-between cursor-pointer`} onClick={() => handleSelectPlanet(i)}>
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="10" cy="10" r="10" fill={`${planetColors[i]}`}/>
                 </svg>
@@ -47,12 +47,12 @@ const NavBar = ({ handleSelectPlanet, planetColors }: NavBarProps) => {
  
       </ul> 
   
-      <nav className='hidden lg:max-w-[1440px] mx-auto md:flex flex-col lg:flex-row justify-between items-center overflow-x-hidden py-3 px-3' aria-label="tablet-desktop-nav">
+      <nav className='hidden lg:w-full mx-auto md:flex flex-col lg:flex-row justify-between items-center overflow-x-hidden py-3 px-3' aria-label="tablet-desktop-nav">
         <h2 className='text-white py-5 text-4xl uppercase'>The planets</h2>
         <ul className='flex lg:py-5 lg:pr-6 py-6'>
             {
                 data.map((planet, i) => (
-                    <li className="text-white mx-3 max-w-2xl lg:mx-6 uppercase tracking-widest font-bold font-['league_Spartan'] cursor-pointer" onClick={() => handleSelectPlanet(i)}>{planet.name}</li>
+                    <li key={planet.name} className="text-white mx-3 max-w-2xl lg:mx-6 uppercase tracking-widest font-bold font-spartan opacity-80 cursor-pointer" onClick={() => handleSelectPlanet(i)}>{planet.name}</li>
                 ))
             }
         </ul>

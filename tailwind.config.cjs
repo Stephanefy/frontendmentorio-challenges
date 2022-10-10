@@ -4,7 +4,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Antonio', 'League Spartan']
+        sans: ['Antonio', 'Spartan', 'sans-serif'],
+        spartan: ['Spartan', 'sans-serif'],
       },
       backgroundImage: {
         'hero_pattern': "url('/assets/background-stars.svg')",
