@@ -12,7 +12,7 @@ module.exports = {
       colors: {
       'app-violet': '#5964E0',
       'app-light-violet': 'rgb(147, 155, 244)',
-      'app-very-dark-blue': 'rgb(25, 32, 45',
+      'app-very-black-blue': 'rgb(25, 32, 45)',
       'app-midnight': 'rgb(18, 23, 33)',
       'app-light-grey': 'rgb(244, 246, 248)',
       'app-gray': 'rgb(157, 174, 194)',

@@ -34,9 +34,14 @@ function Cardlist({jobData}: CardListProps) {
   return (
     <ul className='mt-20 grid gap-x-4	md:grid-cols-2 lg:grid-cols-3 w-5/6 lg:max-w-6xl mx-auto place-items-center'>
       {
-        jobData.map(card => (
+        jobData?.length ? jobData.map(card => (
           <Carditem key={card.id} card={card} />
-        ))
+        )) : (
+          <div className='col-start-2'>
+              <h4 className='mx-auto dark:text-white'>No results found sorry 🥲</h4>
+          </div>
+
+        )
       }
     </ul>
   )

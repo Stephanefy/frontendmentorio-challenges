@@ -29,7 +29,7 @@ function Carditem({card}: CardItemProps) {
 
   return (
     <li 
-    className="relative w-full lg:w-[350px] md:h-[228px] mt-16 py-8 px-4 lg:px-8 bg-white rounded-xl cursor-pointer"
+    className="relative w-full lg:w-[350px] md:h-[228px] mt-16 py-8 px-4 lg:px-8 bg-white rounded-xl cursor-pointer dark:bg-app-very-black-blue"
     onClick={() => handleNavigateToDetail(card.id)}
     >
       <div className="absolute w-[50px] h-[50px] -top-6 grid place-items-center rounded-2xl" style={{backgroundColor: card.logoBackground}}>
@@ -41,10 +41,10 @@ function Carditem({card}: CardItemProps) {
         <span className="text-app-gray">{card.contract}</span>
       </div>
       <div className="mb-2">
-        <h3 className="font-semibold">{card.position}</h3>
+        <h3 className="font-semibold dark:text-white">{card.position}</h3>
       </div>
       <div>
-        <span className="text-app-gray">{card.company}</span>
+        <span className="text-app-gray ">{card.company}</span>
       </div>
       <div className="mt-8">
         <span className="text-app-violet">{card.location}</span>

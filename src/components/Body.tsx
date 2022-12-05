@@ -4,14 +4,14 @@ import Button from './Button'
 
 function Body({currentJob} : any) {
   return (
-    <section className="w-5/6 lg:w-[700px] bg-white rounded-md mx-auto mt-56 px-10 py-10 text-app-gray">
+    <section className="w-5/6 lg:w-[700px] bg-white dark:bg-app-very-black-blue rounded-md mx-auto mt-56 px-10 py-10 text-app-gray">
       <div>
         <span>{currentJob?.postedAt}</span>
         <span>{currentJob?.contract}</span>
       </div>
       <div className='flex flex-col md:flex-row items-start md:items-center justify-between w-full'>
         <div className='my-2'>
-          <h3 className='text-black'>{currentJob.position}</h3>
+          <h3 className='text-black dark:text-white text-3xl font-semibold'>{currentJob.position}</h3>
           <p className='text-app-violet'>{currentJob.location}</p>
         </div>
         <div className='hidden md:block'>
@@ -35,7 +35,7 @@ function Body({currentJob} : any) {
           </p>
       </div>
       <div className='mt-8'>
-        <h4 className='mb-4 text-black text-lg font-semibold'>
+        <h4 className='mb-4 text-black dark:text-white text-lg font-semibold'>
           Requirements
         </h4>
         <p>
@@ -50,7 +50,7 @@ function Body({currentJob} : any) {
         </ul>
       </div>
             <div className='mt-8'>
-        <h4 className='mb-4 text-black text-lg font-semibold'>
+        <h4 className='mb-4 text-black dark:text-white text-lg font-semibold'>
           What you will do ?
         </h4>
         <p>

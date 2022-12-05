@@ -53,7 +53,7 @@ const Home = () => {
     })
     const [openModal, setOpenModal] = useState<boolean>(false)
 
-    function filterByTitle(terms: string[]): void {
+    function filterByTitle(terms: string[]): CardItem[] {
         const filteredByTitleData = data.filter((element) => {
             for (let term of terms) {
                 if (
@@ -64,9 +64,10 @@ const Home = () => {
             }
         })
         setJobData(filteredByTitleData)
+        return filteredByTitleData
     }
 
-    function filterByLocation(term: string): void {
+    function filterByLocation(term: string): CardItem[]{
         const filteredByLocation = data.filter((element) => {
                 if (element.location.toLowerCase().includes(term.toLowerCase())) {
                     return element
@@ -74,11 +75,26 @@ const Home = () => {
             
         })
         setJobData(filteredByLocation)
+        return filteredByLocation
     }
 
-    function filterByContract(): void {
+    function filterByContract(): CardItem[] {
         const filteredByCheckStatus: CardItem[]  = data.filter(element => element.contract === "Full Time")
         setJobData(filteredByCheckStatus)
+        return filteredByCheckStatus
+    }
+
+    function filterByall(isFullTime: boolean, term: string, location: string): CardItem[] {
+        const filteredByAllData: CardItem[] = data.filter(element => {
+
+            let fullTimeStatus: string = isFullTime ? "Full Time" : "Part Time"
+            if (element.contract === fullTimeStatus && element.location.toLowerCase().includes(location.toLowerCase()) && element.position.toLowerCase().includes(term.toLowerCase())) {
+                return element
+            }          
+        })
+
+        setJobData(filteredByAllData)
+        return data
     }
     
 
@@ -89,6 +105,7 @@ const Home = () => {
                 filteredByTitle={filterByTitle}
                 filterByLocation={filterByLocation}
                 filterByContract={filterByContract}
+                filterByAll={filterByall}
             />
             <Cardlist jobData={jobData} />
             <div className="flex justify-center mt-24 mb-24">

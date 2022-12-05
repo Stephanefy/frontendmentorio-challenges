@@ -3,6 +3,8 @@
 @tailwind utilities;
 
 body {
+    @apply dark:bg-app-midnight;
+
     margin: 0;
     padding: 0;
     background-color: rgb(244, 246, 248);
