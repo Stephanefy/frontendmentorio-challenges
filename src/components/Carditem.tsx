@@ -33,7 +33,7 @@ function Carditem({card}: CardItemProps) {
     onClick={() => handleNavigateToDetail(card.id)}
     >
       <div className="absolute w-[50px] h-[50px] -top-6 grid place-items-center rounded-2xl" style={{backgroundColor: card.logoBackground}}>
-        <img src={`${import.meta.env.MODE === "development" ? "/src/" : "/dist/"}${card.logo}`} alt="logo" />
+        <img src={`${import.meta.env.MODE === "development" ? "/src/" : "/dist"}${card.logo}`} alt="logo" />
       </div>
       <div className="mt-2 mb-2">
         <span className="text-app-gray">{card.postedAt}</span>

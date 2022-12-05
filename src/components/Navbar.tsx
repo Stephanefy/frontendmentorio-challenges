@@ -1,6 +1,6 @@
 import Switchbutton from "./Switchbutton"
 import { Link } from "react-router-dom"
-
+import logo from '../assets/desktop/logo.svg'
 
 const Navbar = () => {
 
@@ -11,7 +11,7 @@ const Navbar = () => {
         <div className="pt-8 flex justify-between w-5/6 mx-auto md:max-w-6xl">
             <div>
               <Link to="/">
-                <img src="/src/assets/desktop/logo.svg" alt="logo"/>
+                <img src={logo} alt="logo"/>
               </Link>
             </div>
             <div>
