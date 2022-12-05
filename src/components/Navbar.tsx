@@ -1,13 +1,13 @@
 import Switchbutton from "./Switchbutton"
 import { Link } from "react-router-dom"
-import logo from '../assets/desktop/logo.svg'
+import logo from '/assets/desktop/logo.svg'
 
 const Navbar = () => {
 
 
 
   return (
-    <nav className="w-full flex justify-between h-40 bg-[url('/src/assets/desktop/bg-pattern-header.svg')] bg-no-repeat bg-cover">
+    <nav className="w-full flex justify-between h-40 bg-[url('/assets/desktop/bg-pattern-header.svg')] bg-no-repeat bg-cover">
         <div className="pt-8 flex justify-between w-5/6 mx-auto md:max-w-6xl">
             <div>
               <Link to="/">

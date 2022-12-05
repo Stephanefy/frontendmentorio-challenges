@@ -46,7 +46,7 @@ function Searchbar({ setOpenModal, filteredByTitle, filterByLocation, filterByCo
                 <div className="h-full p-3 md:border-r-gray md:border-r-2 flex items-center w-10/12 lg:w-5/12 px-3">
                     <span className="hidden md:inline-block px-2">
                         <img
-                            src="/src/assets/desktop/icon-search.svg"
+                            src="/assets/desktop/icon-search.svg"
                             alt="search-icon"
                             width={17}
                             height={24}
@@ -103,7 +103,7 @@ function Searchbar({ setOpenModal, filteredByTitle, filterByLocation, filterByCo
                 <div className="md:border-r-gray md:border-r-2 hidden md:flex items-center w-4/12 px-3">
                     <span className="px-2">
                         <img
-                            src="/src/assets/desktop/icon-location.svg"
+                            src="/assets/desktop/icon-location.svg"
                             alt="search-icon"
                             width={17}
                             height={24}

@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import useDarkTheme from '../hooks/useDarkTheme'
-import SunSvg from '../assets/desktop/icon-sun.svg'
-import MoonSvg from '../assets/desktop/icon-moon.svg'
+import SunSvg from '/assets/desktop/icon-sun.svg'
+import MoonSvg from '/assets/desktop/icon-moon.svg'
 
 function Switchbuton() {
     const [colorTheme, setTheme] = useDarkTheme()
