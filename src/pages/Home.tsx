@@ -1,9 +1,33 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react';
 import Cardlist from '../components/Cardlist'
 import Button from '../components/Button'
 import Searchbar from '../components/Searchbar'
 import Modal from '../components/Modal'
 import data from '../data.json'
+
+
+const initialData  = data.map((card) => ({
+    id: card.id,
+    company: card.company,
+    logo: card.logo,
+    logoBackground: card.logoBackground,
+    position: card.position,
+    postedAt: card.postedAt,
+    contract: card.contract,
+    location: card.location,
+    website: card.website,
+    apply: card.apply,
+    description: card.description,
+    requirements: {
+        content: card.requirements.content,
+        items: card.requirements.items,
+    },
+    role: {
+        content: card.role.content,
+        items: card.role.items,
+    },
+}))
+
 
 const Home = () => {
   interface CardItem {
@@ -28,30 +52,9 @@ const Home = () => {
   }
 
 }
-    const [jobData, setJobData] = useState(() => {
-        return data.map((card) => ({
-            id: card.id,
-            company: card.company,
-            logo: card.logo,
-            logoBackground: card.logoBackground,
-            position: card.position,
-            postedAt: card.postedAt,
-            contract: card.contract,
-            location: card.location,
-            website: card.website,
-            apply: card.apply,
-            description: card.description,
-            requirements: {
-                content: card.requirements.content,
-                items: card.requirements.items,
-            },
-            role: {
-                content: card.role.content,
-                items: card.role.items,
-            },
-        }))
-    })
+    const [jobData, setJobData] = useState(initialData)
     const [openModal, setOpenModal] = useState<boolean>(false)
+
 
     function filterByTitle(terms: string[]): CardItem[] {
         const filteredByTitleData = data.filter((element) => {
@@ -84,13 +87,33 @@ const Home = () => {
         return filteredByCheckStatus
     }
 
-    function filterByall(isFullTime: boolean, term: string, location: string): CardItem[] {
+    function filterByall(isFullTime: boolean,  location: string, term?: string,): CardItem[] {
         const filteredByAllData: CardItem[] = data.filter(element => {
 
             let fullTimeStatus: string = isFullTime ? "Full Time" : "Part Time"
-            if (element.contract === fullTimeStatus && element.location.toLowerCase().includes(location.toLowerCase()) && element.position.toLowerCase().includes(term.toLowerCase())) {
-                return element
-            }          
+
+            if (term !== undefined) {
+                if (element.contract === fullTimeStatus && element.location.toLowerCase().includes(location.toLowerCase()) && element.position.toLowerCase().includes(term!.toLowerCase())) {
+                    return element
+                }  
+            } 
+            if (term === undefined && location !== undefined && fullTimeStatus === "Full Time") {
+                if(element.contract === fullTimeStatus && element.location.toLowerCase().includes(location.toLowerCase())) {
+                    return element
+                }
+            }
+            if (term !== undefined && location !== undefined && fullTimeStatus === "Part Time") {
+                if(element.location.toLowerCase().includes(location.toLowerCase()) && element.position.toLowerCase().includes(term!.toLowerCase())) {
+                    return element
+                }
+            }
+            if (term !== undefined && location === undefined && fullTimeStatus === "Full Time") {
+                if(element.contract === fullTimeStatus && element.position.toLowerCase().includes(term!.toLowerCase())) {
+                    return element
+                }
+            }
+            
+                
         })
 
         setJobData(filteredByAllData)
@@ -117,7 +140,12 @@ const Home = () => {
                     paddingY="py-3"
                 />
             </div>
-            {openModal && <Modal />}
+            {openModal && <Modal 
+            setOpenModal={setOpenModal}
+            filterByAll={filterByall}
+            filterByContract={filterByContract}
+            filterByLocation={filterByLocation}
+            />}
         </>
     )
 }

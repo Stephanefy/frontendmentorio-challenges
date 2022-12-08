@@ -7,7 +7,8 @@ function Body({currentJob} : any) {
     <section className="w-5/6 lg:w-[700px] bg-white dark:bg-app-very-black-blue rounded-md mx-auto mt-56 px-10 py-10 text-app-gray">
       <div>
         <span>{currentJob?.postedAt}</span>
-        <span>{currentJob?.contract}</span>
+        <span className="text-app-gray mx-2 text-6xl">.</span>
+        <span>{" "}{currentJob?.contract}</span>
       </div>
       <div className='flex flex-col md:flex-row items-start md:items-center justify-between w-full'>
         <div className='my-2'>

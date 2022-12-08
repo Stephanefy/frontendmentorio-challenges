@@ -2,10 +2,10 @@ import Button from "./Button"
 
 function Footer({currentJob}: any) {
   return (
-    <footer className='w-full h-24 bg-white mt-24'>
+    <footer className='w-full h-24 bg-white dark:bg-app-very-black-blue mt-24'>
       <div className='w-5/6 lg:max-w-[700px] h-full flex justify-between items-center mx-auto'>
         <div>
-          <h3 className='hidden md:block font-semibold'>
+          <h3 className='hidden md:block font-semibold dark:text-white'>
             {currentJob?.position}
           </h3>
           <span className="hidden md:inline-block text-app-gray text-sm">{currentJob.company}</span>

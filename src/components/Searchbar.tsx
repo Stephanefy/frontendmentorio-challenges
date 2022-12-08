@@ -34,8 +34,12 @@ function Searchbar({ setOpenModal, filteredByTitle, filterByLocation, filterByCo
             filterByContract()
         }
 
+        if (jobTitle.trim().length === 0 && location.trim().length > 0 && isFullTimeChecked) {
+            filterByAll(isFullTimeChecked, location)
+        }
+
         if (jobTitle.trim().length > 0 && location.trim().length > 0 && isFullTimeChecked) {
-            filterByAll(isFullTimeChecked, jobTitle, location)
+            filterByAll(isFullTimeChecked,location, jobTitle)
         }
 
     }

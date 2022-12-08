@@ -14,15 +14,15 @@ function Header({currentJob} : any) {
         <div className="w-10 h-10 md:w-36 md:h-[140px] flex justify-center items-center absolute md:static -top-4 p-2 rounded-md rounded-tl-none rounded-r-none" style={{backgroundColor: logoBackground}}>
             <img src={`${logo}`} width={81} />
         </div>
-        <div className="w-full md:w-6/12 md:pl-6 flex flex-col justify-center items-center md:items-start">
+        <div className="w-full md:w-6/12 flex flex-col justify-center items-center md:items-start">
             <h3 className="h-10 dark:text-white">{company}</h3>
             <span className="block text-app-gray">{website}</span>
         </div>
-        <div className="w-full my-4 md:w-2/12 flex justify-center items-center md:pr-16">
+        <div className="w-full my-4 md:w-2/12 flex justify-center items-center md:pr-24">
             <Button 
                 text1="Company" 
                 text2="Site"
-                background={"bg-app-light-grey"} 
+                background={"bg-app-light-grey dark:bg-gray-700 dark:hover:bg-gray-600"} 
                 textColor={"app-violet"}
                 paddingX={"px-4"}
                 paddingY={"py-2"}

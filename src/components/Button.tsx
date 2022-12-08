@@ -1,4 +1,5 @@
 
+
 type ButtonProps = {
   buttonType?:  "button" | "submit" | "reset" | undefined,
   text1: string,
@@ -12,8 +13,13 @@ type ButtonProps = {
 
 
 function Button({buttonType, text1, text2, background, textColor, paddingX, paddingY, isMobile} : ButtonProps) {
+
+  let theme = localStorage.getItem('theme')
+
+  console.log('currentTheme', theme)
+
   return (
-    <button type={buttonType} className={`${isMobile && 'w-full'} ${background} ${paddingX} ${paddingY} rounded-md text-${textColor}`}>
+    <button type={buttonType} className={`${isMobile && 'w-full'} ${background} ${paddingX} ${paddingY} rounded-md text-${textColor} dark:text-white`}>
       <span className="text-base mr-1 font-semibold">{text1}</span>
       <span className="text-base font-semibold">{text2}</span>
     </button>

@@ -14,5 +14,5 @@ export default function useDarkTheme() {
     }, [theme, colorTheme]);
 
 
-    return [colorTheme, setTheme] as const;
+    return [colorTheme, setTheme, theme] as const;
 }
