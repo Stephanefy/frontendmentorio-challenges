@@ -4,6 +4,9 @@ import Button from '../components/Button'
 import Searchbar from '../components/Searchbar'
 import Modal from '../components/Modal'
 import data from '../data.json'
+import { makeId } from '../utils/makeId';
+
+const imagePerRow = 15
 
 
 const initialData  = data.map((card) => ({
@@ -28,33 +31,47 @@ const initialData  = data.map((card) => ({
     },
 }))
 
-
-const Home = () => {
-  interface CardItem {
-    id: number,
-    company: string,
-    logo: string,
-    logoBackground: string,
-    position: string,
-    postedAt: string,
-    contract: string,
-    location: string,
-    website: string,
-    apply: string,
-    description: string,
-    requirements: {
-      content: string,
-      items: string[]
-    },
-    role: {
-      content: string,
-      items: string[]
-  }
+interface CardItem {
+  id: number | string,
+  company: string,
+  logo: string,
+  logoBackground: string,
+  position: string,
+  postedAt: string,
+  contract: string,
+  location: string,
+  website: string,
+  apply: string,
+  description: string,
+  requirements: {
+    content: string,
+    items: string[]
+  },
+  role: {
+    content: string,
+    items: string[]
+}
 
 }
+
+const Home = () => {
     const [jobData, setJobData] = useState(initialData)
     const [openModal, setOpenModal] = useState<boolean>(false)
 
+    const [next, setNext] = useState<number>(imagePerRow)
+
+    const handleNextLoad = () => {
+        setNext(next => next + imagePerRow)
+
+        const nextData = initialData.slice(0, next).map(d => ({
+            ...d,
+            id: makeId() 
+        }))
+
+        setJobData([...jobData, ...nextData])
+    }
+
+    console.log('jobData', jobData)
 
     function filterByTitle(terms: string[]): CardItem[] {
         const filteredByTitleData = data.filter((element) => {
@@ -138,6 +155,7 @@ const Home = () => {
                     textColor="white"
                     paddingX="px-6"
                     paddingY="py-3"
+                    handleNextLoad={handleNextLoad}
                 />
             </div>
             {openModal && <Modal 

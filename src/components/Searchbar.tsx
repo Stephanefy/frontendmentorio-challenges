@@ -45,7 +45,7 @@ function Searchbar({ setOpenModal, filteredByTitle, filterByLocation, filterByCo
     }
 
     return (
-        <div className="w-5/6 lg:max-w-6xl bg-white dark:bg-app-very-black-blue mx-auto rounded-lg absolute left-1/2 -translate-x-1/2 top-32 drop-shadow-md">
+        <div className="w-5/6 lg:max-w-6xl bg-white dark:bg-app-very-black-blue mx-auto rounded-lg absolute left-1/2 -translate-x-1/2 top-32">
             <form onSubmit={handleSearch} className="flex">
                 <div className="h-full p-3 md:border-r-gray md:border-r-2 flex items-center w-10/12 lg:w-5/12 px-3">
                     <span className="hidden md:inline-block px-2">
