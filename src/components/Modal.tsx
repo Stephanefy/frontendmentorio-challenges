@@ -55,7 +55,7 @@ function Modal({
                             height={17}
                         />
                     </span>
-                    <label className="hidden">search-term</label>
+                    <label htmlFor="location" className="hidden">location</label>
                     <input
                         className="p-3 dark:bg-app-very-black-blue border-none w-full"
                         type="text"
@@ -67,12 +67,12 @@ function Modal({
                     />
                 </div>
                 <div className="flex items-center px-6 py-6 my-4">
-                    <label className="hidden">search-term</label>
+                    <label htmlFor="contract" className="hidden">contract</label>
                     <input
                         className="block border-none rounded-sm bg-app-light-grey dark:bg-app-dark-gray w-5 h-5"
                         type="checkbox"
-                        id="role"
-                        name="role"
+                        id="contract"
+                        name="contract"
                         checked={isFullTimeChecked}
                         onChange={() =>
                             setIsFullTimeChecked(!isFullTimeChecked)

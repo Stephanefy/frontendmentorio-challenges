@@ -10,9 +10,11 @@ const Navbar = () => {
     <nav className="w-full flex justify-between h-40 bg-[url('/assets/desktop/bg-pattern-header.svg')] bg-no-repeat bg-cover">
         <div className="pt-8 flex justify-between w-5/6 mx-auto md:max-w-6xl">
             <div>
-              <Link to="/">
-                <img src={logo} alt="logo"/>
-              </Link>
+              <h1>
+                <Link to="/">
+                  <img src={logo} alt="logo"/>
+                </Link>
+              </h1>
             </div>
             <div>
                 <Switchbutton/>

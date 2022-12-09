@@ -113,7 +113,7 @@ function Searchbar({ setOpenModal, filteredByTitle, filterByLocation, filterByCo
                             height={24}
                         />
                     </span>
-                    <label className="hidden">location</label>
+                    <label htmlFor="location" className="hidden">location</label>
                     <input
                         className="border-none w-full dark:bg-app-very-black-blue dark:text-white"
                         type="text"
@@ -147,11 +147,6 @@ function Searchbar({ setOpenModal, filteredByTitle, filterByLocation, filterByCo
                         paddingY="py-2"
                         textColor="white"
                     />
-                </div>
-                <div>
-                    <button>
-                        <img src="" />
-                    </button>
                 </div>
             </form>
         </div>
