@@ -10,7 +10,7 @@ function Switchbuton() {
 
     const [dark, setDark] = useState(colorTheme === 'light' ? true : false)
 
-    const toggleDarkTheme = (checked: React.ChangeEvent<HTMLInputElement>) : void => {
+    const toggleDarkTheme = (checked: React.InputHTMLAttributes<HTMLInputElement>) : void => {
         setDark(!checked)
 
         console.log(checked)

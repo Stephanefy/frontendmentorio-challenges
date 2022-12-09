@@ -22,7 +22,6 @@ function Carditem({card}: CardItemProps) {
   const navigate = useNavigate()
 
   const handleNavigateToDetail = (id: number) => {
-    console.log("it's working")
     navigate(`/${id}`)
   }
 
