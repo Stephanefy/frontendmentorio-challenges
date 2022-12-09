@@ -10,7 +10,7 @@ const imagePerRow = 15
 
 
 const initialData  = data.map((card) => ({
-    id: card.id,
+    id: makeId(),
     company: card.company,
     logo: card.logo,
     logoBackground: card.logoBackground,
@@ -32,7 +32,7 @@ const initialData  = data.map((card) => ({
 }))
 
 interface CardItem {
-  id: number | string,
+  id: string,
   company: string,
   logo: string,
   logoBackground: string,
@@ -74,7 +74,7 @@ const Home = () => {
     console.log('jobData', jobData)
 
     function filterByTitle(terms: string[]): CardItem[] {
-        const filteredByTitleData = data.filter((element) => {
+        const filteredByTitleData = initialData.filter((element) => {
             for (let term of terms) {
                 if (
                     element.position.toLowerCase().includes(term.toLowerCase())
@@ -88,7 +88,7 @@ const Home = () => {
     }
 
     function filterByLocation(term: string): CardItem[]{
-        const filteredByLocation = data.filter((element) => {
+        const filteredByLocation = initialData.filter((element) => {
                 if (element.location.toLowerCase().includes(term.toLowerCase())) {
                     return element
                 }
@@ -99,13 +99,13 @@ const Home = () => {
     }
 
     function filterByContract(): CardItem[] {
-        const filteredByCheckStatus: CardItem[]  = data.filter(element => element.contract === "Full Time")
+        const filteredByCheckStatus= initialData.filter(element => element.contract === "Full Time")
         setJobData(filteredByCheckStatus)
         return filteredByCheckStatus
     }
 
     function filterByall(isFullTime: boolean,  location: string, term?: string,): CardItem[] {
-        const filteredByAllData: CardItem[] = data.filter(element => {
+        const filteredByAllData = initialData.filter(element => {
 
             let fullTimeStatus: string = isFullTime ? "Full Time" : "Part Time"
 
@@ -134,7 +134,7 @@ const Home = () => {
         })
 
         setJobData(filteredByAllData)
-        return data
+        return initialData
     }
     
 
