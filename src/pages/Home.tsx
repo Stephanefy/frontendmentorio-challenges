@@ -4,13 +4,10 @@ import Button from '../components/Button'
 import Searchbar from '../components/Searchbar'
 import Modal from '../components/Modal'
 import data from '../data.json'
-import { makeId } from '../utils/makeId';
-
-const imagePerRow = 15
 
 
 const initialData  = data.map((card) => ({
-    id: makeId(),
+    id: card.id,
     company: card.company,
     logo: card.logo,
     logoBackground: card.logoBackground,
@@ -31,50 +28,36 @@ const initialData  = data.map((card) => ({
     },
 }))
 
-interface CardItem {
-  id: string,
-  company: string,
-  logo: string,
-  logoBackground: string,
-  position: string,
-  postedAt: string,
-  contract: string,
-  location: string,
-  website: string,
-  apply: string,
-  description: string,
-  requirements: {
-    content: string,
-    items: string[]
-  },
-  role: {
-    content: string,
-    items: string[]
-}
-
-}
 
 const Home = () => {
-    const [jobData, setJobData] = useState(initialData)
+  interface CardItem {
+    id: number,
+    company: string,
+    logo: string,
+    logoBackground: string,
+    position: string,
+    postedAt: string,
+    contract: string,
+    location: string,
+    website: string,
+    apply: string,
+    description: string,
+    requirements: {
+      content: string,
+      items: string[]
+    },
+    role: {
+      content: string,
+      items: string[]
+  }
+
+}
+    const [jobData, setJobData] = useState(() => initialData)
     const [openModal, setOpenModal] = useState<boolean>(false)
 
-    const [next, setNext] = useState<number>(imagePerRow)
-
-    const handleNextLoad = () => {
-        setNext(next => next + imagePerRow)
-
-        const nextData = initialData.slice(0, next).map(d => ({
-            ...d,
-            id: makeId() 
-        }))
-
-        setJobData([...jobData, ...nextData])
-    }
-
-    console.log('jobData', jobData)
 
     function filterByTitle(terms: string[]): CardItem[] {
-        const filteredByTitleData = initialData.filter((element) => {
+        const filteredByTitleData = data.filter((element) => {
             for (let term of terms) {
                 if (
                     element.position.toLowerCase().includes(term.toLowerCase())
@@ -88,7 +71,7 @@ const Home = () => {
     }
 
     function filterByLocation(term: string): CardItem[]{
-        const filteredByLocation = initialData.filter((element) => {
+        const filteredByLocation = data.filter((element) => {
                 if (element.location.toLowerCase().includes(term.toLowerCase())) {
                     return element
                 }
@@ -99,13 +82,13 @@ const Home = () => {
     }
 
     function filterByContract(): CardItem[] {
-        const filteredByCheckStatus= initialData.filter(element => element.contract === "Full Time")
+        const filteredByCheckStatus: CardItem[]  = data.filter(element => element.contract === "Full Time")
         setJobData(filteredByCheckStatus)
         return filteredByCheckStatus
     }
 
     function filterByall(isFullTime: boolean,  location: string, term?: string,): CardItem[] {
-        const filteredByAllData = initialData.filter(element => {
+        const filteredByAllData: CardItem[] = data.filter(element => {
 
             let fullTimeStatus: string = isFullTime ? "Full Time" : "Part Time"
 
@@ -134,7 +117,7 @@ const Home = () => {
         })
 
         setJobData(filteredByAllData)
-        return initialData
+        return data
     }
     
 
@@ -155,7 +138,6 @@ const Home = () => {
                     textColor="white"
                     paddingX="px-6"
                     paddingY="py-3"
-                    handleNextLoad={handleNextLoad}
                 />
             </div>
             {openModal && <Modal 
