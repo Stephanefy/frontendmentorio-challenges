@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 type CardItemProps = {
   card : {
-    id: string,
+    id: number,
     company: string
     logo: string,
     logoBackground: string,
@@ -21,7 +21,7 @@ function Carditem({card}: CardItemProps) {
   const context = useContext(JobContext)
   const navigate = useNavigate()
 
-  const handleNavigateToDetail = (id: string) => {
+  const handleNavigateToDetail = (id: number) => {
     navigate(`/${id}`)
   }
 
