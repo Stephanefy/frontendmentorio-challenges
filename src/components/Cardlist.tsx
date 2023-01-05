@@ -6,7 +6,7 @@ interface CardListProps {
 }
 
 interface CardItem {
-      id: string,
+      id: number,
       company: string,
       logo: string,
       logoBackground: string,
