@@ -16,7 +16,16 @@ const Navbar = () => {
                 </Link>
               </h1>
             </div>
-            <div>
+  
+            <div className="flex items-start justify-between w-3/12">
+                <div className="mr-[1.7em]">
+                  <Link to="/login">
+                    <button className="mb-2 mr-2 text-white hover:underline">login</button>
+                  </Link>
+                  <Link to="/signup">
+                    <button className="mb-2 text-white hover:underline">sign up</button>  
+                  </Link>
+                </div>
                 <Switchbutton/>
             </div>
         </div>

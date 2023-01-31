@@ -5,20 +5,32 @@ import Detail from './pages/Detail'
 import Navbar from './components/Navbar'
 import Searchbar from './components/Searchbar'
 import GlobalContextProvider from './context/Jobcontext'
+import Login from './pages/Login';
+import SignUp from './pages/SignUp';
+import ConfirmSignup from './pages/ConfirmSignup'
+import { StateMachineProvider } from 'little-state-machine';
+
+
 
 function App() {
 
   return (
     <BrowserRouter>
-    <GlobalContextProvider>
-        <main className="relative">
-        <Navbar/> 
-          <Routes>
-            <Route path='/' element={<Home/>}/>
-            <Route path='/:id' element={<Detail/>} />
-          </Routes>
-        </main>
-    </GlobalContextProvider>
+    <StateMachineProvider>
+      <GlobalContextProvider>
+          <main className="relative">
+          <Navbar/> 
+            <Routes>
+              <Route path='/' element={<Home/>}/>
+              <Route path='/:id' element={<Detail/>} />
+              <Route path='/login' element={<Login/>} />
+              <Route path='/signup' element={<SignUp/>} />
+              <Route path='/confirm-signup' element={<ConfirmSignup/>} />
+            </Routes>
+          </main>
+      </GlobalContextProvider>
+
+    </StateMachineProvider>
     </BrowserRouter>
   )
 }

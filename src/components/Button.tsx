@@ -1,6 +1,6 @@
-import React from 'react'
+import {HTMLProps} from 'react'
 
-type ButtonProps = {
+interface ButtonProps extends HTMLProps<HTMLButtonElement> {
   buttonType?:  "button" | "submit" | "reset" | undefined,
   text1: string,
   text2?: string,
@@ -13,7 +13,7 @@ type ButtonProps = {
 }
 
 
-function Button({buttonType, text1, text2, background, textColor, paddingX, paddingY, isMobile, handleNextLoad} : ButtonProps) {
+function Button({buttonType, text1, text2, background, textColor, paddingX, paddingY, isMobile, handleNextLoad, onClick} : ButtonProps) {
 
   let theme = localStorage.getItem('theme')
 
@@ -23,7 +23,7 @@ function Button({buttonType, text1, text2, background, textColor, paddingX, padd
     <button 
       type={buttonType} 
       className={`${isMobile && 'w-full'} ${background} ${paddingX} ${paddingY} rounded-md text-${textColor} dark:text-white`}
-      onClick={handleNextLoad && handleNextLoad}
+      onClick={onClick}
       >
       <span className="text-base mr-1 font-semibold">{text1}</span>
       <span className="text-base font-semibold">{text2}</span>
