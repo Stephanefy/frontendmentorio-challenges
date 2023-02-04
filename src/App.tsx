@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useCallback } from 'react';
 import NavBar from './components/NavBar'
 import Planet from './components/Planet'
 import data from '../data.json'
@@ -33,6 +33,7 @@ type P = {
 const planetColors = ['#419EBB','#EDA249',"#6f2ed6",'#D14C32','#D83A34','#CD5120','#1ec2a4', '#2d68f0'] 
 
 
+
 const getCurrentPlanet = (planetArray: P[], index: number): P => {
 
   const currentPlanet = planetArray[index]
@@ -43,16 +44,16 @@ const getCurrentPlanet = (planetArray: P[], index: number): P => {
   return planetArray[index]
 }
 
-
 function App() {
+  
   
   const [currentPlanet, setCurrentPlanet] =  useState<P | undefined>(getCurrentPlanet(data,0))
 
 
-  const handleSelectPlanet = (index: number) => {
+  const handleSelectPlanet = useCallback((index: number) => {
     setCurrentPlanet(getCurrentPlanet(data, index))
     
-  }
+  }, [])
 
 
   return (

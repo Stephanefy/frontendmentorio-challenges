@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 type P = {
     name: string
@@ -30,9 +30,36 @@ interface PlanetProps {
     currentPlanet?: P
 }
 
+
+const get_internal_svg = async (path: string) => {
+
+    const baseurl = import.meta.env.VITE_APP_BASE_URL
+
+
+    // const response = await fetch(`${import.meta.env.BASE_URL}/${path}`)
+
+    console.log('base url', baseurl)
+
+    // if (!response.ok) {
+    //     throw response;
+    // }
+
+
+
+    // return response
+}
+
+
 export default function Planet({ currentPlanet }: PlanetProps) {
     const [currentOpenedTab, setCurrentOpenedTab] = useState<number>(0)
+    const [internalSvg, setInternalSvg] = useState<string>('')
 
+
+    useEffect(() => {
+        get_internal_svg(currentPlanet!.images!.internal)
+            .then((response) => console.log(response))
+            .then((data) => console.log(data))
+    }, [currentPlanet])
 
     return (
         <article className="w-full text-white md:h-full md:max-w-[1440px] mx-auto overflow-x-hidden">
@@ -92,20 +119,21 @@ export default function Planet({ currentPlanet }: PlanetProps) {
                     </button>
                 </li>
             </ul>
-            <section className="lg:w-12/12 mx-2 h-auto flex flex-col lg:flex-row justify-center items-center overflow-x-hidden gap-32 mt-24 mb-0 -z-10">
-                <div className="basis-3/6 md:mx-auto lg:basis-6/6">
+            <section className="lg:w-12/12 h-[600px] mx-2 flex flex-col lg:flex-row justify-center items-center overflow-x-hidden overflow-y-hidden mb-0 -z-10 my-24">
+                <div className="basis-3/6 md:mx-auto w-full h-auto lg:basis-6/6">
                     {currentOpenedTab === 0 && (
                         <img
                             src={`../${currentPlanet?.images.planet}`}
                             alt={`../${currentPlanet?.name}`}
-                            className="lg:mx-auto"
+                            className="mx-auto"
+
                         />
                     )}
                     {currentOpenedTab === 1 && (
                         <img
                         src={`../${currentPlanet?.images.internal}`}
                         alt={`../${currentPlanet?.name}`}
-                            className="mx-auto"
+                        className="mx-auto"
                         />
                     )}
                     {currentOpenedTab === 2 && (
@@ -221,7 +249,7 @@ export default function Planet({ currentPlanet }: PlanetProps) {
                     </ul>
                 </div>
             </section>
-            <section className="max-w-3xl lg:max-w-none lg:w-10/12 flex flex-col md:flex-row justify-between lg:mb-24 mt-32 overflow-x-hidden px-3 mx-auto mb-6">
+            <section className="max-w-3xl lg:max-w-none lg:w-10/12 flex flex-col md:flex-row justify-between lg:mb-24 mt-32 lg:mt-0 overflow-x-hidden px-3 mx-auto mb-6">
                 <article className="planet--features flex justify-between items-center md:block border-2 border-white my-1 md:my-3 mx-auto md:mr-1  p-3 lg:p-6 text-left w-11/12 lg:w-72">
                     <h4 className="text--grey text-xs lg:text-sm font-bold font-spartan">
                         Rotation Time
