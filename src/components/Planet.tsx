@@ -124,8 +124,8 @@ export default function Planet({ currentPlanet }: PlanetProps) {
                     </button>
                 </li>
             </ul>
-            <section className="lg:w-12/12 h-[490px] mx-2 flex flex-col lg:flex-row justify-center items-center overflow-x-hidden overflow-y-hidden -z-10 mb-12 ">
-                <div className="basis-3/6 md:mx-auto h-auto lg:basis-2/6">
+            <section className="max-w-3xl lg:max-w-full px-3 lg:w-12/12 h-auto md:h-full lg:h-[490px] mx-auto pt-36 lg:pt-0 flex flex-col my-auto lg:flex-row justify-center items-center overflow-x-hidden overflow-y-hidden -z-10 mb-12">
+                <div className="basis-3/6 md:mx-auto h-auto lg:basis-4/12">
                     {currentOpenedTab === 0 ? (
                         <motion.div
                         initial={{ opacity: 0 }}

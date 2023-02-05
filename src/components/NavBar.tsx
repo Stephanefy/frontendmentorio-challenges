@@ -27,7 +27,7 @@ const NavBar = ({ handleSelectPlanet, planetColors }: NavBarProps) => {
   return (
     <header className='border-b-2 border-slate-600 mx-auto overflow-x-hidden'>
 
-
+      
       <ul className={`z-50 absolute w-full h-full mt-24 bg-[#070724] left-0 ${mobileMenuOpen ? 'transform translate-x-0' : 'transform -translate-x-full'} lg:flex lg:mx-auto lg:items-center lg:w-auto lg:space-x-6`}>
         {
           data.map((planet, i) => (
@@ -59,7 +59,7 @@ const NavBar = ({ handleSelectPlanet, planetColors }: NavBarProps) => {
       </nav>
       <nav aria-label="mobile-nav" className='md:hidden w-full flex items-center justify-between'>
       <div className="basis-3/6">
-        <h2 className='md:hidden text-white py-5 text-4xl uppercase'>The planets</h2>
+        <h2 className='md:hidden text-white py-5 text-4xl uppercase p-3'>The planets</h2>
       </div>
       <div className="md:hidden ml-auto">
         <button className={`navbar-burger flex items-center text-white ${mobileMenuOpen ? "opacity-25" : "opacity-100"} p-3`} onClick={handleMobileOpen}>
