@@ -11,7 +11,20 @@ interface NavBarProps {
 const NavBar = ({ handleSelectPlanet, planetColors }: NavBarProps) => {
 
 
-  const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = React.useState<boolean>(false);
+  const [isHover, setIsHover] = React.useState<boolean>(false);
+  const [currentHovered, setCurrentHovered] = React.useState<number>(0);
+
+  const handleMouseEnter = (i: number) => {
+
+    setCurrentHovered(i)
+    setIsHover(true)
+  }
+
+  const handleMouseLeave = () => {
+    setIsHover(false)
+  }
+
 
 
   useEffect(() => {
@@ -22,7 +35,7 @@ const NavBar = ({ handleSelectPlanet, planetColors }: NavBarProps) => {
     setMobileMenuOpen(prev => !prev);
   }
   
-
+  console.log("planet colors", planetColors)
 
   return (
     <header className='border-b-2 border-slate-600 mx-auto overflow-x-hidden'>
@@ -49,10 +62,22 @@ const NavBar = ({ handleSelectPlanet, planetColors }: NavBarProps) => {
   
       <nav className='hidden lg:w-full mx-auto md:flex flex-col lg:flex-row justify-between items-center overflow-x-hidden py-3 px-3' aria-label="tablet-desktop-nav">
         <h2 className='text-white py-5 text-4xl uppercase'>The planets</h2>
-        <ul className='flex lg:py-5 lg:pr-6 py-6'>
+        <ul className='flex lg:py-5 lg:pr-6 py-6 relative'>
             {
                 data.map((planet, i) => (
-                    <li key={planet.name} className="text-white text-[11px] mx-3 max-w-2xl lg:mx-6 uppercase tracking-widest font-bold font-spartan opacity-80 cursor-pointer" onClick={() => handleSelectPlanet(i)}>{planet.name}</li>
+                    
+                    <li 
+                    key={planet.name} 
+                    className={`relative before:content-[''] text-white text-[11px] mx-3 max-w-2xl lg:mx-6 uppercase tracking-widest font-bold font-spartan opacity-80 cursor-pointer`} onClick={() => handleSelectPlanet(i)}
+                    onMouseEnter={() => handleMouseEnter(i)}
+                    onMouseLeave={handleMouseLeave}
+                    >
+                      <span 
+                    style={isHover && currentHovered === i ? {backgroundColor: `${planetColors[i]}`} : {backgroundColor: 'transparent'}}
+                    className={`absolute bottom-0 -top-[43px] right-0 h-2 w-full transition-all duration-500
+                    hover:left-0  hover:bg-[${planetColors[i]}]`}/>
+                      {planet.name}
+                    </li>
                 ))
             }
         </ul>

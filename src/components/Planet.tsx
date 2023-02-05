@@ -67,7 +67,12 @@ export default function Planet({ currentPlanet }: PlanetProps) {
     console.log('current planet', typeof currentPlanet?.image_width)
 
     return (
-        <article className="w-full text-white md:h-full md:max-w-[1440px] mx-auto overflow-x-hidden">
+        <motion.article 
+        animate={{ opacity: 1 }}
+        initial={{ opacity: 0 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.5 }}
+        className="w-full text-white md:h-full md:max-w-[1440px] mx-auto overflow-x-hidden">
             <ul className="mobile-tab md:hidden flex my-3 justify-around w-full">
                 <li
                     className="w-2/6"
@@ -272,6 +277,6 @@ export default function Planet({ currentPlanet }: PlanetProps) {
                 </div>
             </section>
     
-        </article>
+        </motion.article>
     )
 }
