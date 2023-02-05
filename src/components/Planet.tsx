@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { motion } from 'framer-motion'
 
 type P = {
     name: string
@@ -17,7 +18,8 @@ type P = {
     rotation: string
     revolution: string
     radius: string
-    temperature: string
+    temperature: string,
+    image_width: string,
     images: {
         planet: string
         internal: string
@@ -60,6 +62,9 @@ export default function Planet({ currentPlanet }: PlanetProps) {
             .then((response) => console.log(response))
             .then((data) => console.log(data))
     }, [currentPlanet])
+
+
+    console.log('current planet', typeof currentPlanet?.image_width)
 
     return (
         <article className="w-full text-white md:h-full md:max-w-[1440px] mx-auto overflow-x-hidden">
@@ -119,29 +124,46 @@ export default function Planet({ currentPlanet }: PlanetProps) {
                     </button>
                 </li>
             </ul>
-            <section className="lg:w-12/12 h-[600px] mx-2 flex flex-col lg:flex-row justify-center items-center overflow-x-hidden overflow-y-hidden mb-0 -z-10 my-24">
-                <div className="basis-3/6 md:mx-auto w-full h-auto lg:basis-6/6">
-                    {currentOpenedTab === 0 && (
-                        <img
-                            src={`../${currentPlanet?.images.planet}`}
-                            alt={`../${currentPlanet?.name}`}
-                            className="mx-auto"
-
-                        />
-                    )}
-                    {currentOpenedTab === 1 && (
-                        <img
-                        src={`../${currentPlanet?.images.internal}`}
-                        alt={`../${currentPlanet?.name}`}
-                        className="mx-auto"
-                        />
-                    )}
-                    {currentOpenedTab === 2 && (
-                        <div className="relative h-full w-full z-10">
+            <section className="lg:w-12/12 h-[490px] mx-2 flex flex-col lg:flex-row justify-center items-center overflow-x-hidden overflow-y-hidden -z-10 mb-12 ">
+                <div className="basis-3/6 md:mx-auto h-auto lg:basis-2/6">
+                    {currentOpenedTab === 0 ? (
+                        <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.5 }}
+                        >
                             <img
                                 src={`../${currentPlanet?.images.planet}`}
                                 alt={`../${currentPlanet?.name}`}
-                                className="mx-auto"
+                                width="auto"
+                                className='mx-auto'
+                            />
+                        </motion.div>
+                    ) : null }
+                    {currentOpenedTab === 1 ? (
+                        <motion.div 
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.5 }}
+                        className='h-auto'>
+                            <img
+                            src={`../${currentPlanet?.images.internal}`}
+                            alt={`../${currentPlanet?.name}`}
+                            className='mx-auto'
+                            />
+                        </motion.div>
+                    ) : null}
+                    {currentOpenedTab === 2 ? (
+                        <motion.div 
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.5 }}
+                        className="relative h-full w-full z-10">
+                            <img
+                                src={`../${currentPlanet?.images.planet}`}
+                                alt={`../${currentPlanet?.name}`}
+                                width="auto"
+                                className='mx-auto'
                             />
                             <img
                                 src={`../${currentPlanet?.images.geology}`}
@@ -149,8 +171,8 @@ export default function Planet({ currentPlanet }: PlanetProps) {
                                 className="absolute top-[60%] left-0 right-0 mx-auto"
                                 width={130}
                             />
-                        </div>
-                    )}
+                        </motion.div>
+                    ) : null}
                 </div>
                 <div className="basis-6/6 lg:basis-2/6 flex lg:flex-col items-center justify-center lg:items-start">
                     <div className="w-11/12 text-center md:text-left md:w-9/12 ">
@@ -171,7 +193,7 @@ export default function Planet({ currentPlanet }: PlanetProps) {
                                         : currentPlanet?.geology.source
                                 }
                             `}
-                                className="my-8 font-spartan opacity-50"
+                                className="my-6 font-spartan opacity-50"
                             >
                                 <span className="text-custom_grey font-spartan">
                                     Source:{' '}
@@ -249,38 +271,7 @@ export default function Planet({ currentPlanet }: PlanetProps) {
                     </ul>
                 </div>
             </section>
-            <section className="max-w-3xl lg:max-w-none lg:w-10/12 flex flex-col md:flex-row justify-between lg:mb-24 mt-32 lg:mt-0 overflow-x-hidden px-3 mx-auto mb-6">
-                <article className="planet--features flex justify-between items-center md:block border-2 border-white my-1 md:my-3 mx-auto md:mr-1  p-3 lg:p-6 text-left w-11/12 lg:w-72">
-                    <h4 className="text--grey text-xs lg:text-sm font-bold font-spartan">
-                        Rotation Time
-                    </h4>
-                    <p className="text-2xl lg:text-4xl mt-2 uppercase">
-                        {currentPlanet?.rotation}
-                    </p>
-                </article>
-                <article className="planet--features flex justify-between items-center md:block  border-2 border-white my-1 md:my-3 mx-auto md:mx-1 lg:mx-3 p-3 lg:p-6 text-left w-11/12 lg:w-72">
-                    <h4 className="text--grey text-xs lg:text-sm font-spartan font-bold">
-                        Revolution Time
-                    </h4>
-                    <p className="text-2xl lg:text-4xl mt-2 uppercase">
-                        {currentPlanet?.revolution}
-                    </p>
-                </article>
-                <article className="planet--features flex justify-between items-center md:block  border-2 border-white my-1 md:my-3 mx-auto md:mx-1 lg:mx-3 p-3 lg:p-6 text-left w-11/12 lg:w-72">
-                    <h4 className="text--grey text-xs lg:text-sm font-spartan font-bold">Radius</h4>
-                    <p className="text-2xl lg:text-4xl mt-2 uppercase">
-                        {currentPlanet?.radius}
-                    </p>
-                </article>
-                <article className="planet--features flex justify-between items-center md:block  border-2 border-white my-1 md:my-3 mx-auto md:ml-1 p-3 lg:p-6 text-left w-11/12 lg:w-72">
-                    <h4 className="text--grey text-xs lg:text-sm font-spartan font-bold">
-                        Average Temp
-                    </h4>
-                    <p className="text-2xl lg:text-4xl mt-2 uppercase">
-                        {currentPlanet?.temperature}
-                    </p>
-                </article>
-            </section>
+    
         </article>
     )
 }

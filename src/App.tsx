@@ -3,6 +3,7 @@ import NavBar from './components/NavBar'
 import Planet from './components/Planet'
 import data from '../data.json'
 import './App.css'
+import PlanetDetails from './components/PlanetDetails';
 
 type P = {
   name: string,
@@ -22,6 +23,7 @@ type P = {
   revolution: string,
   radius: string,
   temperature: string,
+  image_width: string,
   images: {
     planet: string,
     internal: string,
@@ -61,6 +63,7 @@ function App() {
       <NavBar handleSelectPlanet={handleSelectPlanet} planetColors={planetColors}/>
       <main className='w-12/12 mx-auto'>
         <Planet currentPlanet={currentPlanet}/>
+        <PlanetDetails currentPlanet={currentPlanet}/>
       </main>
     </div>
   )
