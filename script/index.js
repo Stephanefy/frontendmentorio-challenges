@@ -92,30 +92,22 @@ faqQuestionsArray.forEach((btn, index, arr) => {
         if (index === 0 ) {
             openFaqAnswer(arr[0])
 
-            closeFaqAnswer(arr[1]);
-            closeFaqAnswer(arr[2]);
-            closeFaqAnswer(arr[3]);
+        
         }
         if (index === 1 ) {
             openFaqAnswer(arr[1])
 
-            closeFaqAnswer(arr[0]);
-            closeFaqAnswer(arr[2]);
-            closeFaqAnswer(arr[3]);
+         
         }
         if (index === 2 ) {
             openFaqAnswer(arr[2])
 
-            closeFaqAnswer(arr[0]);
-            closeFaqAnswer(arr[1]);
-            closeFaqAnswer(arr[3]);
+         
         }
         if (index === 3 ) {
             openFaqAnswer(arr[3])
 
-            closeFaqAnswer(arr[0]);
-            closeFaqAnswer(arr[1]);
-            closeFaqAnswer(arr[2]);
+         
         }
        
     })
@@ -171,15 +163,19 @@ emailForm.addEventListener('submit', (e) => {
 // utils functions
 
 function openFaqAnswer(element) {
+
+    console.log(element.parentNode.nextElementSibling)
     
     if(element.parentNode.parentNode.classList.contains('active')) { 
         closeFaqAnswer(element)
     } else {
         
         element.parentNode.parentNode.classList.add('active');
+        element.parentNode.nextElementSibling.classList.add('animate__animated','animate__fadeInDown');
+        
         
         element.firstElementChild.setAttribute('transform', 'rotate(180, -5, -5)');
-        element.firstElementChild.firstChild.attributes.getNamedItem('stroke').value = 'hsl(0, 94%, 66%)';
+        // element.firstElementChild.firstChild.attributes.getNamedItem('stroke').value = 'hsl(0, 94%, 66%)';
 
     }
 
@@ -188,8 +184,12 @@ function openFaqAnswer(element) {
 
 function closeFaqAnswer(element) {
 
+    console.log('element', element)
+
     element.firstElementChild.setAttribute('transform', '');
-    element.firstElementChild.firstChild.attributes.getNamedItem('stroke').value = '#5267DF';
+    element.parentNode.nextElementSibling.classList.remove('animate__fadeInUp');
+
+    // element.firstElementChild.firstChild.attributes.getNamedItem('stroke').value = '#5267DF';
     element.parentNode.parentNode.classList.remove('active');
 
 }
