@@ -10,6 +10,7 @@
 
 .blue--btn {
     background-color: $soft_blue;
+    border: 1px solid transparent;
 
 
     &:hover {
@@ -24,7 +25,8 @@
     background-color: #F7F7F7;
     color: $grayish_blue;
     box-shadow: -2px 8px 8px 1px rgba(0,0,0,0.2);
-    
+    border: 1px solid transparent;
+
 
     &:hover {
         background-color: #fff;
@@ -35,13 +37,14 @@
 
 .red--btn {
     background-color: $soft_red;
+    border: 1px solid transparent;
 
     &.login  {
         text-transform: uppercase;
     }
     &:hover {
         background-color: #fff;
-        border: 1px solid $soft_red;
+        border-color: $soft_red;
         color: $soft_red;
     }
 }

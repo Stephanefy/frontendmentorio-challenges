@@ -41,7 +41,7 @@ tabsSelectorsArray.forEach((element, index, arr) => {
         
 
         if (activeTab === 0) {
-            bookmarkTab.classList.add('active');
+            bookmarkTab.classList.add('active', 'animate__animated', 'animate__bounceInLeft');
             intelligentSearchTab.classList.remove('active');
             shareBookmarsTab.classList.remove('active');
             index === activeTab && element.classList.add('active');
@@ -51,7 +51,7 @@ tabsSelectorsArray.forEach((element, index, arr) => {
 
 
         } else if(activeTab === 1) {
-            intelligentSearchTab.classList.add('active');
+            intelligentSearchTab.classList.add('active', 'animate__animated', 'animate__bounceInLeft');
             shareBookmarsTab.classList.remove('active');
             bookmarkTab.classList.remove('active');
             index === activeTab && element.classList.add('active');
@@ -62,7 +62,7 @@ tabsSelectorsArray.forEach((element, index, arr) => {
 
 
         } else if(activeTab === 2) {
-            shareBookmarsTab.classList.add('active');
+            shareBookmarsTab.classList.add('active', 'animate__animated', 'animate__bounceInLeft');
             intelligentSearchTab.classList.remove('active');
             bookmarkTab.classList.remove('active');
             index === activeTab && element.classList.add('active');
