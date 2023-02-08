@@ -9,15 +9,19 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@heroicons/react": "^2.0.14",
+    "chart.js": "^4.2.0",
     "flowbite": "^1.5.4",
     "flowbite-react": "^0.3.5",
     "little-state-machine": "^4.8.0",
     "react": "^18.2.0",
+    "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.42.1",
     "react-router-dom": "^6.4.3"
   },
   "devDependencies": {
+    "@faker-js/faker": "^7.6.0",
     "@types/react": "^18.0.24",
     "@types/react-dom": "^18.0.8",
     "@vitejs/plugin-react": "^2.2.0",

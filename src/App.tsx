@@ -9,6 +9,7 @@ import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import ConfirmSignup from './pages/ConfirmSignup'
 import { StateMachineProvider } from 'little-state-machine';
+import MainDashboardTeacher from './pages/recruiter/dashboard/MainDashboardTeacher'
 
 
 
@@ -26,6 +27,7 @@ function App() {
               <Route path='/login' element={<Login/>} />
               <Route path='/signup' element={<SignUp/>} />
               <Route path='/confirm-signup' element={<ConfirmSignup/>} />
+              <Route path='/dashboard/recruiter' element={<MainDashboardTeacher/>} />
             </Routes>
           </main>
       </GlobalContextProvider>
