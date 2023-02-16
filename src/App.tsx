@@ -3,17 +3,20 @@ import './App.css'
 import Sidebar from './components/Sidebar'
 import Navbar from './components/Navbar'
 import Main from './components/Main'
+import { BoardContextProvider } from './context/BoardContext'
 
 function App() {
 
 
   return (
-    <div className="bg-secondary-gray h-full">
+    <div className="bg-secondary-gray relative">
       <Navbar/>
-      <main className="flex w-full h-full relative">
-        <Sidebar/>
-        <Main/>
-      </main>
+      <BoardContextProvider>
+        <main className="flex w-full relative">
+          <Sidebar/>
+          <Main/>
+        </main>
+      </BoardContextProvider>
     </div>
   )
 }

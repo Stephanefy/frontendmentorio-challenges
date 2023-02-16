@@ -1,40 +1,65 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import IconBoard from "../assets/icon-board.svg";
 import Switchbuton from "./Switchbutton";
 import IconHideSideBar from '../assets/icon-hide-sidebar.svg'
 import IconShowSideBar from '../assets/icon-show-sidebar.svg'
+import { BoardContext } from '../context/BoardContext'
+import { BoardActionKind } from "../context/BoardContext";
+import data from '../assets/data.json';
 
 type Props = {};
 
 const Sidebar = (props: Props) => {
 
+  const { state ,dispatch } = useContext(BoardContext)
+
+
+  useEffect(() => {
+    console.log('state from board context', state)
+  }, [state])
+
   const [hideSidebar, setHideSidebar] = React.useState<boolean>(false)
 
-
+  const { boards } = data;
 
   return (
     <>
-      <div className={`${!hideSidebar ? "basis-1/6 ease-in duration-300" : "basis-1/6 transform -translate-x-full ease-in duration-300"} bg-white h-screen z-30 border-r-2 flex flex-col justify-between`}>
+      <div className={`${!hideSidebar ? "basis-1/6 ease-in duration-300" : "basis-1/6 transform -translate-x-full ease-in duration-300"} bg-white z-30 border-r-2 flex flex-col justify-between`}>
         <ul className="pl-3 w-full">
         <h3 className="font-bold uppercase text-primary-gray p-3">all boards</h3>
           <li className="text-primary-gray py-3">
-            <img src={IconBoard} className="inline-block mr-4" />
-            <span>Platform launch</span>
+            <button onClick={() => dispatch({
+              type: BoardActionKind.PLATFORM,
+              payload: boards[0]
+            })}>
+              <img src={IconBoard} className="inline-block mr-4" />
+              <span>Platform launch</span>
+            </button>
           </li>
           <li className="text-primary-gray py-3">
-            <img src={IconBoard} className="inline-block mr-4" />
-
-            <span>Marketing Plan</span>
+            <button onClick={() => dispatch({
+              type: BoardActionKind.MARKETING,
+              payload: boards[1]
+            })}>
+              <img src={IconBoard} className="inline-block mr-4" />
+              <span>Marketing Plan</span>
+            </button>
           </li>
           <li className="text-primary-gray py-3">
+            <button onClick={() => dispatch({
+              type: BoardActionKind.ROADMAP,
+              payload: boards[2]
+            })}>
             <img src={IconBoard} className="inline-block mr-4" />
-
             <span>Roadmap</span>
+            </button>
           </li>
           <li className="text-primary-gray py-3">
-            <img src={IconBoard} className="inline-block mr-4" />
+            <button>
+              <img src={IconBoard} className="inline-block mr-4" />
 
-            <span className="text-primary">+ Create New Board</span>
+              <span className="text-primary">+ Create New Board</span>
+            </button>
           </li>
         </ul>
         <div className="bg-secondary-gray w-11/12 h-12 rounded-lg mx-auto mt-auto flex justify-center ">
