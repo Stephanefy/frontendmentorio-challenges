@@ -15,7 +15,6 @@ const Kanbancard = ({title, description, status, subtasks}: Task) => {
   }, 0)
 
 
-  console.log(subtasksCount)
 
 
 
