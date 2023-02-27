@@ -22,7 +22,7 @@ function Carditem({card}: CardItemProps) {
   const navigate = useNavigate()
 
   const handleNavigateToDetail = (id: number) => {
-    navigate(`/${id}`)
+    navigate(`/job/${id}`)
   }
 
 

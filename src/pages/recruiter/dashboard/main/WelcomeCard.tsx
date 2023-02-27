@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import SvgComponent from '../../../components/svg/WelcomeCardSvg';
+import SvgComponent from '../../../../components/svg/WelcomeCardSvg';
 
 interface Props {}
 
