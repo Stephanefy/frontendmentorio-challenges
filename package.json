@@ -10,10 +10,12 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.0.14",
+    "@tailwindcss/forms": "^0.5.3",
     "chart.js": "^4.2.0",
     "flowbite": "^1.5.4",
     "flowbite-react": "^0.3.5",
     "little-state-machine": "^4.8.0",
+    "nanoid": "^4.0.1",
     "react": "^18.2.0",
     "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.2.0",

@@ -41,13 +41,13 @@ const Login = () => {
 
     useEffect(() => {
       if (isSuccess && state.user!.role === "EMPLOYER") {
-        navigate('/dashboard/recruiter')
+        navigate('/dashboard/main')
       }
     }, [state])
 
     return (
         <div className="h-screen w-7/12 mx-auto flex flex-col justify-center items-center">
-            <h2 className="dark:text-gray-800 text-white text-center text-2xl my-3">
+            <h2 className="dark:text-white text-gray-600 text-center text-2xl my-3">
                 Login
             </h2>
             <form onSubmit={onSubmit} className="flex flex-col items-start w-6/12 mx-6 rounded-lg p-3 bg-app-very-black-blue dark:bg-app-light-grey">

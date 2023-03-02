@@ -1,6 +1,8 @@
-import { FC, useContext } from 'react';
+import { FC, useContext, useState } from 'react';
 import { User } from '../../../../context/AuthContext';
 import { AuthContext } from '../../../../context/AuthContext';
+import PortalModal from '../../../../components/modals/PortalModal';
+import JobOfferModalContent from './JobOfferModalContent';
 import Card from './Card';
 
 interface Props {
@@ -8,6 +10,8 @@ interface Props {
 }
 
 const MainPanel: FC<Props> = (props): JSX.Element => {
+
+  const [openModal, setOpenModal] = useState<boolean>(false);
 
 
   const { state } = useContext(AuthContext)
@@ -21,6 +25,7 @@ const MainPanel: FC<Props> = (props): JSX.Element => {
             <Card
               title={"Add a new job offer"}
               backgroundColor='bg-app-violet'
+              openModal={() => setOpenModal(true)}
             />
         </div>
     </div>
@@ -28,6 +33,9 @@ const MainPanel: FC<Props> = (props): JSX.Element => {
       <h2>Your job offers</h2>
       <p>No job offers listed yet</p>
     </div>
+    <PortalModal isOpen={openModal} onClose={() => setOpenModal(false)}>
+        <JobOfferModalContent />
+    </PortalModal>
 </section>
   )
 };
