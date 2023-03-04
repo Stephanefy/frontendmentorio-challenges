@@ -15,9 +15,8 @@ interface Props {
 
 const RequirementsAndRoleItem: FC<Props> = (props: Props): JSX.Element => {
     return (
-        <li className="flex flex-col w-full transition ease-in duration-100 justify-center h-full">
-            <span>item</span>
-            <div>
+        <li className="flex flex-col w-full transition ease-in duration-100 justify-center h-full my-2">
+            <div className='w-full'>
                 <label htmlFor={props.id} className="hidden">
                     Items
                 </label>
@@ -25,7 +24,7 @@ const RequirementsAndRoleItem: FC<Props> = (props: Props): JSX.Element => {
                     id={`item-${props.id}`}
                     type="text"
                     required={false}
-                    className="w-6/12 rounded-md border-0 px-4 py-3 placeholder-gray-300 shadow"
+                    className="w-10/12 mx-2 rounded-md border-0 px-4 py-4 placeholder-gray-300 shadow h-2/3"
                 />
                 <button
                     className="ml-4 my-auto"

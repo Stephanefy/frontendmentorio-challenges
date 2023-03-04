@@ -26,9 +26,9 @@ const PortalModal: FC<Props> = ({
 
     return (
         <ReactPortals wrapperId="modal-container">
-            <div className='fixed flex items-center justify-center w-12/12 h-full z-50 inset-0 overflow-auto'>
+            <div className='fixed flex items-center justify-center h-full z-50 inset-0 w-screen'>
                 <button onClick={onClose} className='absolute right-32 top-8'>X</button>
-                <div className='w-10/12 mb-12 mt-24'>{children}</div>
+                <div className='flex mb-12 my-auto justify-center w-[900px] h-[700px]'>{children}</div>
             </div>
 
         </ReactPortals>
