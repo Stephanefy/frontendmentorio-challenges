@@ -1,6 +1,6 @@
 import { MouseEvent } from 'react'
 import { useStateMachine } from 'little-state-machine'
-import updateAction  from '../../utils/updateAction';
+import {updateSignUp}  from '../../utils/updateAction';
 import { useForm } from 'react-hook-form';
 
 
@@ -11,12 +11,12 @@ type Props = {
 const FirstSteps = ({ onstephandler }: Props) => {
 
 
-    const { actions, state } = useStateMachine({ updateAction })
+    const { actions, state } = useStateMachine({ updateSignUp })
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     const onSubmit = handleSubmit((data, e) : void => {    
         onstephandler(e)
-        actions.updateAction({email: data.email})
+        actions.updateSignUp({email: data.email})
       })
 
     return (

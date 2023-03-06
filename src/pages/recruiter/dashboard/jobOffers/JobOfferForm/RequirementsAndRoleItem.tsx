@@ -6,11 +6,14 @@ import {
     FC,
 } from 'react'
 
+import { UseFormRegister, FieldValues } from 'react-hook-form'
+
 interface Props {
     id: string
     setRoleItemArr?: Dispatch<
         SetStateAction<ReactElement<any, string | JSXElementConstructor<any>>[]>
     >
+    register: UseFormRegister<FieldValues>
 }
 
 const RequirementsAndRoleItem: FC<Props> = (props: Props): JSX.Element => {
@@ -25,6 +28,7 @@ const RequirementsAndRoleItem: FC<Props> = (props: Props): JSX.Element => {
                     type="text"
                     required={false}
                     className="w-10/12 mx-2 rounded-md border-0 px-4 py-4 placeholder-gray-300 shadow h-2/3"
+                    {...props.register(`items.${props.id}`)}
                 />
                 <button
                     className="ml-4 my-auto"

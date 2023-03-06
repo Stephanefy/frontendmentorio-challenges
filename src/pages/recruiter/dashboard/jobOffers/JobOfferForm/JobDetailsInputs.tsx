@@ -1,12 +1,15 @@
 import { FC, ReactElement, useState, useEffect, createElement } from 'react'
-import RequirementsAndRoleItem from './RequirementsAndRoleItem'
-import { nanoid } from 'nanoid'
+import StepNavigationBtn from './StepNavigationBtn'
+import { UseFormRegister, FieldValues } from 'react-hook-form'
 
 interface Props {
-    step: number
+    step: number,
+    setStep: (step: number) => void,
+    register: UseFormRegister<FieldValues>
+
 }
 
-const JobDetailsInputs: FC<Props> = ({ step }: Props): JSX.Element => {
+const JobDetailsInputs: FC<Props> = ({ step, setStep, register }: Props): JSX.Element => {
   
   
     return (
@@ -15,9 +18,10 @@ const JobDetailsInputs: FC<Props> = ({ step }: Props): JSX.Element => {
                 <label>Description</label>
                 <textarea
                     required
-                    rows={8}
+                    rows={5}
                     aria-required={true}
                     className="w-7/12 rounded-md border-0 px-4 py-3 placeholder-gray-300 shadow mr-2"
+                    {...register('description')}
                 />
             </div>
         </>

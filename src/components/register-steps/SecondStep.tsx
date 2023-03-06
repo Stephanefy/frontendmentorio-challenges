@@ -1,6 +1,6 @@
 import React, { MouseEvent, useEffect } from 'react'
 import { useStateMachine } from 'little-state-machine'
-import updateAction  from '../../utils/updateAction'
+import {updateSignUp}  from '../../utils/updateAction'
 
 type Props = {
     onstephandler: (e: MouseEvent<Element>) => void
@@ -9,7 +9,7 @@ type Props = {
 
 const SeconStep = ({onstephandler}: Props) => {
 
-  const { actions, state, getState } = useStateMachine({ updateAction })
+  const { actions, state, getState } = useStateMachine({ updateSignUp })
 
  console.log(getState())
 

@@ -4,13 +4,13 @@ import SecondStep from '../components/register-steps/SecondStep'
 import FourthStep from '../components/register-steps/FourthStep';
 import ThirdStep from '../components/register-steps/ThirdStep';
 import { useStateMachine } from 'little-state-machine';
-import updateAction from '../utils/updateAction';
+import { updateSignUp } from '../utils/updateAction';
 
 
 const SignUp = () => {
 
   const [step, setStep] = useState<number>(1)
-  const { actions, state, getState} = useStateMachine({ updateAction})
+  const { actions, state, getState} = useStateMachine({ updateSignUp})
 
   useEffect(() => {
     console.log(getState())
@@ -24,11 +24,11 @@ const SignUp = () => {
 
     if (e?.currentTarget?.innerHTML === "Job seeker") {
         setStep(3)
-        actions.updateAction({role: 'JOB_SEEKER'})
+        actions.updateSignUp({role: 'JOB_SEEKER'})
     } 
     if (e?.currentTarget?.innerHTML === "Recruiter") {
         setStep(4)
-        actions.updateAction({role: 'EMPLOYER'})
+        actions.updateSignUp({role: 'EMPLOYER'})
 
     }
 

@@ -1,6 +1,6 @@
 import { useStateMachine } from "little-state-machine"
 import { useForm } from "react-hook-form";
-import updateAction from "../../utils/updateAction";
+import {updateSignUp} from "../../utils/updateAction";
 import { useNavigate } from "react-router-dom";
 
 const FourthStep = () => {
@@ -8,7 +8,7 @@ const FourthStep = () => {
 
 
   const { register, handleSubmit } = useForm();
-  const { actions, state } = useStateMachine({ updateAction })
+  const { actions, state } = useStateMachine({ updateSignUp })
   const navigate = useNavigate()
 
 
@@ -17,7 +17,7 @@ const FourthStep = () => {
       console.log(e)
       console.log(data.password)
       console.log('actions', actions)
-      actions.updateAction({password: data.password})
+      actions.updateSignUp({password: data.password})
       navigate('/confirm-signup')
     })
 

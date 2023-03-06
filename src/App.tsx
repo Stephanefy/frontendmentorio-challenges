@@ -14,6 +14,7 @@ import MainDashboardTeacher from './pages/recruiter/dashboard/MainDashboardTeach
 import Auth from './hoc/Auth'
 import MainPanel from './pages/recruiter/dashboard/main/MainPanel'
 import JobOffersPanel from './pages/recruiter/dashboard/jobOffers/JobOffersPanel'
+import BasicInfoInputs1 from './pages/recruiter/dashboard/jobOffers/JobOfferForm/BasicInfoInputs1'
 
 function App() {
     return (
@@ -42,7 +43,10 @@ function App() {
                                         element={<MainDashboardTeacher />}
                                     >
                                         <Route path="main" element={<MainPanel/>} />
-                                        <Route path="job-offers" element={<JobOffersPanel/>} />
+                                        <Route path="job-offers" element={<JobOffersPanel/>}>
+                                        
+                                        
+                                        </Route>
 
                                     </Route>
                                 </Route>

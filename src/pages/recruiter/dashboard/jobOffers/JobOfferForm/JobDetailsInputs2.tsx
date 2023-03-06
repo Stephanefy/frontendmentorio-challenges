@@ -1,20 +1,25 @@
 import { FC, useState, ReactElement, createElement } from 'react'
 import RequirementsAndRoleItem from './RequirementsAndRoleItem'
 import { nanoid } from 'nanoid'
+import { UseFormRegister, FieldValues } from 'react-hook-form'
 
 interface Props {
-    step: number
+    step: number,
+    setStep: (step: number) => void,
+    register: UseFormRegister<FieldValues>
 }
 
-const JobDetailsInputs2: FC<Props> = ({ step }: Props): JSX.Element => {
+const JobDetailsInputs2: FC<Props> = ({ step, setStep, register }: Props): JSX.Element => {
     const [requirementItemArr, setNumRequirementItemArr] = useState<
         ReactElement[]
-    >([<RequirementsAndRoleItem id={nanoid()} />])
+    >([<RequirementsAndRoleItem id={nanoid()} register={register} />])
 
     return (
         <>
             <div id="requirements" className="w-full">
-                <h4 className="text-gray-200 text-2xl text-left my-2">Requirements</h4>
+                <h4 className="text-gray-200 text-2xl text-left my-2">
+                    Requirements
+                </h4>
                 <div className="flex items-center justify-between my-2 w-full">
                     <label>Content</label>
                     <textarea
@@ -22,9 +27,10 @@ const JobDetailsInputs2: FC<Props> = ({ step }: Props): JSX.Element => {
                         required
                         aria-required={true}
                         className="w-7/12 rounded-md border-0 px-4 py-3 placeholder-gray-300 shadow mr-2"
+                        {...register('content')}
                     />
                 </div>
-                <div className="flex w-full">
+                <div className="flex w-full items-center">
                     <h4 className="text-gray-200 text-1xl text-left my-2">
                         Relevant information items to this job's requirements
                     </h4>
@@ -33,7 +39,7 @@ const JobDetailsInputs2: FC<Props> = ({ step }: Props): JSX.Element => {
                         type="button"
                         onClick={(e) => {
                             e.stopPropagation()
-                            if (requirementItemArr.length < 5) {
+                            if (requirementItemArr.length < 6) {
                                 setNumRequirementItemArr((prevState) => [
                                     ...prevState,
                                     <RequirementsAndRoleItem
@@ -41,6 +47,7 @@ const JobDetailsInputs2: FC<Props> = ({ step }: Props): JSX.Element => {
                                         setRoleItemArr={
                                             setNumRequirementItemArr
                                         }
+                                        register={register}
                                     />,
                                 ])
                             }
@@ -48,13 +55,13 @@ const JobDetailsInputs2: FC<Props> = ({ step }: Props): JSX.Element => {
                     >
                         +
                     </button>
-                </div>
-                <ul className="grid grid-cols-2 items-start justify-start w-full list-disc">
-                    {requirementItemArr.length === 5 ? (
-                        <span className="inline-block text-red-600">
+                    {requirementItemArr.length === 6 ? (
+                        <span className="inline-block text-red-600 ml-auto">
                             maximum items reached
                         </span>
                     ) : null}
+                </div>
+                <ul className="grid grid-cols-2 items-start justify-start w-full list-disc">
                     {requirementItemArr!.map(
                         (item: ReactElement, _index: number) =>
                             createElement(item.type, {
