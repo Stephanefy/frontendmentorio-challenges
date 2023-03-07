@@ -13,9 +13,17 @@ import { useStateMachine } from 'little-state-machine'
 interface Props {
 }
 
+const updateReqOrRole = (updateFn: Function, content: string, items: string[] ) => {
+    updateFn({
+        content,
+        items
+    })
+}
+
 const FormIndex: FC<Props> = (props: Props): JSX.Element => {
 
     const [step, setStep] = useState<number>(1)
+    const [sucesss, setSuccess] = useState<boolean>(false)
     const { actions, state, getState } = useStateMachine({ updateJobPost, updateRequirements, updateRole })
 
 
@@ -27,31 +35,44 @@ const FormIndex: FC<Props> = (props: Props): JSX.Element => {
         formState: { errors },
     } = useForm()
 
-    const onSubmit = (data: any) => {
-        setStep(step + 1)
+    const onSubmit = async (data: any) => {
         
+    
+        if (step < 6 ) setStep(step + 1)
+        
+        const finalData = getState()
 
+        if (step === 6) {
+            console.log('dataToSend', finalData)    
+            try {
+                const response = await fetch('http://localhost:8000/api/jobPost', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({...finalData}),
+                    credentials: 'include'
+                })
+                
+                if (response.ok){
+                    setSuccess(true)
+                    sessionStorage.removeItem('__LSM__')
+                }
+
+            } catch (error) {
+                
+            }        
+        }
+    
+        // check for step 4 and five of the wizard to use the proper update function
         if (step < 4) {
             actions.updateJobPost(data)
-        } else if (step === 4) {
-            console.log(data.items)
-
- 
-
-
-            actions.updateRequirements({
-                content: data.content,
-                items: data.items
-            })
-        } else {
-
-            console.log(data.items)
-       
-
-            actions.updateRole({
-                content: data.content,
-                items: data.items
-            })
+        }
+        if (step === 4) {
+            updateReqOrRole(actions.updateRequirements, data.content, data.items)
+        } 
+        if (step === 5) {
+            updateReqOrRole(actions.updateRole, data.content, data.items)
         }
     }
 

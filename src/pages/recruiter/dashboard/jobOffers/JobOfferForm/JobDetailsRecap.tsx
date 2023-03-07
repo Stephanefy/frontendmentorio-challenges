@@ -27,13 +27,15 @@ const JobDetailsRecap: FC<Props> = (props): JSX.Element => {
                         <ul className="space-y-3 p-5">
                             <li>Content: {jobPost?.requirements.content}</li>
                             <li>
-                                {jobPost.requirements.items.map(
-                                    (item, index) => (
-                                        <li className="list-disc" key={index}>
-                                            {item}
-                                        </li>
-                                    )
-                                )}
+                                <ul>
+                                    {jobPost.requirements.items.map(
+                                        (item, index) => (
+                                            <li className="list-disc" key={index}>
+                                                {item}
+                                            </li>
+                                        )
+                                    )}
+                                </ul>
                             </li>
                         </ul>
                     </li>
@@ -44,11 +46,13 @@ const JobDetailsRecap: FC<Props> = (props): JSX.Element => {
                         <ul className="space-y-3 p-5">
                             <li>Content: {jobPost?.role.content}</li>
                             <li>
-                                {jobPost.role.items.map((item, index) => (
-                                    <li className="list-disc" key={index}>
-                                        {item}
-                                    </li>
-                                ))}
+                                <ul>
+                                    {jobPost.role.items.map((item, index) => (
+                                        <li className="list-disc" key={index}>
+                                            {item}
+                                        </li>
+                                    ))}
+                                </ul>
                             </li>
                         </ul>
                     </li>
