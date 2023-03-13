@@ -9,7 +9,7 @@ export const useSignIn = () => {
     const [isLoading, setIsLoading] = useState(false)
     const [isSuccess, setIsSuccess] = useState(false)
     const { dispatch } = useAuthContext()
-    const [, setItem] = useLocalStorage('user', null)
+    const [, setItem] = useLocalStorage('user', {})
 
     const signIn = async (email: string, password: string) => {
         setIsLoading(true)
@@ -37,7 +37,22 @@ export const useSignIn = () => {
                 }
                 if (response.ok) {
                     dispatch({ type: 'LOGIN', payload: responseData })
-                    setItem(responseData)
+
+                    console.log('reponseData', responseData)
+
+                    const timeStamp = Date.now()
+
+                    const timeStampedUser = {
+                        id: responseData!.id as string,
+                        email: responseData!.email as string,
+                        role:responseData!.role as string,
+                        initial: timeStamp,
+                        expiresOn: timeStamp + 1000*60*60*24*30
+                    }
+
+                    console.log(timeStampedUser)
+
+                    setItem(timeStampedUser)
                     setIsSuccess(true)
                 }
 

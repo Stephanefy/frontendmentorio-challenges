@@ -8,6 +8,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: rgb(244, 246, 248);
+    height: 100%;
 }
 
 /* useful to modify list style type */

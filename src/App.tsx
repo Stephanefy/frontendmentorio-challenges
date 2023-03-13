@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import Detail from './pages/Detail'
@@ -15,8 +15,38 @@ import Auth from './hoc/Auth'
 import MainPanel from './pages/recruiter/dashboard/main/MainPanel'
 import JobOffersPanel from './pages/recruiter/dashboard/jobOffers/JobOffersPanel'
 import BasicInfoInputs1 from './pages/recruiter/dashboard/jobOffers/JobOfferForm/BasicInfoInputs1'
+import checkExpiryDate from './utils/checkExpiryData'
 
 function App() {
+
+
+    useEffect(() => {
+        let isNotExpired = checkExpiryDate()
+        let userObj = localStorage.getItem("user");
+        let userId = userObj && JSON.parse(userObj).id
+
+        async function revalidateToken(id: string) {
+            const response = await fetch('http://localhost:8000/refresh', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    userId: id 
+                }),
+            })
+
+            return response
+        }
+        if (isNotExpired) {
+            revalidateToken(userId).then(res => res.json()).then(data => console.log(data))
+            
+            
+            
+        }
+
+    }, [])
+
     return (
         <BrowserRouter>
             <StateMachineProvider>

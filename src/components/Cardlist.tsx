@@ -1,8 +1,10 @@
+import { JobPost } from '../types/global'
 import Carditem from './Carditem'
+import { CardItemProps } from './Carditem'
 
 
 interface CardListProps {
-  jobData: CardItem[]
+  jobData: JobPost[]
 }
 
 interface CardItem {

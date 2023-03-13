@@ -1,13 +1,19 @@
-import { FC } from 'react'
+import { FC, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 interface Props {}
 
 const Sidebar: FC<Props> = (props): JSX.Element => {
+
+    const [fullWidth, setFullWidth] = useState<boolean>(true)
+
+    console.log('fullWidth', fullWidth)
+
+
     return (
-        <div className="w-1/12 lg:basis-3/12 pt-8 pl-8">
-            <nav>
-                <ul className="flex flex-col items-center lg:items-start gap-y-16">
+        <div className="w-[290px] pt-8 h-screen relative bg-app-violet">
+            <nav className={`h-full fixed top-24 left-0 bg-app-violet w-[238px]${fullWidth ? " transform translate-x-0" : "transform -translate-x-full" } pt-48  `}>
+                <ul className="flex flex-col items-center flex-1 lg:items-start gap-y-16 text-white">
                     <li className="w-full">
                         <Link to="job-offers" className='pl-3 flex gap-x-10 cursor-pointer dark:text-white hover:border-r-4 hover:border-app-violet w-full hover:ease-in transition duration-150 group'>
                             <svg
@@ -84,6 +90,13 @@ const Sidebar: FC<Props> = (props): JSX.Element => {
                             />
                         </svg>
                         <span className="hidden lg:block">Settings</span>
+                    </li>
+                    <li>
+                        <button type="button" onClick={() => setFullWidth(!fullWidth)}>
+                            <span>
+                                close / open
+                            </span>
+                        </button>
                     </li>
                 </ul>
             </nav>

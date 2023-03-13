@@ -1,8 +1,8 @@
 import { useContext } from "react";
 import { JobContext } from "../context/Jobcontext"
 import { useNavigate } from "react-router-dom";
-
-type CardItemProps = {
+import formatDistanceToNow from 'date-fns/formatDistanceToNow'
+export type CardItemProps = {
   card : {
     id: number,
     company: string
@@ -15,8 +15,10 @@ type CardItemProps = {
   }
 }
 
-function Carditem({card}: CardItemProps) {
+function Carditem({card} : CardItemProps) {
 
+
+  console.log('jfkdjsk',card)
 
   const context = useContext(JobContext)
   const navigate = useNavigate()
@@ -25,6 +27,9 @@ function Carditem({card}: CardItemProps) {
     navigate(`/job/${id}`)
   }
 
+
+  const postedAt = formatDistanceToNow(new Date(card.postedAt))
+  
 
   return (
     <li 
@@ -35,7 +40,7 @@ function Carditem({card}: CardItemProps) {
         <img src={`${card.logo}`} alt="logo" />
       </div>
       <div className="mt-2 mb-2">
-        <span className="text-app-gray">{card.postedAt}</span>
+        <span className="text-app-gray">{postedAt}</span>
         <span className="text-app-gray mx-2 text-6xl">.</span>
         <span className="text-app-gray">{card.contract}</span>
       </div>

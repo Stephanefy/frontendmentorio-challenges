@@ -15,9 +15,11 @@ export type Role = {
 
 
 export type JobPost = {
+  id: string,
   company: string;
   logo: string;
   logoBackground: string;
+  postedAt: number;
   position: string;
   contract: string;
   location: string;

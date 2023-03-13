@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import Body from '../components/Body'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
-import data from '../data.json'
 import { useParams } from 'react-router-dom'
+import { JobContext } from '../context/Jobcontext'
+import { JobPost } from '../types/global'
 
 type CurrentJob = {
   
@@ -34,12 +35,18 @@ type CurrentJob = {
 
 const Detail = () => {
 
+  const context = useContext(JobContext)
+
   const { id } = useParams()
-  const [currentJob, setCurrentJob] = useState({} as CurrentJob)
+
+  console.log(id)
+
+  const [currentJob, setCurrentJob] = useState<JobPost | {}>({})
 
   useEffect(() => {
-    let currJob = data.filter((e) => e.id === +id!)    
-    setCurrentJob(currJob[0])
+    let currJob = context!.jobsData.filter((e:JobPost) => e.id == id!)    
+    console.log('currentjob',currJob)
+    setCurrentJob({...currJob[0]})
   }, [])
 
 

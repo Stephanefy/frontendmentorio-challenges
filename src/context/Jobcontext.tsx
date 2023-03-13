@@ -1,5 +1,5 @@
 import React, { createContext, Dispatch, SetStateAction, useState } from "react";
-
+import { JobPost } from "../types/global";
 
 
 
@@ -7,19 +7,30 @@ interface Props {
     children: React.ReactNode
 }
 
-export const JobContext = createContext<
-{currentId: number, setCurrentId: Dispatch<SetStateAction<number>>} | undefined
->(undefined)
+
+type JobContextType = {
+        currentId: number, 
+        setCurrentId: Dispatch<SetStateAction<number>>
+        jobsData: JobPost[]
+        setJobsDataContext: Dispatch<SetStateAction<JobPost[]>>
+}
+
+export const JobContext = createContext<JobContextType | null >(null)
 
 
 
 const JobContextProvider: React.FC<Props> = ({children}) => {
 
     const [currentId, setCurrentId] = useState<number>(0)
+    const [jobsData, setJobsDataContext] = useState<JobPost[]>([])
+
+    console.log('from context', jobsData)
 
     const value = {
         currentId,
-        setCurrentId
+        setCurrentId,
+        jobsData,
+        setJobsDataContext
     }
 
     return <JobContext.Provider value={value}>{children}</JobContext.Provider>
