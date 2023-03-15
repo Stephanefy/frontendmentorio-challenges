@@ -1,11 +1,14 @@
 import { useState } from 'react';
 import useAuthContext  from './useAuthContext';
+import {useLocalStorage} from './useLocaleStorage';
 
 export const useSignUp = () => {
     const [error, setError ] = useState(null)
     const [isLoading, setIsLoading] = useState(false)
     const [isSuccess, setIsSuccess] = useState(false)
     const { dispatch } = useAuthContext()
+    const [, setItem] = useLocalStorage('user', {})
+
 
     const signup = async (email: string, password: string, role: string) => {
         setIsLoading(true)
@@ -23,7 +26,8 @@ export const useSignUp = () => {
                         email,
                         password,
                         role
-                 })
+                 }),
+                 credentials: 'include'
                 })
                 const responseData = await response.json()
 
@@ -32,7 +36,19 @@ export const useSignUp = () => {
                 }
                 if (response.ok) {
                     dispatch({ type: 'LOGIN', payload: responseData })
-                    localStorage.setItem('user',JSON.stringify(responseData))
+                    const timeStamp = Date.now()
+
+                    const timeStampedUser = {
+                        id: responseData!.id as string,
+                        email: responseData!.email as string,
+                        role:responseData!.role as string,
+                        initial: timeStamp,
+                        expiresOn: timeStamp + 1000*60*60*24*30
+                    }
+
+                    console.log(timeStampedUser)
+
+                    setItem(timeStampedUser)
                     setIsSuccess(true)
                 }
 

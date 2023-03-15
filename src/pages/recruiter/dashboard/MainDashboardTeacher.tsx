@@ -23,7 +23,7 @@ const MainDashboardTeacher: FC<Props> = (props): JSX.Element => {
 
   return (
   
-    <div className='w-full flex lg:justify-center items-start'>
+    <div className='w-full h-full flex lg:justify-center items-start bg-gray-200'>
         <Sidebar />
         <Outlet/>
     

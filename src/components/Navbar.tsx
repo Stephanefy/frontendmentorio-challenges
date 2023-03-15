@@ -20,7 +20,7 @@ const Navbar = () => {
                     : "h-40 bg-[url('/assets/desktop/bg-pattern-header.svg')] bg-no-repeat bg-cover"
             } `}
         >
-            <div className="pt-8 flex justify-between w-5/6 mx-auto md:max-w-6xl">
+            <div className="pt-8 flex justify-between w-10/12 md:w-5/6 mx-auto md:max-w-6xl">
                 <div>
                     <h1>
                         <Link to="/">
@@ -31,12 +31,25 @@ const Navbar = () => {
 
                 <div className="flex items-start justify-between w-3/12 h-full">
                     {state.user.id !== 0 ? (
-                        <div className='flex'>
+                        <div className="hidden md:flex space-x-6">
                             <button
                                 className="mb-2 mr-2 text-white hover:underline"
                                 onClick={logout}
                             >
-                                log out
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    strokeWidth="1.5"
+                                    stroke="currentColor"
+                                    className="w-6 h-6"
+                                >
+                                    <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75"
+                                    />
+                                </svg>
                             </button>
                             <Link to="/dashboard/main">
                                 <button>

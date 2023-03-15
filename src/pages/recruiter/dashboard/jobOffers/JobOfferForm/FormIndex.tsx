@@ -9,6 +9,8 @@ import JobDetailsRecap from './JobDetailsRecap'
 import { useForm } from 'react-hook-form'
 import { updateJobPost, updateRequirements, updateRole } from '../../../../../utils/updateAction';
 import { useStateMachine } from 'little-state-machine'
+import { isEmptyObject } from '../../../../../utils/isEmptyObject'
+import { JobPost } from '../../../../../types/global';
 
 interface Props {
 }
@@ -78,16 +80,18 @@ const FormIndex: FC<Props> = (props: Props): JSX.Element => {
 
 
     useEffect(() => {
+        
         const storedFormData = sessionStorage.getItem('__LSM__')
-        if (storedFormData) {
-            const parsedData = JSON.parse(storedFormData)
+
+        console.log('storedFormData', storedFormData)
+
+        if (!isEmptyObject(JSON.parse(storedFormData as string).jobPost) ) {
+            const parsedData = JSON.parse(storedFormData as string)
             // check if the user has already filled the form
             actions.updateJobPost(parsedData.jobPost)
             // redirect to recap step
             setStep(6)
         }
-
-
     }, [])
 
     console.log('state', getState())

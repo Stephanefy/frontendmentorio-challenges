@@ -25,10 +25,10 @@ const JobDetailsRecap: FC<Props> = (props): JSX.Element => {
                     <li>
                         <h3>Requirements</h3>
                         <ul className="space-y-3 p-5">
-                            <li>Content: {jobPost?.requirements.content}</li>
+                            <li>Content: {jobPost?.requirements?.content}</li>
                             <li>
                                 <ul>
-                                    {jobPost.requirements.items.map(
+                                    {jobPost?.requirements?.items.map(
                                         (item, index) => (
                                             <li className="list-disc" key={index}>
                                                 {item}
@@ -44,10 +44,10 @@ const JobDetailsRecap: FC<Props> = (props): JSX.Element => {
                     <li>
                         <h3>Role</h3>
                         <ul className="space-y-3 p-5">
-                            <li>Content: {jobPost?.role.content}</li>
+                            <li>Content: {jobPost?.role?.content}</li>
                             <li>
                                 <ul>
-                                    {jobPost.role.items.map((item, index) => (
+                                    {jobPost?.role?.items.map((item, index) => (
                                         <li className="list-disc" key={index}>
                                             {item}
                                         </li>

@@ -34,6 +34,7 @@ function App() {
                 body: JSON.stringify({
                     userId: id 
                 }),
+                credentials: 'include'
             })
 
             return response
@@ -52,7 +53,7 @@ function App() {
             <StateMachineProvider>
                 <AuthContextProvder>
                     <GlobalContextProvider>
-                        <main className="relative">
+                        <main className="relative min-h-full">
                             <Navbar />
                             <Routes>
                                 <Route index element={<Home />} />
