@@ -22,7 +22,7 @@ const BasicInfoInputs: FC<Props> = ({ step, setStep, register }: Props): JSX.Ele
                 </h4>
                 <span>step: {step}</span>
             </div>
-            <div className="flex items-start justify-between my-2 w-full">
+            <div className="flex flex-col md:flex-row items-start justify-between my-2 w-full">
                 <label className="my-2">Company name</label>
                 <input
                     type="text"
@@ -32,7 +32,7 @@ const BasicInfoInputs: FC<Props> = ({ step, setStep, register }: Props): JSX.Ele
                     {...register('company')}
                 />
             </div>
-            <div className="flex items-start justify-between my-2 w-full">
+            <div className="flex flex-col md:flex-row  items-start justify-between my-2 w-full">
                 <label className="my-2">Logo</label>
                 <input
                     type="text"
@@ -43,7 +43,7 @@ const BasicInfoInputs: FC<Props> = ({ step, setStep, register }: Props): JSX.Ele
 
                 />
             </div>
-            <div className="flex items-start justify-between my-2 w-full">
+            <div className="flex flex-col md:flex-row  items-start justify-between my-2 w-full">
                 <label className="my-2">Logo background</label>
                 <input
                     type="text"
@@ -54,7 +54,7 @@ const BasicInfoInputs: FC<Props> = ({ step, setStep, register }: Props): JSX.Ele
 
                 />
             </div>
-            <div className="flex items-start justify-between my-2 w-full">
+            <div className="flex flex-col md:flex-row  items-start justify-between my-2 w-full">
                 <label className="my-2">Position</label>
                 <input
                     type="text"
@@ -64,7 +64,7 @@ const BasicInfoInputs: FC<Props> = ({ step, setStep, register }: Props): JSX.Ele
                     {...register('position')}
                 />
             </div>
-            <div className="flex items-start justify-between my-2 w-full">
+            <div className="flex flex-col md:flex-row  items-start justify-between my-2 w-full">
                 <label className="my-2">Contract</label>
                 <input
                     type="text"

@@ -22,7 +22,7 @@ function Button({buttonType, text1, text2, background, textColor, paddingX, padd
   return (
     <button 
       type={buttonType} 
-      className={`${isMobile && 'w-full'} ${background} ${paddingX} ${paddingY} rounded-md text-${textColor} dark:text-white`}
+      className={`${isMobile && 'w-full'} ${background} ${paddingX} ${paddingY} rounded-md ${textColor} dark:text-white`}
       onClick={onClick}
       >
       <span className="text-base mr-1 font-semibold">{text1}</span>

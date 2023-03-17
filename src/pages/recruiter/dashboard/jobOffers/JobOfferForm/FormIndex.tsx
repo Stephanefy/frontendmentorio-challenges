@@ -45,7 +45,6 @@ const FormIndex: FC<Props> = (props: Props): JSX.Element => {
         const finalData = getState()
 
         if (step === 6) {
-            console.log('dataToSend', finalData)    
             try {
                 const response = await fetch('http://localhost:8000/api/jobPost', {
                     method: 'POST',
@@ -83,12 +82,12 @@ const FormIndex: FC<Props> = (props: Props): JSX.Element => {
         
         const storedFormData = sessionStorage.getItem('__LSM__')
 
-        console.log('storedFormData', storedFormData)
+        if(storedFormData === null) return
 
-        if (!isEmptyObject(JSON.parse(storedFormData as string).jobPost) ) {
+        if (!isEmptyObject(JSON.parse(storedFormData as string)?.jobPost) ) {
             const parsedData = JSON.parse(storedFormData as string)
             // check if the user has already filled the form
-            actions.updateJobPost(parsedData.jobPost)
+            actions.updateJobPost(parsedData?.jobPost)
             // redirect to recap step
             setStep(6)
         }
@@ -99,7 +98,7 @@ const FormIndex: FC<Props> = (props: Props): JSX.Element => {
     return (
         <form
             onSubmit={handleSubmit(onSubmit)}
-            className="w-full flex flex-col items-start justify-center overflow-auto mb-5 h-3/4"
+            className="w-full flex flex-col items-start px-8 justify-center overflow-auto mb-5"
         >
             {step === 1 ? (
                 <BasicInfoInputs1

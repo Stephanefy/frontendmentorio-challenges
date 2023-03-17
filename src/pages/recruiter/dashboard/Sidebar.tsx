@@ -25,7 +25,7 @@ const Sidebar: FC<Props> = (props): JSX.Element => {
     return (
         <div className="w-2/12 h-screen z-50">
             <nav
-                className={`min-h-screen fixed bottom-0 top-20 ${scrollY < 15 ? "transform translate-y-0 ease-in duration-150" : "transform -translate-y-20 ease-in duration-300"}  left-0 bg-app-violet w-[250px]${
+                className={`min-h-screen fixed bottom-0 top-0 left-0 bg-app-violet w-[250px]${
                     fullWidth
                         ? 'transform translate-x-0 ease-in duration-75'
                         : 'transform -translate-x-2/3 ease-in duration-75'

@@ -5,12 +5,15 @@ import logo from '/assets/desktop/logo.svg'
 import { useLocation } from 'react-router-dom'
 import { AuthContext } from '../context/AuthContext'
 import { useLogout } from '../hooks/useLogout'
+import { useScroll } from '../hooks/useScroll'
 
 const Navbar = () => {
     const { state } = useContext(AuthContext)
     const { logout } = useLogout()
+    const { scrollY } = useScroll()
 
     const location = useLocation()
+   
 
     return (
         <nav
@@ -21,7 +24,7 @@ const Navbar = () => {
             } `}
         >
             <div className="pt-8 flex justify-between w-10/12 md:w-5/6 mx-auto md:max-w-6xl">
-                <div>
+                <div className={`${location.pathname.includes("dashboard") && "transform translate-x-20"}`}>
                     <h1>
                         <Link to="/">
                             <img src={logo} alt="logo" />

@@ -8,11 +8,11 @@ const JobDetailsRecap: FC<Props> = (props): JSX.Element => {
     const { jobPost } = getState()
 
     return (
-        <section className="flex flex-col items-center w-full h-full  bg-app-violet p-3 text-white ">
+        <section className="flex flex-col items-center w-full bg-app-violet p-3 py-16 text-white ">
             <h3 className="text-center text-white text-2xl">
                 Job details recap
             </h3>
-            <div className="flex justify-between items-start w-full">
+            <div className="flex flex-col md:flex-row justify-between items-start w-full">
                 <ul className="space-y-3 p-5">
                     <li className='list-disc'>Your Company name: {jobPost?.company}</li>
                     <li className='list-disc'>Job position: {jobPost?.position}</li>
