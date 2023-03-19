@@ -26,11 +26,11 @@ const Sidebar = (props: Props) => {
   return (
     <>
       <div
-        className={`${
+        className={`hidden md:block ${
           !props.hideSidebar
             ? "basis-1/6 ease-in duration-300"
             : "basis-1/6 transform -translate-x-full ease-in duration-300"
-        } bg-white z-30 border-r-2 flex flex-col justify-between`}
+        } bg-white z-30 border-r-2 flex flex-col justify-between pt-[96px]`}
         style={{
           height: state.columns.length
             ? `calc(25rem + (${props.sidebarHeight}px))`

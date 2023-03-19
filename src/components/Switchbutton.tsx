@@ -21,18 +21,18 @@ function Switchbuton() {
   };
 
   return (
-    <label className="inline-flex relative items-center cursor-pointer">
+    <label className="relative inline-flex cursor-pointer items-center">
       <input
         type="checkbox"
-        className="sr-only peer"
+        className="peer sr-only"
         checked={dark}
         onChange={() => {
           setTheme(colorTheme);
           setDark(!dark);
         }}
       />
-      <div className="w-11 h-6 bg-primary peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-app-midnight rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-5 peer-checked:after:border-white after:content-[''] after:absolute after:top-[15px] after:left-[5px] after:bg-app-violet after:hover:bg-primary after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
-      <span className="ml-3 absolute -left-10 text-sm font-medium text-white dark:text-gray-300">
+      <div className="dark:peer-focus:ring-app-midnight after:bg-app-violet peer h-6 w-11 rounded-full bg-primary after:absolute after:top-[3px] after:left-[4px] md:after:top-[15px] md:after:left-[5px] after:h-4 after:w-4 after:rounded-full after:border after:border-gray-300 after:transition-all after:content-[''] after:hover:bg-primary peer-checked:bg-primary peer-checked:after:translate-x-5 peer-checked:after:border-white peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:border-gray-600 dark:bg-gray-700"></div>
+      <span className="absolute -left-10 ml-3 text-sm font-medium text-white dark:text-gray-300">
         <img src={SunSvg} alt="sun" />
       </span>
       <span className="ml-3 text-sm font-medium text-white dark:text-gray-300">
