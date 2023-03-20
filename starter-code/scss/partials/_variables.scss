@@ -1,0 +1,66 @@
+$primary-color: #D5966C;
+$secondary-color: #151515;
+$tertiary-color: #444444;
+
+
+$hero-image: url("/starter-code/assets/mobile/image-hero@2x.jpg");
+$grid-image-1: url("/starter-code/assets/mobile/image-grid-1@2x.jpg");
+$grid-image-2: url("/starter-code/assets/mobile/image-grid-2@2x.jpg");
+$grid-image-3: url("/starter-code/assets/mobile/image-grid-3@2x.jpg");
+$location-map: url("/starter-code/assets/mobile/image-map@2x.png");
+
+$hero-image-tablet: url("/starter-code/assets/tablet/image-hero@2x.jpg");
+$grid-image-1-tablet: url("/starter-code/assets/tablet/image-grid-1@2x.jpg");
+$grid-image-2-tablet: url("/starter-code/assets/tablet/image-grid-2@2x.jpg");
+$grid-image-3-tablet: url("/starter-code/assets/tablet/image-grid-3@2x.jpg");
+
+@mixin heading-xl {
+   font-size: 96px;
+   font-weight: 900;
+   line-height: 88px;
+};
+
+@mixin heading-l {
+    font-size: 70px;
+    font-weight: 900;
+    line-height: 70px;
+}
+
+@mixin heading-m {
+    font-size: 60px;
+    font-weight: 900;
+    line-height: 50px;
+}
+
+@mixin heading-s {
+    font-size: 36px;
+    font-weight: 900;
+    line-height: 36px;
+}
+
+@mixin bodyS {
+    font-family: "Outfit", cursive;
+    font-size: 18px;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+
+
+@mixin devices($breakpoint) {
+    @if $breakpoint == mobile {
+        @media (max-width: 768px) {
+            @content;
+        }
+    }
+    @if $breakpoint == tablet {
+        @media (min-width: 769px) and (max-width: 1024px) {
+            @content;
+        }
+    }
+    @if $breakpoint == desktop {
+        @media (min-width: 1025px) {
+            @content;
+        }
+    }
+}

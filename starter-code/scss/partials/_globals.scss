@@ -1,0 +1,82 @@
+.heading-xl {
+    font-size: 88px;
+    font-weight: 900;
+}
+
+.body-m {
+    font-family: "Outfit", cursive;
+    font-size: 22px;
+    font-weight: 300;
+}
+
+.container {
+
+}
+
+.btn-next {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    background-color: $secondary-color;
+    border: none;
+    width: 200px;
+    height: 62px;
+    color: white;
+    font-family: "Big Shoulders Display", cursive;
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3.14px;
+    position: relative;
+
+    &::after {
+        content: url("../assets/icon-arrow-right.svg");
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 0;
+        right: -50px;
+        width: 50px;
+        height: 100%;
+        background-color: $primary-color;
+        transition: width 0.3s ease-in-out;
+    }
+
+}
+
+
+.btn-previous {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    background-color: $secondary-color;
+    padding-left: 3.5rem;
+    border: none;
+    width: 250px;
+    height: 62px;
+    color: white;
+    font-family: "Big Shoulders Display", cursive;
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3.14px;
+    position: relative;
+
+    &::after {
+        content: url("../assets/icon-arrow-left.svg");
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50px;
+        height: 100%;
+        background-color: $primary-color;
+        transition: width 0.3s ease-in-out;
+    }
+
+}
