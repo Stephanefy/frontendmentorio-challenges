@@ -32,7 +32,10 @@ class FooterElement extends HTMLElement {
 
     this.innerHTML = `
     <footer class="${isLocation ? 'location-footer' : 'main-footer'}">
-    <h3 class="heading-m">Modern Art Gallery</h3>
+    <h3 class="heading-m">
+      <span>Modern</span>
+      <span>Art Gallery</span>
+    </h3>
     <p class="footer-text">
       The Modern Art Gallery is free to all visitors and open seven days a
       week from 8am to 9pm. Find us at 99 King Street, Newport, USA.

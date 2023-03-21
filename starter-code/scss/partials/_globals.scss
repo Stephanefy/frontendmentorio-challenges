@@ -79,4 +79,13 @@
         transition: width 0.3s ease-in-out;
     }
 
+
+    @include devices(tablet){
+        margin-left: 2rem;
+    }
+
+    @include devices(desktop){
+        margin-left: 10rem;
+    }
+
 }

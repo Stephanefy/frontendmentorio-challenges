@@ -4,12 +4,73 @@
     flex-direction: column;
     width: 100%;
 
+
+    @include devices(tablet) {
+        padding: 0 2rem;
+    }
+
+    @include devices(desktop) {
+        padding: 0 10rem;
+    }
+
+    .section-title {
+
+        @include devices(tablet) {
+            display: flex;
+            margin-bottom: 1rem;
+            
+        }
+
+        @include devices(desktop) {
+            display: flex;
+            margin-bottom: 1rem;
+            
+        }
+    }
+
+
+    .imgs-grid {
+        @include devices(tablet) {
+            display: grid;
+            grid-template-columns: 430px 1fr;
+            grid-gap: 1rem;
+            margin-bottom: 4rem;
+        }
+
+        @include devices(desktop) {
+            display: grid;
+            grid-template-columns: 640px 1fr ;
+            grid-gap: 2rem;
+            margin-bottom: 4rem;
+        }
+    }
+
     .grid-img-1 {
         margin: 0 1rem;
         height: 320px;
         background-image: $grid-image-1;
         background-size: cover;
         background-repeat: no-repeat;
+        
+        @include devices(tablet) {
+            background-image: $grid-image-1-tablet;
+            flex-basis: 65%;
+            width: 100%;
+            height: 500px;
+            grid-row: span 2;
+            order: 2;
+        }
+
+        @include devices(desktop) {
+            background-image: $grid-image-1-desktop;
+            flex-basis: 65%;
+            width: 100%;
+            height: 500px;
+            grid-row: span 2;
+            order: 2;
+        }
+
+     
     }
 
     .grid-img-2 {
@@ -18,6 +79,25 @@
         background-image: $grid-image-2;
         background-size: cover;
         background-repeat: no-repeat;
+
+        @include devices(tablet){
+            background-image: $grid-image-2-tablet;
+            background-size: contain;
+            grid-column: span 1;
+            grid-row: span 3;
+            width: 100%;
+            height: 100%;
+        }
+
+        @include devices(desktop){
+            margin: 0;
+            background-image: $grid-image-2-desktop;
+            background-size: contain;
+            grid-column: span 1;
+            grid-row: span 3;
+            width: 100%;
+            height: 100%;
+        }
     }
 
     .grid-img-3 {
@@ -26,6 +106,26 @@
         background-image: $grid-image-3;
         background-size: cover;
         background-repeat: no-repeat;
+
+        @include devices(tablet) {
+            background-image: $grid-image-3-tablet;
+            background-size: cover;
+            margin-top: 0;
+            margin-left: 1rem;
+            margin-bottom: 0;
+            height: 313px;
+            
+        }
+
+        @include devices(desktop) {
+            background-image: $grid-image-3-desktop;
+            background-size: cover;
+            margin-top: 0;
+            margin-left: 0;
+            margin-bottom: 0;
+            height: 300px;
+            
+        }
     }
 
     .grid-end-message{
@@ -38,14 +138,34 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        align-items: center;
+        align-items: start;
+        text-align: left;
 
         h2 {
-            @include heading-l;
+            @include heading-m;
+            text-transform: uppercase;
+
+            span:first-child {
+                display: block;
+                width: 100%;
+            }
         }
         p{
             margin: 2rem 0;
             @include bodyS;
+        }
+
+        @include devices(tablet){
+            height: 98%;
+            margin-right: 1rem;
+            margin-top: 0;
+        }
+
+        @include devices(desktop){
+            height: 97%;
+            margin-right: 1rem;
+            margin-left: 0;
+            margin-top: 0;
         }
     }
 
@@ -57,10 +177,22 @@
 
         h2 {
            @include heading-l;
+           text-transform: uppercase;
+  
         }
 
         p {
             @include bodyS;
+            margin-top: 2rem;
+        }
+
+        @include devices(tablet){
+            flex-basis: 45%;
+        }
+
+        @include devices(desktop){
+            padding-right: 5rem;
+            flex-basis: 45%;
         }
     }
 }

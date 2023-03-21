@@ -14,6 +14,12 @@ $grid-image-1-tablet: url("/starter-code/assets/tablet/image-grid-1@2x.jpg");
 $grid-image-2-tablet: url("/starter-code/assets/tablet/image-grid-2@2x.jpg");
 $grid-image-3-tablet: url("/starter-code/assets/tablet/image-grid-3@2x.jpg");
 
+$hero-image-desktop: url("/starter-code/assets/desktop/image-hero@2x.jpg");
+$hero-image-desktop: url("/starter-code/assets/desktop/image-hero@2x.jpg");
+$grid-image-1-desktop: url("/starter-code/assets/desktop/image-grid-1@2x.jpg");
+$grid-image-2-desktop: url("/starter-code/assets/desktop/image-grid-2@2x.jpg");
+$grid-image-3-desktop: url("/starter-code/assets/desktop/image-grid-3@2x.jpg");
+
 @mixin heading-xl {
    font-size: 96px;
    font-weight: 900;
@@ -27,7 +33,7 @@ $grid-image-3-tablet: url("/starter-code/assets/tablet/image-grid-3@2x.jpg");
 }
 
 @mixin heading-m {
-    font-size: 60px;
+    font-size: 50px;
     font-weight: 900;
     line-height: 50px;
 }
