@@ -43,8 +43,8 @@ interface BoardContextProviderProps {
 const { boards } = data;
 
 const initialState: BoardState = {
-    name: "",
-    columns: [],
+  name: "",
+  columns: [],
 };
 
 const BoardContext = createContext<{

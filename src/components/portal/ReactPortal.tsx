@@ -1,7 +1,6 @@
 import { createPortal } from "react-dom";
 import { useLayoutEffect, useState } from "react";
 
-
 type Props = {
     children: React.ReactNode
     wrapperId: string

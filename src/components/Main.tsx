@@ -5,6 +5,7 @@ import Kanbancard from "./Kanbancard";
 import PortalModal from "./modals/Modal";
 import { ModalContext } from '../context/ModalContext';
 import MobileMenu from './MobileMenu';
+import TaskDetails from "./TaskDetails";
 
 type Props = {
   setSidebarHeight: (height: number) => void;
@@ -13,7 +14,7 @@ type Props = {
 
 const Main = (props: Props) => {
   const { state, dispatch } = useContext(BoardContext);
-  const { showModal, setShowModal } = useContext(ModalContext);
+  const { state: showModal, dispatch: setShowModal } = useContext(ModalContext);
 
   const boardsListRef = useRef<HTMLElement>(null);
 
@@ -34,6 +35,26 @@ const Main = (props: Props) => {
 
   const { boards } = data;
 
+  let currentOpenModal
+
+  // if (showModal.showModal === 1) {
+  //   currentOpenModal = <MobileMenu />
+  // } else if (showModal.showModal === 2) {
+  //   currentOpenModal = <TaskDetails />
+  // }
+
+
+  // let mobileMenuisOpenModal = showModal.showModal === 1 && true
+  // let taskDetailsIsOpenModal = showModal.showModal === 2 && true
+  // let addTaskIsOIpen = showModal.showModal === 3 && true
+  // let editTaskIsOpen = showModal.showModal === 4 && true
+  // let addBoardIsOpen = showModal.showModal === 5 && true
+  // let editBoardIsOpen = showModal.showModal === 6 && true
+  // let addColumnIsOpen = showModal.showModal === 7 && true
+  // let deleteTaskIsOpen = showModal.showModal === 8 && true
+  // let deleteBoardIsOpen = showModal.showModal === 9 && true
+  
+
   
 
   return (
@@ -43,9 +64,9 @@ const Main = (props: Props) => {
           ` 
           ${
           state.columns.length
-            ? "md:basis-6/6 items-start"
+            ? "md:basis-5/6 items-start"
             : "md:basis-5/6 items-center"
-        } ${props.hideSideBar ? "transform -translate-x-52 ease-in duration-300" : "transform translate-x-0 ease-in duration-300"} text-5xl bg-secondary-gray flex  justify-center pl-4 h-full
+        } ${props.hideSideBar ? "transform -translate-x-52 ease-in duration-300" : "transform translate-x-0 ease-in duration-300"} text-5xl bg-secondary-gray flex  justify-center md:pl-4 h-full
         overflow-hidden pt-[100px]`}
         style={{
           height: state.columns.length ? `calc(${boardsListHeight}px - 40%)` : "100vh",
@@ -85,7 +106,7 @@ const Main = (props: Props) => {
             ))
         
           ) : (
-            <div className="w-8/12 md:w-full flex flex-col md:items-center md:justify-center mx-auto">
+            <div className="w-3/4 md:w-full flex flex-col md:items-center md:justify-center mx-auto">
               <p className="text-lg text-primary-gray text-center font-bold">
                 This board is empty. Create a new column to get started.
               </p>
@@ -108,9 +129,12 @@ const Main = (props: Props) => {
           }
         </div>
       </div>
-      <PortalModal isOpen={showModal} onClose={setShowModal}>
+      <PortalModal isOpen={showModal.showModal === 1} onClose={setShowModal}>
               <MobileMenu/>
-          </PortalModal>
+      </PortalModal>
+      <PortalModal isOpen={showModal.showModal === 2} onClose={setShowModal}>
+          <TaskDetails />
+      </PortalModal>
     </>
   );
 };

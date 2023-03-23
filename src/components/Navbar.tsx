@@ -5,24 +5,26 @@ import VerticalElipsis from "../assets/icon-vertical-ellipsis.svg";
 import ChevronDown from "../assets/icon-chevron-down.svg";
 import ChevronUp from "../assets/icon-chevron-up.svg";
 import AddTaskMobile from "../assets/icon-add-task-mobile.svg";
-import { ModalContext } from "../context/ModalContext";
+import { ModalActionType, ModalContext } from "../context/ModalContext";
 
 type Props = {};
 
 const Navbar = (props: Props) => {
   const [showDropdown, setShowDropdown] = useState<boolean>(false);
-  const { showModal, setShowModal } = useContext(ModalContext);
+  const { state, dispatch } = useContext(ModalContext);
 
 
   const handleShowMenuModal = () => {
+    
     setShowDropdown(!showDropdown);
-    setShowModal(!showModal);
+    if(!showDropdown) dispatch({ type: ModalActionType.NONEOPEN });
+    if(showDropdown) dispatch({ type: ModalActionType.MOBILEMENU });
   }
 
 
   return (
-    <nav className="fixed top-0 bg-white h-[96px] flex items-center z-[99] w-full">
-      <div className="pl-3 md:basis-1/6 flex items-center h-full md:border-r-2">
+    <nav className="fixed top-0 bg-white h-[96px] flex items-center z-[60] w-full">
+      <div className="pl-3 pr-6 md:width-[261px] lg:basis-1/6 flex items-center h-full md:border-r-2">
         <img className="hidden md:block" src={logoDark} alt="logo" />
         <img className="md:hidden" src={logoMobile} alt="logo" />
       </div>

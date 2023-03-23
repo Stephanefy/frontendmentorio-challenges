@@ -20,7 +20,6 @@ const Sidebar = (props: Props) => {
     console.log("state from board context", state);
   }, [state]);
 
-
   const { boards } = data;
 
   return (
@@ -28,20 +27,22 @@ const Sidebar = (props: Props) => {
       <div
         className={`hidden md:block ${
           !props.hideSidebar
-            ? "basis-1/6 ease-in duration-300"
-            : "basis-1/6 transform -translate-x-full ease-in duration-300"
-        } bg-white z-30 border-r-2 flex flex-col justify-between pt-[96px]`}
-        style={{
-          height: state.columns.length
-            ? `calc(25rem + (${props.sidebarHeight}px))`
-            : "100vh",
-        }}
+            ? "width-[261px] duration-300 ease-in lg:basis-1/6"
+            : "width-[261px] -translate-x-full transform duration-300 ease-in lg:basis-1/6"
+        } z-30 flex flex-col justify-between border-r-2 bg-white
+        pt-[96px]
+        `}
+        // style={{
+        //   height: state.columns.length
+        //     ? `calc(25rem + (${props.sidebarHeight}px))`
+        //     : "h-screen",
+        // }}
       >
-        <ul className="pl-3 w-full">
-          <h3 className="font-bold uppercase text-primary-gray p-3">
+        <ul className="w-full h-3/4 pl-3 flex-2">
+          <h3 className="p-3 font-bold uppercase text-primary-gray">
             all boards
           </h3>
-          <li className="text-primary-gray py-3">
+          <li className="py-3 text-primary-gray">
             <button
               onClick={() =>
                 dispatch({
@@ -50,11 +51,11 @@ const Sidebar = (props: Props) => {
                 })
               }
             >
-              <img src={IconBoard} className="inline-block mr-4" />
+              <img src={IconBoard} className="mr-4 inline-block" />
               <span>Platform launch</span>
             </button>
           </li>
-          <li className="text-primary-gray py-3">
+          <li className="py-3 text-primary-gray">
             <button
               onClick={() =>
                 dispatch({
@@ -63,11 +64,11 @@ const Sidebar = (props: Props) => {
                 })
               }
             >
-              <img src={IconBoard} className="inline-block mr-4" />
+              <img src={IconBoard} className="mr-4 inline-block" />
               <span>Marketing Plan</span>
             </button>
           </li>
-          <li className="text-primary-gray py-3">
+          <li className="py-3 text-primary-gray">
             <button
               onClick={() =>
                 dispatch({
@@ -76,36 +77,39 @@ const Sidebar = (props: Props) => {
                 })
               }
             >
-              <img src={IconBoard} className="inline-block mr-4" />
+              <img src={IconBoard} className="mr-4 inline-block" />
               <span>Roadmap</span>
             </button>
           </li>
-          <li className="text-primary-gray py-3">
+          <li className="py-3 text-primary-gray">
             <button>
-              <img src={IconBoard} className="inline-block mr-4" />
+              <img src={IconBoard} className="mr-4 inline-block" />
 
               <span className="text-primary">+ Create New Board</span>
             </button>
           </li>
         </ul>
-        <div className="bg-secondary-gray w-11/12 h-12 rounded-lg mx-auto mt-auto flex justify-center ">
-          <Switchbuton />
-        </div>
-        <div className="pl-3 my-4">
-          <img
-            src={IconHideSideBar}
-            alt="hide sidebar"
-            className="inline-block mr-3"
-          />
-          <button onClick={() => props.setHideSidebar(true)} className="pb-2">
-            <span className="text-primary-gray">Hide sidebar</span>
-          </button>
+        <div className="mb-0 mt-16">
+          <div className="mx-auto mt-auto flex h-12 w-11/12 justify-center rounded-lg bg-secondary-gray ">
+            <Switchbuton />
+          </div>
+          <div className="my-4 pl-3">
+            <img
+              src={IconHideSideBar}
+              alt="hide sidebar"
+              className="mr-3 inline-block"
+            />
+            <button onClick={() => props.setHideSidebar(true)} className="mt-2 pb-2">
+              <span className="text-primary-gray">Hide sidebar</span>
+            </button>
+          </div>
         </div>
       </div>
 
       <div
-        className={`fixed bottom-10 bg-primary p-6 rounded-r-full ease-in duration-300 ${
-          !props.hideSidebar && "transform -translate-x-full ease-in duration-300"
+        className={`fixed bottom-10 rounded-r-full bg-primary p-6 duration-300 ease-in ${
+          !props.hideSidebar &&
+          "-translate-x-full transform duration-300 ease-in"
         } z-50`}
       >
         <button onClick={() => props.setHideSidebar(false)}>
