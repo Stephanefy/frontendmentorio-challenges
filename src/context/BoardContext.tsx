@@ -10,15 +10,17 @@ export enum BoardActionKind {
 }
 
 export interface SubTask {
+  id: string,
   readonly title: string;
-  readonly isCompleted: boolean;
+  isCompleted: boolean;
 }
 
 export interface Task {
+  id: string,
   readonly title: string;
   readonly description: string;
   readonly status: string;
-  readonly subtasks: readonly SubTask[];
+  subtasks: SubTask[];
 }
 
 export interface Column {

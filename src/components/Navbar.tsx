@@ -10,7 +10,7 @@ import { ModalActionType, ModalContext } from "../context/ModalContext";
 type Props = {};
 
 const Navbar = (props: Props) => {
-  const [showDropdown, setShowDropdown] = useState<boolean>(false);
+  const [showDropdown, setShowDropdown] = useState<boolean>(true);
   const { state, dispatch } = useContext(ModalContext);
 
 
@@ -36,7 +36,7 @@ const Navbar = (props: Props) => {
               onClick={handleShowMenuModal}
               className="flex items-center gap-x-2"
             >
-              {showDropdown ? (
+              {!showDropdown ? (
                 <img src={ChevronUp} width={10} />
               ) : (
                 <img src={ChevronDown} width={10} />

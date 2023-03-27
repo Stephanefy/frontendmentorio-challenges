@@ -1,7 +1,24 @@
 import { createContext, Dispatch, SetStateAction, FC, useReducer} from "react";
 import produce, {Draft} from 'immer'
-import { Task } from "./BoardContext";
+import { Task } from './BoardContext';
+import { nanoid } from "nanoid";
 
+
+//type guards
+
+function isTask(payload: Task | string ): payload is Task {
+    if (typeof payload === "object") {
+        return 'title' in payload
+    }
+    return false
+}
+
+function isString(payload: Task | string): payload is string {
+    if (typeof payload === "string"){
+        return true
+    }
+    return false
+}
 
 export const enum ModalActionType {
     NONEOPEN = 0,
@@ -14,16 +31,17 @@ export const enum ModalActionType {
     ADDCOLUMN = 7,
     DELETETASK = 8,
     DELETEBOARD = 9,
+    CHANGE_COMPPLETION = "CHANGE_COMPLETION"
 }
 
 export interface ModalAction {
     readonly type: ModalActionType;
-    readonly payload: Task;
+    payload?: Task | string;
 }
 
 export interface ModalState {
     showModal: number;
-    task: Task
+    task: Task 
 }
 
 
@@ -37,7 +55,7 @@ interface ModalContextProviderProps {
     children: React.ReactNode
 }
 
-const initialState  = {showModal: 0, task: {title: '', description: '', status: '', subtasks: []}}
+const initialState  = {showModal: 0, task: {id: '',title: '', description: '', status: '', subtasks: []}}
 
 
 export const ModalContext = createContext<{
@@ -53,43 +71,52 @@ const ModalReducer = produce((draft: ModalState, action: ModalAction): void => {
     switch(action.type) {
         case ModalActionType.NONEOPEN:
             draft.showModal = ModalActionType.NONEOPEN
-            draft.task = {title: '', description: '', status: '', subtasks: []}
+            draft.task = {id: '', title: '', description: '', status: '', subtasks: []}
             break;
         case ModalActionType.MOBILEMENU:
             draft.showModal = ModalActionType.MOBILEMENU
-            draft.task =  action.payload
+            draft.task =  action.payload as Task
             break;
         case ModalActionType.TASKDETAILS:
             draft.showModal = ModalActionType.TASKDETAILS
-            draft.task =  action.payload
+            draft.task =  action.payload as Task
             break;
         case ModalActionType.ADDTASK:
             draft.showModal = ModalActionType.ADDTASK
-            draft.task =  action.payload
+            draft.task =  action.payload as Task
             break;
         case ModalActionType.EDITTASK:
             draft.showModal = ModalActionType.EDITTASK
-            draft.task =  action.payload
+            draft.task =  action.payload as Task
         case ModalActionType.ADDBOARD:
             draft.showModal = ModalActionType.ADDBOARD
-            draft.task =  action.payload
+            draft.task =  action.payload as Task
             break;
         case ModalActionType.EDITBOARD:
             draft.showModal = ModalActionType.EDITBOARD
-            draft.task =  action.payload
+            draft.task =  action.payload as Task
             break;
         case ModalActionType.ADDCOLUMN:
             draft.showModal = ModalActionType.ADDCOLUMN
-            draft.task =  action.payload
+            draft.task =  action.payload as Task
             break;
         case ModalActionType.DELETETASK:
             draft.showModal = ModalActionType.DELETETASK
-            draft.task =  action.payload
+            draft.task =  action.payload as Task
             break;
         case ModalActionType.DELETEBOARD:
             draft.showModal = ModalActionType.DELETEBOARD
-            draft.task =  action.payload
+            draft.task =  action.payload as Task
             break;
+        case ModalActionType.CHANGE_COMPPLETION:
+            draft.task?.subtasks.map((task) => {
+                console.log("kfkdsjlf", action.payload)
+                console.log("task.id", task.id)
+                
+                if (task.id === action!.payload!) {
+                    task.isCompleted = !task.isCompleted
+                }
+            })
         default:
             break;
 

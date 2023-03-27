@@ -1,8 +1,6 @@
 import { FC, useContext } from "react";
 import IconBoard from "../assets/icon-board.svg";
 import Switchbuton from "./Switchbutton";
-import IconHideSideBar from "../assets/icon-hide-sidebar.svg";
-import IconShowSideBar from "../assets/icon-show-sidebar.svg";
 import { BoardActionKind, BoardContext } from "../context/BoardContext";
 import data from "../assets/data.json";
 

@@ -6,6 +6,7 @@ import PortalModal from "./modals/Modal";
 import { ModalContext } from '../context/ModalContext';
 import MobileMenu from './MobileMenu';
 import TaskDetails from "./TaskDetails";
+import { nanoid } from "nanoid";
 
 type Props = {
   setSidebarHeight: (height: number) => void;
@@ -73,7 +74,7 @@ const Main = (props: Props) => {
         }}
       >
         {/* <p className='text-lg text-primary-gray'>This board is empty create a new column to get started</p> */}
-        <div className={`grid grid-flow-col auto-cols-max ${state.columns.length && 'overflow-auto'}`}>
+        <div className={`p-4 lg:p-0 grid grid-flow-col auto-cols-max ${state.columns.length && 'overflow-auto'}`}>
           {state.columns.length > 0 ? (
             state.columns.map((column, index) => (
               <section ref={boardsListRef} className="w-64 mr-4 pb-4">
@@ -95,6 +96,7 @@ const Main = (props: Props) => {
                 <div className="flex flex-col">
                   {column.tasks.map((task, index) => (
                     <Kanbancard
+                      id={nanoid()}
                       title={task.title}
                       description={task.description}
                       status={task.status}
