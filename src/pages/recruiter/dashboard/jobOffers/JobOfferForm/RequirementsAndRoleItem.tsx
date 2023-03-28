@@ -18,8 +18,8 @@ interface Props {
 
 const RequirementsAndRoleItem: FC<Props> = (props: Props): JSX.Element => {
     return (
-        <li className="flex flex-col w-full transition ease-in duration-100 justify-center h-full my-2">
-            <div className='w-full'>
+        <li className="flex flex-col w-full transition ease-in duration-100 justify-center h-full my-1">
+            <div className='w-full my-0'>
                 <label htmlFor={props.id} className="hidden">
                     Items
                 </label>

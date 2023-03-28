@@ -43,7 +43,7 @@ const PortalModal: FC<Props> = ({
                     >
                         X
                     </button>
-                    <div className="flex mb-12 my-auto justify-center w-[900px] h-[700px] z-50">
+                    <div className="flex mb-12 my-auto justify-center w-full h-full z-50">
                         {children}
                     </div>
                 </div>

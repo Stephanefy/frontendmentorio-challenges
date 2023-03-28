@@ -1,16 +1,18 @@
 import { createStore } from 'little-state-machine'
 
 
-export const signupStore = createStore({
+createStore({
     data: {
       email: '',
       role: '',
       password: '',
     },
     jobPost: {
+      id: '',
       company: '',
       logo: '',
       logoBackground: '',
+      postedAt: 0,
       position: '',
       contract: '',
       location: '',
@@ -27,6 +29,9 @@ export const signupStore = createStore({
       },
       postedById: ''
     },
+    formStep:{
+      step: 0,
+    }
     
 },{
   name: 'devjob-store',

@@ -31,6 +31,9 @@ export type JobPost = {
   postedById: string;
 }
 
+export type FormStep = {
+  step: number
+}
 
 declare module 'little-state-machine' {
   interface GlobalState {
@@ -39,19 +42,7 @@ declare module 'little-state-machine' {
       role: string;
       password: string;
     },
-    jobPost: {
-      company: string;
-      logo: string;
-      logoBackground: string;
-      position: string;
-      contract: string;
-      location: string;
-      website: string;
-      apply: string;
-      description: string;
-      requirements: Requirements;
-      role: Role;
-      postedById: string;
-    }
+    jobPost: JobPost,
+    formStep: FormStep;
   }
 }
