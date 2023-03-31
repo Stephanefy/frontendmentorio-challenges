@@ -88,6 +88,7 @@ const ModalReducer = produce((draft: ModalState, action: ModalAction): void => {
         case ModalActionType.EDITTASK:
             draft.showModal = ModalActionType.EDITTASK
             draft.task =  action.payload as Task
+            break;
         case ModalActionType.ADDBOARD:
             draft.showModal = ModalActionType.ADDBOARD
             draft.task =  action.payload as Task

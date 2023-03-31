@@ -1,89 +1,96 @@
-import { Fragment } from 'react'
-import { Menu, Transition } from '@headlessui/react'
-import { ChevronDownIcon } from '@heroicons/react/20/solid'
+import { Fragment, useState, useContext } from "react";
+import { Listbox, Transition } from "@headlessui/react";
+import { ModalContext } from '../context/ModalContext';
+import {
+  ChevronDownIcon,
+  ChevronUpDownIcon,
+  CheckIcon,
+} from "@heroicons/react/20/solid";
 
 function classNames(...classes: string[]) {
-  return classes.filter(Boolean).join(' ')
+  return classes.filter(Boolean).join(" ");
 }
 
-export default function DropDown() {
-  return (
-    <Menu as="div" className="relative inline-block text-left w-full">
-      <div>
-        <Menu.Button className="inline-flex w-full justify-between rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-100">
-          Options
-          <ChevronDownIcon className="-mr-1 ml-2 h-5 w-5" aria-hidden="true" />
-        </Menu.Button>
-      </div>
+const status = [
+  { id: 1, name: "To do" },
+  { id: 2, name: "Doing" },
+  { id: 3, name: "Done" },
+];
 
-      <Transition
-        as={Fragment}
-        enter="transition ease-out duration-100"
-        enterFrom="transform opacity-0 scale-95"
-        enterTo="transform opacity-100 scale-100"
-        leave="transition ease-in duration-75"
-        leaveFrom="transform opacity-100 scale-100"
-        leaveTo="transform opacity-0 scale-95"
-      >
-        <Menu.Items className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-          <div className="py-1">
-            <Menu.Item>
-              {({ active }) => (
-                <a
-                  href="#"
-                  className={classNames(
-                    active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                    'block px-4 py-2 text-sm'
-                  )}
-                >
-                  Doing
-                </a>
-              )}
-            </Menu.Item>
-            <Menu.Item>
-              {({ active }) => (
-                <a
-                  href="#"
-                  className={classNames(
-                    active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                    'block px-4 py-2 text-sm'
-                  )}
-                >
-                  Support
-                </a>
-              )}
-            </Menu.Item>
-            <Menu.Item>
-              {({ active }) => (
-                <a
-                  href="#"
-                  className={classNames(
-                    active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                    'block px-4 py-2 text-sm'
-                  )}
-                >
-                  Todo
-                </a>
-              )}
-            </Menu.Item>
-            <form method="POST" action="#">
-              <Menu.Item>
-                {({ active }) => (
-                  <button
-                    type="submit"
-                    className={classNames(
-                      active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                      'block w-full px-4 py-2 text-left text-sm'
-                    )}
+export default function DropDown() {
+
+
+  const { state } = useContext(ModalContext)
+
+  const [selected, setSelected] = useState(status[2]);
+
+  return (
+    <Listbox value={selected} onChange={setSelected}>
+      {({ open }) => (
+        <>
+          <Listbox.Label className="block text-sm text-primary-gray font-semibold">
+            {state.showModal > 2 ? "Status" : "Current status"}
+          </Listbox.Label>
+          <div className="relative my-4">
+            <Listbox.Button className="relative w-full cursor-default rounded-md border border-gray-300 bg-white py-2 pl-3 pr-10 text-left shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm">
+              <span className="block truncate text-primary-black">{selected.name}</span>
+              <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
+                <ChevronUpDownIcon
+                  className="h-5 w-5 text-gray-400"
+                  aria-hidden="true"
+                />
+              </span>
+            </Listbox.Button>
+
+            <Transition
+              show={open}
+              as={Fragment}
+              leave="transition ease-in duration-100"
+              leaveFrom="opacity-100"
+              leaveTo="opacity-0"
+            >
+              <Listbox.Options className="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+                {status.map((s) => (
+                  <Listbox.Option
+                    key={s.id}
+                    className={({ active }) =>
+                      classNames(
+                        active ? "bg-indigo-600 text-white" : "text-gray-900",
+                        "relative cursor-default select-none py-2 pl-3 pr-9"
+                      )
+                    }
+                    value={s}
                   >
-                    Done
-                  </button>
-                )}
-              </Menu.Item>
-            </form>
+                    {({ selected, active }) => (
+                      <>
+                        <span
+                          className={classNames(
+                            selected ? "font-semibold" : "font-normal",
+                            "block truncate"
+                          )}
+                        >
+                          {s.name}
+                        </span>
+
+                        {selected ? (
+                          <span
+                            className={classNames(
+                              active ? "text-white" : "text-indigo-600",
+                              "absolute inset-y-0 right-0 flex items-center pr-4"
+                            )}
+                          >
+                            <CheckIcon className="h-5 w-5" aria-hidden="true" />
+                          </span>
+                        ) : null}
+                      </>
+                    )}
+                  </Listbox.Option>
+                ))}
+              </Listbox.Options>
+            </Transition>
           </div>
-        </Menu.Items>
-      </Transition>
-    </Menu>
-  )
+        </>
+      )}
+    </Listbox>
+  );
 }

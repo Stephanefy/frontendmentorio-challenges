@@ -7,6 +7,8 @@ import { ModalContext } from '../context/ModalContext';
 import MobileMenu from './MobileMenu';
 import TaskDetails from "./TaskDetails";
 import { nanoid } from "nanoid";
+import AddTask from './AddTask';
+import EditTask from "./EditTask";
 
 type Props = {
   setSidebarHeight: (height: number) => void;
@@ -136,6 +138,12 @@ const Main = (props: Props) => {
       </PortalModal>
       <PortalModal isOpen={showModal.showModal === 2} onClose={setShowModal}>
           <TaskDetails />
+      </PortalModal>
+      <PortalModal isOpen={showModal.showModal === 3} onClose={setShowModal}>
+          <AddTask />
+      </PortalModal>
+      <PortalModal isOpen={showModal.showModal === 4} onClose={setShowModal}>
+          <EditTask />
       </PortalModal>
     </>
   );

@@ -36,13 +36,13 @@ const PortalModal: FC<Props> = ({
 
     return (
         <ReactPortals wrapperId="modal-container">
-                <div className={`fixed flex items-center justify-center h-full inset-0 w-screen bg-gray-900 bg-opacity-50 ${state.showModal > 1 ? "z-[100]" : "Z-50" }`}>
-                    <button
+                <div className={`overflow-y-auto fixed flex items-center justify-center min-h-screen inset-0 w-screen bg-gray-900 bg-opacity-50 ${state.showModal > 1 ? "z-[100]" : "Z-50" }`}>
+                    {/* <button
                         onClick={() => onClose?.({ type: ModalActionType.NONEOPEN })}
                         className="absolute right-96 top-8"
                     >
                         X
-                    </button>
+                    </button> */}
                     <div className="flex mb-12 my-auto justify-center w-[900px] h-[700px] ">
                         {children}
                     </div>

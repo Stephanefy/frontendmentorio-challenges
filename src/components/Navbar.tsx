@@ -48,12 +48,16 @@ const Navbar = (props: Props) => {
           <div className="flex items-center justify-between gap-x-4">
             <ul className="flex items-center">
               <li className="hidden md:block">
-                <button className="px-6 py-3 rounded-full bg-secondary">
+                <button 
+                onClick={() => dispatch({ type: ModalActionType.ADDTASK})}
+                className="px-6 py-3 rounded-full bg-secondary">
                   +Add new task
                 </button>
               </li>
               <li className="md:hidden">
-                  <button className="bg-secondary w-[48px] h-[32px] rounded-full flex justify-center items-center">
+                  <button 
+                  onClick={() => dispatch({ type: ModalActionType.ADDTASK })}
+                  className="bg-secondary w-[48px] h-[32px] rounded-full flex justify-center items-center">
                     <img src={AddTaskMobile} alt="add" />
                   </button>
               </li>
