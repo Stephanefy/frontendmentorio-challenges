@@ -3,7 +3,7 @@ import Body from '../components/Body'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
 import { useParams } from 'react-router-dom'
-import { JobContext } from '../context/Jobcontext'
+import { JobContext } from '../context/JobContext'
 import { JobPost } from '../types/global'
 
 type CurrentJob = {

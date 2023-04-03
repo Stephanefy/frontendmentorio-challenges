@@ -10,12 +10,17 @@ interface Props {
 
 type JobContextType = {
         currentId: number, 
-        setCurrentId: Dispatch<SetStateAction<number>>
-        jobsData: JobPost[]
-        setJobsDataContext: Dispatch<SetStateAction<JobPost[]>>
+        setCurrentId: Dispatch<SetStateAction<number>>,
+        jobsData: JobPost[],
+        setJobsDataContext: Dispatch<SetStateAction<JobPost[]>>,
 }
 
-export const JobContext = createContext<JobContextType | null >(null)
+export const JobContext = createContext<JobContextType>({
+    currentId: 0,
+    setCurrentId: () => {},
+    jobsData: [],
+    setJobsDataContext: () => {}
+})
 
 
 

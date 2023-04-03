@@ -1,18 +1,10 @@
 import { useContext } from "react";
-import { JobContext } from "../context/Jobcontext"
+import { JobContext } from "../context/JobContext"
+import { JobPost } from "../types/global";
 import { useNavigate } from "react-router-dom";
 import formatDistanceToNow from 'date-fns/formatDistanceToNow'
 export type CardItemProps = {
-  card : {
-    id: number,
-    company: string
-    logo: string,
-    logoBackground: string,
-    position: string,
-    postedAt: string,
-    contract: string,
-    location: string,
-  }
+  card : JobPost
 }
 
 function Carditem({card} : CardItemProps) {
@@ -23,7 +15,7 @@ function Carditem({card} : CardItemProps) {
   const context = useContext(JobContext)
   const navigate = useNavigate()
 
-  const handleNavigateToDetail = (id: number) => {
+  const handleNavigateToDetail = (id: string) => {
     navigate(`/job/${id}`)
   }
 

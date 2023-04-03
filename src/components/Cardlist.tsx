@@ -4,7 +4,7 @@ import { CardItemProps } from './Carditem'
 
 
 interface CardListProps {
-  jobData: JobPost[]
+  jobData: JobPost[] | undefined
 }
 
 interface CardItem {

@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from 'react';
-import { JobContext } from '../context/Jobcontext';
+import { JobContext } from '../context/JobContext';
 import Cardlist from '../components/Cardlist'
 import Button from '../components/Button'
 import Searchbar from '../components/Searchbar'

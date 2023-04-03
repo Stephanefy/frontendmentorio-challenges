@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
-import FirstSteps from '../components/register-steps/FirstStep'
-import SecondStep from '../components/register-steps/SecondStep'
-import FourthStep from '../components/register-steps/FourthStep';
-import ThirdStep from '../components/register-steps/ThirdStep';
+import FirstSteps from '../components/registerSteps/FirstStep'
+import SecondStep from '../components/registerSteps/SecondStep'
+import FourthStep from '../components/registerSteps/FourthStep';
+import ThirdStep from '../components/registerSteps/ThirdStep';
 import { useStateMachine } from 'little-state-machine';
 import { updateSignUp } from '../utils/updateAction';
 
