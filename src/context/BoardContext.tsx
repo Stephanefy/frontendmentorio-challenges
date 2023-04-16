@@ -10,20 +10,21 @@ export enum BoardActionKind {
 }
 
 export interface SubTask {
-  id: string,
+  id?: string;
   readonly title: string;
   isCompleted: boolean;
 }
 
 export interface Task {
-  id: string,
-  readonly title: string;
-  readonly description: string;
-  readonly status: string;
-  subtasks: SubTask[];
+  id?: string;
+  title?: string;
+  description?: string;
+  status?: string;
+  subtasks?: SubTask[];
 }
 
 export interface Column {
+  id: string;
   readonly name: string;
   readonly tasks: readonly Task[];
 }
@@ -34,8 +35,20 @@ export interface BoardState {
 }
 
 export interface BoardAction {
-  readonly type: BoardActionKind;
-  readonly payload: BoardState;
+  type: BoardActionKind;
+  payload: {
+    name: string;
+    columns: {
+      id: string;
+      name: string;
+      tasks: {
+        title: string;
+        description: string;
+        status: string;
+        subtasks: { title: string; isCompleted: boolean }[];
+      }[];
+    }[];
+  };
 }
 
 interface BoardContextProviderProps {

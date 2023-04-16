@@ -1,4 +1,4 @@
-import { useContext, useState} from "react";
+import { useContext, useState } from "react";
 import logoDark from "../assets/logo-dark.svg";
 import logoMobile from "../assets/logo-mobile.svg";
 import VerticalElipsis from "../assets/icon-vertical-ellipsis.svg";
@@ -6,32 +6,34 @@ import ChevronDown from "../assets/icon-chevron-down.svg";
 import ChevronUp from "../assets/icon-chevron-up.svg";
 import AddTaskMobile from "../assets/icon-add-task-mobile.svg";
 import { ModalActionType, ModalContext } from "../context/ModalContext";
+import { BoardActionKind, BoardContext } from "../context/BoardContext";
 
 type Props = {};
 
 const Navbar = (props: Props) => {
   const [showDropdown, setShowDropdown] = useState<boolean>(true);
   const { state, dispatch } = useContext(ModalContext);
-
+  const { state: boardState, dispatch: boardDispatch } =
+    useContext(BoardContext);
 
   const handleShowMenuModal = () => {
-    
     setShowDropdown(!showDropdown);
-    if(!showDropdown) dispatch({ type: ModalActionType.NONEOPEN });
-    if(showDropdown) dispatch({ type: ModalActionType.MOBILEMENU });
-  }
+    if (!showDropdown) dispatch({ type: ModalActionType.NONEOPEN });
+    if (showDropdown) dispatch({ type: ModalActionType.MOBILEMENU });
+  };
 
+  console.log(boardState);
 
   return (
-    <nav className="fixed top-0 bg-white h-[96px] flex items-center z-[60] w-full">
-      <div className="pl-3 pr-6 md:width-[261px] lg:basis-1/6 flex items-center h-full md:border-r-2">
+    <nav className="fixed top-0 z-[60] flex h-[96px] w-full items-center bg-white">
+      <div className="md:width-[261px] flex h-full items-center pl-3 pr-6 md:border-r-2 lg:basis-1/6">
         <img className="hidden md:block" src={logoDark} alt="logo" />
         <img className="md:hidden" src={logoMobile} alt="logo" />
       </div>
-      <ul className="basis-5/6 flex justify-between items-center w-full mx-auto md:px-3">
-        <li className="text-primary-black text-sm md:text-1xl font-bold uppercase">
+      <ul className="mx-auto flex w-full basis-5/6 items-center justify-between md:px-3">
+        <li className="md:text-1xl text-sm font-bold uppercase text-primary-black">
           Platform Launch
-          <span className="md:hidden inline-block ml-3">
+          <span className="ml-3 inline-block md:hidden">
             <button
               onClick={handleShowMenuModal}
               className="flex items-center gap-x-2"
@@ -48,24 +50,32 @@ const Navbar = (props: Props) => {
           <div className="flex items-center justify-between gap-x-4">
             <ul className="flex items-center">
               <li className="hidden md:block">
-                <button 
-                onClick={() => dispatch({ type: ModalActionType.ADDTASK})}
-                className="px-6 py-3 rounded-full bg-secondary">
+                <button
+                  onClick={() => dispatch({ type: ModalActionType.ADDTASK })}
+                  className="rounded-full bg-secondary px-6 py-3"
+                >
                   +Add new task
                 </button>
               </li>
               <li className="md:hidden">
-                  <button 
+                <button
                   onClick={() => dispatch({ type: ModalActionType.ADDTASK })}
-                  className="bg-secondary w-[48px] h-[32px] rounded-full flex justify-center items-center">
-                    <img src={AddTaskMobile} alt="add" />
-                  </button>
-              </li>
-              <li className="ml-3">
-                <button>
-                  <img src={VerticalElipsis} alt="" />
+                  className="flex h-[32px] w-[48px] items-center justify-center rounded-full bg-secondary"
+                >
+                  <img src={AddTaskMobile} alt="add" />
                 </button>
               </li>
+              {boardState.name !== "" && (
+                <li className="ml-3">
+                  <button
+                    onClick={() => {
+                      dispatch({ type: ModalActionType.EDITBOARD });
+                    }}
+                  >
+                    <img src={VerticalElipsis} alt="" />
+                  </button>
+                </li>
+              )}
             </ul>
           </div>
         </li>

@@ -4,7 +4,7 @@ import { ModalContext, ModalActionType } from "../context/ModalContext";
 import { nanoid } from "nanoid";
 
 const Kanbancard = ({ id, title, description, status, subtasks }: Task) => {
-  const subtasksCount = subtasks.reduce((acc, subtask) => {
+  const subtasksCount = subtasks!.reduce((acc, subtask) => {
     if (subtask.isCompleted) {
       return acc + 1;
     }
@@ -18,7 +18,7 @@ const Kanbancard = ({ id, title, description, status, subtasks }: Task) => {
     title,
     description,
     status,
-    subtasks: subtasks.map((task) => ({
+    subtasks: subtasks!.map((task) => ({
       id: nanoid(),
       ...task,
     })),
@@ -31,7 +31,7 @@ const Kanbancard = ({ id, title, description, status, subtasks }: Task) => {
     >
       <h4 className="text-sm font-bold text-primary-black">{title}</h4>
       <p className="text-sm font-bold text-primary-gray">
-        {subtasksCount} of {subtasks.length} subtasks
+        {subtasksCount} of {subtasks!.length} subtasks
       </p>
     </div>
   );

@@ -3,12 +3,14 @@ import data from "../assets/data.json";
 import { BoardContext } from "../context/BoardContext";
 import Kanbancard from "./Kanbancard";
 import PortalModal from "./modals/Modal";
-import { ModalContext } from '../context/ModalContext';
-import MobileMenu from './MobileMenu';
+import { ModalContext } from "../context/ModalContext";
+import MobileMenu from "./MobileMenu";
 import TaskDetails from "./TaskDetails";
 import { nanoid } from "nanoid";
-import AddTask from './AddTask';
+import AddTask from "./AddTask";
 import EditTask from "./EditTask";
+import AddBoard from "./AddBoard";
+import EditBoard from "./EditBoard";
 
 type Props = {
   setSidebarHeight: (height: number) => void;
@@ -22,11 +24,9 @@ const Main = (props: Props) => {
   const boardsListRef = useRef<HTMLElement>(null);
 
   const [boardsListHeight, setBoardingListHeight] = useState<number>(0);
-  
 
   useEffect(() => {
-    console.log('hide sidebar', props.hideSideBar)
-
+    console.log("hide sidebar", props.hideSideBar);
 
     if (boardsListRef.current) {
       props.setSidebarHeight(boardsListRef?.current?.offsetHeight);
@@ -35,17 +35,15 @@ const Main = (props: Props) => {
     }
   }, [state]);
 
-
   const { boards } = data;
 
-  let currentOpenModal
+  let currentOpenModal;
 
   // if (showModal.showModal === 1) {
   //   currentOpenModal = <MobileMenu />
   // } else if (showModal.showModal === 2) {
   //   currentOpenModal = <TaskDetails />
   // }
-
 
   // let mobileMenuisOpenModal = showModal.showModal === 1 && true
   // let taskDetailsIsOpenModal = showModal.showModal === 2 && true
@@ -56,42 +54,48 @@ const Main = (props: Props) => {
   // let addColumnIsOpen = showModal.showModal === 7 && true
   // let deleteTaskIsOpen = showModal.showModal === 8 && true
   // let deleteBoardIsOpen = showModal.showModal === 9 && true
-  
-
-  
 
   return (
     <>
       <div
-        className={
-          ` 
+        className={` 
           ${
-          state.columns.length
-            ? "md:basis-5/6 items-start"
-            : "md:basis-5/6 items-center"
-        } ${props.hideSideBar ? "transform -translate-x-52 ease-in duration-300" : "transform translate-x-0 ease-in duration-300"} text-5xl bg-secondary-gray flex  justify-center md:pl-4 h-full
-        overflow-hidden pt-[100px]`}
+            state.columns.length
+              ? "items-start md:basis-5/6"
+              : "items-center md:basis-5/6"
+          } ${
+          props.hideSideBar
+            ? "-translate-x-52 transform duration-300 ease-in"
+            : "translate-x-0 transform duration-300 ease-in"
+        } flex h-full justify-center  overflow-hidden bg-secondary-gray pt-[100px]
+        text-5xl md:pl-4`}
         style={{
-          height: state.columns.length ? `calc(${boardsListHeight}px - 40%)` : "100vh",
+          height: state.columns.length
+            ? `calc(${boardsListHeight}px - 40%)`
+            : "100vh",
         }}
       >
         {/* <p className='text-lg text-primary-gray'>This board is empty create a new column to get started</p> */}
-        <div className={`p-4 lg:p-0 grid grid-flow-col auto-cols-max ${state.columns.length && 'overflow-auto'}`}>
+        <div
+          className={`grid auto-cols-max grid-flow-col p-4 lg:p-0 ${
+            state.columns.length && "overflow-auto"
+          }`}
+        >
           {state.columns.length > 0 ? (
             state.columns.map((column, index) => (
-              <section ref={boardsListRef} className="w-64 mr-4 pb-4">
-                <h3 className="text-primary-gray text-base">
+              <section ref={boardsListRef} className="mr-4 w-64 pb-4">
+                <h3 className="text-base text-primary-gray">
                   <span
-                    className={`inline-block w-4 h-4 ${
+                    className={`inline-block h-4 w-4 ${
                       index === 0
                         ? "bg-todo-column"
                         : index === 1
                         ? "bg-doing-column"
                         : "bg-done-column"
-                    }  rounded-full mr-2`}
+                    }  mr-2 rounded-full`}
                   ></span>
                   <span>{column.name}</span>
-                  <span className="inline-block ml-2">
+                  <span className="ml-2 inline-block">
                     ({column.tasks.length})
                   </span>
                 </h3>
@@ -108,42 +112,45 @@ const Main = (props: Props) => {
                 </div>
               </section>
             ))
-        
           ) : (
-            <div className="w-3/4 md:w-full flex flex-col md:items-center md:justify-center mx-auto">
-              <p className="text-lg text-primary-gray text-center font-bold">
+            <div className="mx-auto flex w-3/4 flex-col md:w-full md:items-center md:justify-center">
+              <p className="text-center text-lg font-bold text-primary-gray">
                 This board is empty. Create a new column to get started.
               </p>
               <div className="mx-auto">
-                <button className="bg-primary text-white rounded-full px-4 py-2 mt-4 text-base">
+                <button className="mt-4 rounded-full bg-primary px-4 py-2 text-base text-white">
                   + Add New Column
                 </button>
               </div>
             </div>
           )}
-          {
-            state.columns.length > 0 ? (
-              <section className="w-72 mr-4 pb-4 mt-9 bg-[#E9EFFA] flex items-center justify-center rounded-lg">
-                <button className="text-lg">
-                  <span className="text-primary-gray">+</span>
-                  <span className="text-primary-gray">New Column</span>
-                </button>
-              </section>
-            ) : null
-          }
+          {state.columns.length > 0 ? (
+            <section className="mr-4 mt-9 flex w-72 items-center justify-center rounded-lg bg-[#E9EFFA] pb-4">
+              <button className="text-lg">
+                <span className="text-primary-gray">+</span>
+                <span className="text-primary-gray">New Column</span>
+              </button>
+            </section>
+          ) : null}
         </div>
       </div>
       <PortalModal isOpen={showModal.showModal === 1} onClose={setShowModal}>
-              <MobileMenu/>
+        <MobileMenu />
       </PortalModal>
       <PortalModal isOpen={showModal.showModal === 2} onClose={setShowModal}>
-          <TaskDetails />
+        <TaskDetails />
       </PortalModal>
       <PortalModal isOpen={showModal.showModal === 3} onClose={setShowModal}>
-          <AddTask />
+        <AddTask />
       </PortalModal>
       <PortalModal isOpen={showModal.showModal === 4} onClose={setShowModal}>
-          <EditTask />
+        <EditTask />
+      </PortalModal>
+      <PortalModal isOpen={showModal.showModal === 5} onClose={setShowModal}>
+        <AddBoard />
+      </PortalModal>
+      <PortalModal isOpen={showModal.showModal === 6} onClose={setShowModal}>
+        <EditBoard />
       </PortalModal>
     </>
   );
