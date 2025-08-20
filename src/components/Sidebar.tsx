@@ -1,12 +1,13 @@
 import React, { useContext, useEffect } from "react";
 import IconBoard from "../assets/icon-board.svg";
-import Switchbuton from "./Switchbutton";
+import SwitchButton from "./Switchbutton";
 import IconHideSideBar from "../assets/icon-hide-sidebar.svg";
 import IconShowSideBar from "../assets/icon-show-sidebar.svg";
 import { BoardContext } from "../context/BoardContext";
 import { BoardActionKind } from "../context/BoardContext";
-import data from "../assets/data.json";
 import { nanoid } from "nanoid";
+import { AppContext, Board } from "../context/AppContext";
+import BoardItemLink from "./BoardItemLink";
 
 type Props = {
   sidebarHeight: number;
@@ -15,13 +16,25 @@ type Props = {
 };
 
 const Sidebar = (props: Props) => {
+  const { boards, setBoards, setCurrentBoard } = useContext(AppContext);
   const { state, dispatch } = useContext(BoardContext);
 
   useEffect(() => {
     console.log("state from board context", state);
   }, [state]);
 
-  const { boards } = data;
+  const addNewBoard = () => {
+    const newBoard = { id: nanoid(), name: "New Board", columns: [] };
+    setBoards([...boards, newBoard]);
+  };
+
+  const selectBoard = (board: Board) => {
+    setCurrentBoard(board);
+    dispatch({
+      type: BoardActionKind.PLATFORM,
+      payload: { name: board.name, columns: board.columns },
+    })
+  };
 
   return (
     <>
@@ -39,75 +52,33 @@ const Sidebar = (props: Props) => {
         //     : "h-screen",
         // }}
       >
-        <ul className="w-full h-3/4 pl-3 flex-2">
+        <ul className="flex-2 h-3/4 w-full pl-3">
           <h3 className="p-3 font-bold uppercase text-primary-gray">
             all boards
           </h3>
-          <li className="py-3 text-primary-gray">
-            <button
-              onClick={() =>
-                dispatch({
-                  type: BoardActionKind.PLATFORM,
-                  payload: {
-                    ...boards[0],
-                    columns: boards[0].columns.map(column => ({ ...column, id: nanoid() }))
-                  },
-                })
-              }
-            >
-              <img src={IconBoard} className="mr-4 inline-block" />
-              <span>Platform launch</span>
-            </button>
-          </li>
-          <li className="py-3 text-primary-gray">
-            <button
-              onClick={() =>
-                dispatch({
-                  type: BoardActionKind.MARKETING,
-                  payload: {
-                    ...boards[1],
-                    columns: boards[1].columns.map(column => ({ ...column, id: nanoid() }))
-                  },
-                })
-              }
-            >
-              <img src={IconBoard} className="mr-4 inline-block" />
-              <span>Marketing Plan</span>
-            </button>
-          </li>
-          <li className="py-3 text-primary-gray">
-            <button
-              onClick={() =>
-                dispatch({
-                  type: BoardActionKind.ROADMAP,
-                  payload: {
-                    ...boards[2],
-                    columns: boards[2].columns.map(column => ({ ...column, id: nanoid() }))
-                  },
-                })
-              }
-            >
-              <img src={IconBoard} className="mr-4 inline-block" />
-              <span>Roadmap</span>
-            </button>
-          </li>
-          <li className="py-3 text-primary-gray">
-            <button>
+          {boards.map((board) => (
+            <BoardItemLink key={board.id} board={board} selectBoard={selectBoard} />  
+          ))}
+          <li className="py-3 text-primary-gray hover:text-primary">
+            <button onClick={addNewBoard}>
               <img src={IconBoard} className="mr-4 inline-block" />
 
-              <span className="text-primary">+ Create New Board</span>
+              <span className="">+ Create New Board</span>
             </button>
           </li>
         </ul>
-        <div className="bottom-0 mb-0 mt-16 relative">
-            <Switchbuton />
+        <div className="relative bottom-0 mb-0 mt-16">
+          <SwitchButton />
           <div className="fixed bottom-0 my-4 pl-3">
             <img
               src={IconHideSideBar}
               alt="hide sidebar"
               className="mr-3 inline-block"
             />
-            <button onClick={() => props.setHideSidebar(true)} className="mt-2 pb-2">
+            <button
+              onClick={() => props.setHideSidebar(true)}
+              className="mt-2 pb-2"
+            >
               <span className="text-primary-gray">Hide sidebar</span>
             </button>
           </div>

@@ -12,13 +12,16 @@ import EditTask from "./EditTask";
 import AddBoard from "./AddBoard";
 import EditBoard from "./EditBoard";
 import clsx from "clsx";
+import Column from "./Column";
+import { AppContext } from "../context/AppContext";
 
 type Props = {
   setSidebarHeight: (height: number) => void;
   hideSideBar: boolean;
 };
 
-const Main = (props: Props) => {
+const Board = (props: Props) => {
+  const { boards} = useContext(AppContext);
   const { state, dispatch } = useContext(BoardContext);
   const { state: showModal, dispatch: setShowModal } = useContext(ModalContext);
 
@@ -36,7 +39,7 @@ const Main = (props: Props) => {
     }
   }, [state]);
 
-  const { boards } = data;
+  const { boards: jsonBoards } = data;
 
 
   const addNewColumn = () => {
@@ -70,8 +73,7 @@ const Main = (props: Props) => {
   // let deleteTaskIsOpen = showModal.showModal === 8 && true
   // let deleteBoardIsOpen = showModal.showModal === 9 && true
 
-  console.log("columns", state.columns);
-
+  console.log("boards", boards);
   return (
     <>
       <div
@@ -95,34 +97,7 @@ const Main = (props: Props) => {
         >
           {state.columns.length > 0 ? (
             state.columns.map((column, index) => (
-              <section ref={boardsListRef} className="mr-4 w-64">
-                <h3 className="text-base text-primary-gray">
-                  <span
-                    className={`inline-block h-4 w-4 ${
-                      index === 0
-                        ? "bg-todo-column"
-                        : index === 1
-                        ? "bg-doing-column"
-                        : "bg-done-column"
-                    }  mr-2 rounded-full`}
-                  ></span>
-                  <span>{column.name}</span>
-                  <span className="ml-2 inline-block">
-                    ({column.tasks.length})
-                  </span>
-                </h3>
-                <div className="flex flex-col">
-                  {column.tasks.map((task, index) => (
-                    <Kanbancard
-                      id={nanoid()}
-                      title={task.title}
-                      description={task.description}
-                      status={task.status}
-                      subtasks={task.subtasks}
-                    />
-                  ))}
-                </div>
-              </section>
+              <Column key={column.id} column={column} index={index} ref={boardsListRef} />
             ))
           ) : (
             <div className="mx-auto flex w-full flex-col md:w-full md:items-center md:justify-center">
@@ -176,4 +151,4 @@ const Main = (props: Props) => {
   );
 };
 
-export default Main;
+export default Board;

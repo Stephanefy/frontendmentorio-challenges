@@ -1,6 +1,8 @@
-import { useReducer, createContext, ReactNode } from "react";
+import { useReducer, createContext, ReactNode, useContext } from "react";
 import data from "../assets/data.json";
 import produce, { Draft } from "immer";
+import { AppContext } from "./AppContext";
+
 
 export enum BoardActionKind {
   PLATFORM = "PLATFORM",
@@ -46,7 +48,6 @@ interface BoardContextProviderProps {
   children: JSX.Element | JSX.Element[];
 }
 
-const { boards } = data;
 
 const initialState: BoardState = {
   name: "",

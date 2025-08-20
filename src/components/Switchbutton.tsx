@@ -3,7 +3,7 @@ import useDarkTheme from "../hooks/useDarkTheme";
 import SunSvg from "../assets/icon-light-theme.svg";
 import MoonSvg from "../assets/icon-dark-theme.svg";
 
-function Switchbuton() {
+function SwitchButton() {
   const [colorTheme, setTheme] = useDarkTheme();
 
   console.log(colorTheme);
@@ -44,4 +44,4 @@ function Switchbuton() {
   );
 }
 
-export default Switchbuton;
+export default SwitchButton;

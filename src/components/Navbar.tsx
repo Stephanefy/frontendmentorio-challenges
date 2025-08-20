@@ -7,10 +7,12 @@ import ChevronUp from "../assets/icon-chevron-up.svg";
 import AddTaskMobile from "../assets/icon-add-task-mobile.svg";
 import { ModalActionType, ModalContext } from "../context/ModalContext";
 import { BoardActionKind, BoardContext } from "../context/BoardContext";
+import { AppContext } from "../context/AppContext";
 
 type Props = {};
 
 const Navbar = (props: Props) => {
+  const { currentBoard } = useContext(AppContext);
   const [showDropdown, setShowDropdown] = useState<boolean>(true);
   const { state, dispatch } = useContext(ModalContext);
   const { state: boardState, dispatch: boardDispatch } =
@@ -32,7 +34,7 @@ const Navbar = (props: Props) => {
       </div>
       <ul className="mx-auto flex w-full basis-5/6 items-center justify-between md:px-3">
         <li className="md:text-1xl text-sm font-bold uppercase text-primary-black">
-          Platform Launch
+          {currentBoard.name}
           <span className="ml-3 inline-block md:hidden">
             <button
               onClick={handleShowMenuModal}
