@@ -52,7 +52,7 @@ const Navbar = (props: Props) => {
               <li className="hidden md:block">
                 <button
                   onClick={() => dispatch({ type: ModalActionType.ADDTASK })}
-                  className="rounded-full bg-secondary px-6 py-3"
+                  className="rounded-full bg-primary hover:bg-secondary px-6 py-3"
                 >
                   +Add new task
                 </button>

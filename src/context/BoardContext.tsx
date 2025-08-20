@@ -38,16 +38,7 @@ export interface BoardAction {
   type: BoardActionKind;
   payload: {
     name: string;
-    columns: {
-      id: string;
-      name: string;
-      tasks: {
-        title: string;
-        description: string;
-        status: string;
-        subtasks: { title: string; isCompleted: boolean }[];
-      }[];
-    }[];
+    columns: Column[];
   };
 }
 
@@ -85,6 +76,10 @@ const BoardReducer = produce((draft: BoardState, action: BoardAction): void => {
       (draft.name = action.payload.name),
         (draft.columns = action.payload.columns);
       break;
+    case BoardActionKind.NEWCOLUMN:
+      (draft.name = action.payload.name),
+        (draft.columns = action.payload.columns);      
+      break;  
     default:
       break;
   }

@@ -16,7 +16,7 @@ function App() {
       <ModalContextProvider>
         <BoardContextProvider>
           <Navbar />
-          <main className="flex relative">
+          <main className="flex relative min-h-screen">
             <Sidebar
               sidebarHeight={sidebarHeight}
               setHideSidebar={setHideSidebar}

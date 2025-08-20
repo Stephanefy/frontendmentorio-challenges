@@ -21,6 +21,7 @@ function Switchbuton() {
   };
 
   return (
+    <div className="fixed bottom-10 my-4 pl-3 mx-auto mt-auto flex h-12 ml-2 w-[15%] justify-center rounded-lg bg-secondary-gray">
     <label className="relative inline-flex cursor-pointer items-center">
       <input
         type="checkbox"
@@ -39,6 +40,7 @@ function Switchbuton() {
         <img src={MoonSvg} alt="moon" />
       </span>
     </label>
+    </div>
   );
 }
 

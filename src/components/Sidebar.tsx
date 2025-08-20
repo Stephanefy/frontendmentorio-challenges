@@ -6,6 +6,7 @@ import IconShowSideBar from "../assets/icon-show-sidebar.svg";
 import { BoardContext } from "../context/BoardContext";
 import { BoardActionKind } from "../context/BoardContext";
 import data from "../assets/data.json";
+import { nanoid } from "nanoid";
 
 type Props = {
   sidebarHeight: number;
@@ -25,7 +26,7 @@ const Sidebar = (props: Props) => {
   return (
     <>
       <div
-        className={`hidden md:block ${
+        className={`relative hidden md:block ${
           !props.hideSidebar
             ? "width-[261px] duration-300 ease-in lg:basis-1/6"
             : "width-[261px] -translate-x-full transform duration-300 ease-in lg:basis-1/6"
@@ -47,7 +48,10 @@ const Sidebar = (props: Props) => {
               onClick={() =>
                 dispatch({
                   type: BoardActionKind.PLATFORM,
-                  payload: boards[0],
+                  payload: {
+                    ...boards[0],
+                    columns: boards[0].columns.map(column => ({ ...column, id: nanoid() }))
+                  },
                 })
               }
             >
@@ -60,7 +64,10 @@ const Sidebar = (props: Props) => {
               onClick={() =>
                 dispatch({
                   type: BoardActionKind.MARKETING,
-                  payload: boards[1],
+                  payload: {
+                    ...boards[1],
+                    columns: boards[1].columns.map(column => ({ ...column, id: nanoid() }))
+                  },
                 })
               }
             >
@@ -73,7 +80,10 @@ const Sidebar = (props: Props) => {
               onClick={() =>
                 dispatch({
                   type: BoardActionKind.ROADMAP,
-                  payload: boards[2],
+                  payload: {
+                    ...boards[2],
+                    columns: boards[2].columns.map(column => ({ ...column, id: nanoid() }))
+                  },
                 })
               }
             >
@@ -89,11 +99,9 @@ const Sidebar = (props: Props) => {
             </button>
           </li>
         </ul>
-        <div className="mb-0 mt-16">
-          <div className="mx-auto mt-auto flex h-12 w-11/12 justify-center rounded-lg bg-secondary-gray ">
+        <div className="bottom-0 mb-0 mt-16 relative">
             <Switchbuton />
-          </div>
-          <div className="my-4 pl-3">
+          <div className="fixed bottom-0 my-4 pl-3">
             <img
               src={IconHideSideBar}
               alt="hide sidebar"
